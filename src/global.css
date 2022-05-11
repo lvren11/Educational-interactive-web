@@ -1,0 +1,68 @@
+html, body, #root {
+
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  
+}
+
+
+.container {
+  width: 64px;
+  height: 64px;
+  border: 5px solid #76daff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wave-change {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 0;
+  top: 0;
+  /* animation: change 100s infinite linear; */
+}
+.wave-change::before, .wave-change::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 0;
+  left: 58%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 45% 47% 43% 46%;
+  transform: translate(-50%, -70%) rotate(0);
+  animation: rotate 10s linear infinite;
+  z-index: 1;
+}
+.wave-change::after {
+  border-radius: 47% 42% 46% 44%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -70%) rotate(0);
+  animation: rotate 10s linear -4s infinite;
+  z-index: 2;
+}
+
+.wave {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -70%) rotate(360deg);
+  }
+}
+@keyframes change {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 54px;
+  }
+}
