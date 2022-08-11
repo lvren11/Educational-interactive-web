@@ -9,23 +9,72 @@ export default {
       // component: '../layouts/Qlayout.js',
       routes: [
         { path: '/', component: '../pages/login/login' }
-        // { path: '/', component: '../pages/DiaCanvas/DiaCanvas' }
       ]
     },
     {
-      path: '/fquestion',
+      path: '/fquestion_1',
       
       component: '../layouts/Qlayout.js',
       routes: [
-        { path: '/fquestion/fquestion', component: '../pages/fquestion/fquestion' },
+        { path: '/fquestion_1/fquestion', component: '../pages/fquestion_1/fquestion' },
       ]
     },
     {
-      path: '/DiaCanvas',
+      path: '/fquestion_2',
+      
+      component: '../layouts/Qlayout.js',
       routes: [
-        { path: '/DiaCanvas/Emulation', component: '../pages/DiaCanvas/Carcanvas' },
+        { path: '/fquestion_2/fquestion', component: '../pages/fquestion_2/fquestion' },
       ]
-    }
+    },
+    {
+      path: '/fquestion_3',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_3/fquestion', component: '../pages/fquestion_3/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_4',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_4/fquestion', component: '../pages/fquestion_4/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_5',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_5/fquestion', component: '../pages/fquestion_5/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_6',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_6/fquestion', component: '../pages/fquestion_6/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_7',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_7/fquestion', component: '../pages/fquestion_7/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_8',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_8/fquestion', component: '../pages/fquestion_8/fquestion' },
+      ]
+    },
   ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html

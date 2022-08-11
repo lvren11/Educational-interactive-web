@@ -1,0 +1,31 @@
+[
+    {
+        "time":600,
+        "allpage":4,
+        "name":"(四)物质鉴别",
+        "title":"物质鉴别",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密度是物质的一种特性，利用密度可以鉴别物质。<br />&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。",
+        "maincontent":[
+            {
+             "subtitle":"2.模拟练习",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟将物体投入液体的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意物体，将其放置在水面上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“液体密度”滑块，可以调整液体的密度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.点击“材质”滑块，可以选择物体的材质；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "type":0
+            },
+            {
+             "subtitle":"3.解决问题(-1nC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。",
+             "nextsubcontent":"(1)物质A的密度为",
+             "subcontent2":"kg/cm3。",
+             "type":1
+            },
+            {
+             "subtitle":"3.解决问题(-2aaC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(2)镀金或镀银首饰经常可以达到以假乱真的效果。通过在其他金属的表面上镀上一层金或银，可以首饰的外表和纯金或纯银首饰几乎一样。现有纯金、纯银、纯铜、银镀金、铜镀金、铜度银六种造型一致的首饰。你能通过浮力大小将这六种首饰区分开来吗？",
+             "value":["纯铜","纯银","纯金","铜镀金","银镀金","铜度银"],
+             "type":2
+            }
+ 
+        ]
+     }
+]

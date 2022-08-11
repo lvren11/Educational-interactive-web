@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 import  Topbar  from '../component/NavBar/navbar';
-import  Footer  from '../component/Footer/footer';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,8 +15,6 @@ function Qlayout(props) {
   const { children } = props;
 
   const classes = useStyles();
-
-  const theme = useTheme();
 
   const [setOpenSidebar] = useState(false);
 

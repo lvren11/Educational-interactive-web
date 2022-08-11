@@ -9,18 +9,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import { hexToRgb } from "@material-ui/core";
 // @material-ui/icons
 const blackColor = "#000";
-const whiteColor = "#FFF";
 // core components
 const cardStyle = {
   card: {
-    border: "0",
     marginBottom: "30px",
     marginTop: "30px",
-    borderRadius: "6px",
     color: "rgba(" + hexToRgb(blackColor) + ", 0.87)",
-    background: "rgba(227, 242, 253)",
+    background: "#FFFFFF",
     width: "100%",
-    boxShadow: "0 1px 4px 0 rgba(" + hexToRgb(blackColor) + ", 0.14)",
+    border: "3px solid rgba(84,130,53)",
     position: "relative",
     display: "flex",
     flexDirection: "column",

@@ -1,0 +1,45 @@
+[
+    {
+        "time":300,
+        "allpage":5,
+        "name":"(三)跷跷板",
+        "title":"跷跷板",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;跷跷板是一项十分有趣的童年游戏。若坐在跷跷板两端的人体重相当，跷跷板容易在游戏时保持平衡。但若坐在跷跷板两端的人体重差异很大，体重轻的人会被高高举起，使得游戏无法继续进行。<br />&nbsp;&nbsp;&nbsp;&nbsp;那么，想要玩好跷跷板，有什么能让跷跷板保持平衡的办法吗？",
+        "maincontent":[
+            {
+             "subtitle":"2.模拟练习",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟跷跷板游戏的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.用鼠标拖拽任意两个砝码，将其分别放置在跷跷板上方的左右两侧；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.使用鼠标拖拽跷跷板上的砝码，可使砝码移动至同侧的不同位置；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“试验”按钮，将测试跷跷板能否保持平衡，此时下方表格将记录跷跷板的最终状态，“↑”表示该侧上升，“↓”表示该侧下沉，“—”表示两侧平衡；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "type":0
+            },
+            {
+             "subtitle":"3.解决问题(-2aaF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(1)玩了几次跷跷板后，小明发现了一个规律，为了使跷跷板保持平衡，当小伙伴的体重比自己轻时，自己可以选择坐在",
+             "subcontent2":"位置；当小伙伴的体重比自己重时，自己可以坐选择坐在",
+             "subcontent3":"（跷跷板中心的）位置。",
+             "value":["靠近","远离"],
+             "value2":["靠近","远离"],
+             "type":4
+            },
+            {
+             "subtitle":"解决问题(-2nnC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(2)已知小明的体重为40kg，他坐在左边刻度“5”的上方。为了使跷跷板能够保持平衡，他可以选择体重为",
+             "subcontent2":"kg的玩伴，并建议该玩伴坐在跷跷板右边刻度为数字“",
+             "subcontent3":"”的上方；或选择体重为",
+             "subcontent4":"kg的玩伴，并建议该玩伴坐在跷跷板右边刻度为数字“",
+             "subcontent5":"”的上方。",
+             "type":3
+            },
+            {
+             "subtitle":"解决问题(7-1nF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(3)小明还发现，玩伴的体重与自己不能差别过大，否则无论如何也无法使跷跷板保持平衡。已知小明的体重为40kg，他坐在左边刻度“4”的上方。为了使跷跷板能够保持平衡，右边玩伴的体重最轻可为",
+             "subcontent2":"kg,体重最重可为",
+             "subcontent3":"kg。",
+             "type":2
+            }
+ 
+        ]
+     }
+]

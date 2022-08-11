@@ -1,0 +1,35 @@
+[
+    {
+        "time":600,
+        "allpage":4,
+        "name":"(六)土壤组成",
+        "title":"土壤组成",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;土壤主要是由矿物质颗粒构成，这些颗粒有粗有细，粗的叫做砂粒，细的叫做黏粒。不同粗细的颗粒堆积在一起，会使土壤产生不同大小的空隙，而空隙大小将决定土壤所含有的空气和水。<br />&nbsp;&nbsp;&nbsp;&nbsp;植物的生长需要土壤提供充足的水分和空气。若要种植植物，应选择哪种组成类型的土壤呢？",
+        "maincontent":[
+            {
+             "subtitle":"2.模拟练习",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;土壤的渗水实验可以用来检验土壤的通气性和保水性。相同时间内，土壤渗出的水越多，通气性越强，保水性越弱。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟土壤的组成和渗水过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.点击“砂粒”选择在土壤中添加不同量的砂粒；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.点击“黏粒”选择在土壤中添加不同量的黏粒；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“试验”按钮，将模拟土壤的渗水过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "type":0
+            },
+            {
+             "subtitle":"3.解决问题(-2aaC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(1)根据砂粒和黏粒的不同组成，可将土壤分为A、B、C三种，三种土壤的构成如下图。",
+             "subcontent2":"仙人球喜好排水好、透气性好的土壤，那么，A、B、C三种土壤中，哪种最适合种植仙人球？",
+             "type":3
+            },
+            {
+                "subtitle":"3.解决问题(-2aaF)",
+                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+                "nextsubcontent":"(2)不同植物对土壤的喜好各不相同。某农场主欲使用砂粒和黏粒自行调制不同类型的混合土壤，以养殖不同类型的植物。若要为耐旱怕涝的植物调制土壤，可以适当增加",
+                "subcontent2":"的比例，减少",
+                "subcontent3":"的比例；若要为喜水喜肥的植物调制土壤，可以适当增加",
+                "subcontent4":"的比例，减少",
+                "subcontent5":"的比例。",
+                "value":["砂粒","黏粒"],
+                "type":4
+            }
+ 
+        ]
+     }
+]

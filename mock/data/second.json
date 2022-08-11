@@ -1,0 +1,48 @@
+[
+    {
+        "time":540,
+        "allpage":6,
+        "name":"(二)汽车刹车",
+        "title":"汽车刹车",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;汽车在行使过程中，由于惯性，刹车后会向前滑行一段距离才能停住，这段距离称为“刹车距离”。为了避免追尾等交通事故，司机应该如何控制汽车才能保持安全呢？ ",
+        "maincontent":[
+            {
+             "subtitle":"2.模拟练习",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟汽车在不同情况下的刹车过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“车速”滑块，可以调整刹车前的车速；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.点击“晴天”，可以选择天气改变地面情况；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“运行”按钮，将模拟汽车开始刹车后的减速过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录刹车距离，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "type":0
+            },
+            {
+             "subtitle":"3.解决问题(3-1aF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(1)若长途汽车在行驶途中连续遭遇晴天、雨天和冰雪天气，使得汽车分别途经干燥路段、潮湿路段、和结冰路段。那么，在相同车况下，尤其需要注意防止刹车追尾的是",
+             "subcontent2":"路段。",
+             "value":["干燥","潮湿","结冰"],
+             "type":1
+            },
+            {
+             "subtitle":"3.解决问题(7-1nC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(2)在干燥的道路条件下，当汽车的总质量在200kg时，车速要控制在",
+             "subcontent2":"km/h范围内，才能保证刹车时不撞到前方25米处的障碍物？",
+             "type":2
+            },
+            {
+             "subtitle":"解决问题(7-1nF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(3)在不同的行车速度下刹车，刹车距离会有所不同。为了保持安全距离，人们可以有意识地控制行车速度。那么，下列哪幅图体现了车速对刹车距离的影响？",
+             "type":3
+            },
+            {
+                "subtitle":"解决问题(18-2anF)",
+                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+                "nextsubcontent":"(4)为保持安全车距、防止刹车追尾，司机应当知晓：当汽车的质量不变时，地面越",
+                "subcontent2":"，车速越",
+                "subcontent3":"，汽车追尾的可能性越小。",
+                "value":["干燥","潮湿","结冰"],
+                "value2":["快","慢"],
+                "type":4
+            }
+ 
+        ]
+     }
+]

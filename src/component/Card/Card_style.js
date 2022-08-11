@@ -121,12 +121,12 @@ const infoBoxShadow = {
     ",.4)"
 };
 const successBoxShadow = {
-  boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(successColor[0]) +
-    ",.4)"
+  // boxShadow:
+  //   "0 4px 20px 0 rgba(" +
+  //   hexToRgb(blackColor) +
+  //   ",.14), 0 7px 10px -5px rgba(" +
+  //   hexToRgb(successColor[0]) +
+  //   ",.4)"
 };
 const warningBoxShadow = {
   boxShadow:

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+import util from '../../../utils/util';
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: '#98FB98',
+    backgroundColor: 'rgba(112,173,71)',
     color: theme.palette.common.black,
   },
   root:{
@@ -38,20 +39,43 @@ const StyledTableRow = withStyles((theme) => ({
 
 export default function StickyHeadTable(props) {
   const classes = useStyles();
-  const tabledata = props.data;
-  const [page, setPage] = React.useState(0);
+  const [tabledata, settabledata] = React.useState(props.data);
+  const [page] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(tabledata.tabledata.length);
+  const handleClick = (id) => {
+    const arr = tabledata;
+    if(arr.tabledata.length !== 0){
+      for(let i = 0; i <= arr.tabledata.length; i++){
+        if(arr.tabledata[i] && arr.tabledata[i].id === id){
+          arr.tabledata.splice(i, 1);;
+        }
+      }
+      settabledata({
+        name:arr.name,
+        tablecolumn:arr.tablecolumn,
+        tabledata:arr.tabledata
+      });
+      // setRowsPerPage(arr.tabledata.length);
+      console.log(util.timetoformat() + "点击删除");
+    }
+  }
 
+  useEffect(()=>{
+    settabledata(props.data);
+    setRowsPerPage(props.data.tabledata.length);
+  },[props.data])
+  
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <StyledTableRow>
-            <StyledTableCell><Button variant="outlined" color="primary">记录</Button></StyledTableCell>
-              {tabledata.tablecolumn.map((column) => (
+            <StyledTableCell align='center'>记录</StyledTableCell>
+              {tabledata.tablecolumn.map((column,index) => (
                 <StyledTableCell
                   align='center'
+                  key={index}
                 >
                   {column}
                 </StyledTableCell>
@@ -66,11 +90,11 @@ export default function StickyHeadTable(props) {
                   {row.id}
                 </StyledTableCell>
                 {
-                  row.value.map(function(value){
-                  return <StyledTableCell align="center">{value}</StyledTableCell>
+                  row.value.map(function(value,index){
+                  return <StyledTableCell align="center" key={index}>{value}</StyledTableCell>
                   })
                 }
-                <StyledTableCell><Button variant="outlined" color="secondary">删除</Button></StyledTableCell>
+                <StyledTableCell align="center"><Button variant="outlined" color="secondary" onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
               </StyledTableRow>
               );
             })}

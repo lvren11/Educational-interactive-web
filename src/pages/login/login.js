@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
-  const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const { handleSubmit } = useForm(); // initialise the hook
 
 	const [formValues, setFormValues] = useState({
 		school: "",
@@ -74,13 +74,13 @@ export default function Login() {
 
 	const handleLogin = () => {
     console.log(formValues);
-    if(formValues.school == userdata.school){
-      if(formValues.snumber == userdata.user){
-        if(formValues.password == userdata.password){
+    if(formValues.school === userdata.school){
+      if(formValues.snumber === userdata.user){
+        if(formValues.password === userdata.password){
           StorageHelper.set('web_user_id', userdata.response.uid);
           StorageHelper.set('web_user', userdata.response.data);
           StorageHelper.set('x-auth-token', userdata.response.token);
-          router.push('/fquestion/fquestion');
+          router.push('/fquestion_1/fquestion');
         }
       }
     }
@@ -158,8 +158,6 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                </Link>
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">

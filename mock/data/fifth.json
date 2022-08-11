@@ -1,0 +1,40 @@
+[
+    {
+        "time":300,
+        "allpage":5,
+        "name":"(五)植物生长",
+        "title":"植物生长",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;植物的生长需要空气、水、阳光、肥料等营养物质，但这些营养物质越多越好吗？<br />&nbsp;&nbsp;&nbsp;&nbsp;最近，学校的花园里种植了一批新植物，大家都希望这批新植物能茁壮成长，但谁也不知道要如何照料它们。<br />&nbsp;&nbsp;&nbsp;&nbsp;这批新植物是喜阴还是喜阳？适合施加多少肥料？这些问题都等待着你来解决。",
+        "maincontent":[
+            {
+             "subtitle":"2.模拟练习",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校提供了一个温室，可以用来进行实验。这个温室共有三层，顶层光照强度“强”，中间层光照强度“中等”，底层光照强度“弱”。除光照程度不同外，其余条件（如空气、湿度、温度等）均相同。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟植物生长。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意一盆植物至温室中的任意一层；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.在弹出的提示框中选择你想添加的肥料数量；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“生长”按钮，将使温室中的所有植物同时生长；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录刹车距离，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "type":0
+            },
+            {
+             "subtitle":"3.解决问题(3-1aF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(1)对于这批新植物而言，光照量增强主要能使该植物的",
+             "subcontent2":"?",
+             "value":["A:高度增长","B:开花数量增多","C:高度增长且开花数量增多"],
+             "type":1
+            },
+            {
+             "subtitle":"3.解决问题(7-1nF)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+             "nextsubcontent":"(2)对于这批新植物而言，下列哪幅图体现了肥量对这批新植物的主要影响?",
+             "type":3
+            },
+            {
+                "subtitle":"3.解决问题(-2anC)",
+                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br />",
+                "nextsubcontent":"(3)为了使这批新植物尽可能地长高和开花，可为该植物提供",
+                "subcontent2":"强度的阳光和",
+                "subcontent3":"g 肥料？",
+                "value":["强光","中光","弱光"],
+                "type":4
+            }
+ 
+        ]
+     }
+]
