@@ -117,6 +117,15 @@ export default function MainPageUnity(props) {
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
+  useEffect(() => {
+    window.alert = console.log;
+    // When the component is unmounted, we'll unregister the event listener.
+    return function () {
+      unityContext.removeAllEventListeners();
+      unityContext.quitUnityInstance();
+    };
+  }, [props.page]);
+
   useEffect(function () {
     let id = 0;
     let templist = [];

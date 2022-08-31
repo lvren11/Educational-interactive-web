@@ -89,6 +89,7 @@ export default function MainPage(props) {
   const [table_data,settabledata] = React.useState(tabledata[0]);
 
   useEffect(() => {
+    window.alert = console.log;
     // When the component is unmounted, we'll unregister the event listener.
     return function () {
       unityContext.removeAllEventListeners();

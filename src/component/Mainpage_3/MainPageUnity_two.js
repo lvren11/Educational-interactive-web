@@ -115,6 +115,14 @@ export default function MainPageUnity(props) {
     setinputv({ ...inputv, [e.target.name]: e.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[e.target.name] + "答案：" + e.target.value);
   };
+  useEffect(() => {
+    window.alert = console.log;
+    // When the component is unmounted, we'll unregister the event listener.
+    return function () {
+      unityContext.removeAllEventListeners();
+      unityContext.quitUnityInstance();
+    };
+  }, [props.page]);
 
   useEffect(function () {
     let id = 0;

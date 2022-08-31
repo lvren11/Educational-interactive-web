@@ -143,6 +143,7 @@ export default function MainPage_1(props) {
   };
 
   useEffect(() => {
+    window.alert = console.log;
     // When the component is unmounted, we'll unregister the event listener.
     return function () {
       unityContext.removeAllEventListeners();

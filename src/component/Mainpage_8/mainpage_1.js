@@ -119,6 +119,7 @@ export default function MainPage_1(props) {
     console.log(util.timetoformat() + "页" + curpage + dicttoname[e.target.name] + "答案：" + e.target.value);
   };
   useEffect(() => {
+    window.alert = console.log;
     // When the component is unmounted, we'll unregister the event listener.
     return function () {
       unityContext.removeAllEventListeners();
