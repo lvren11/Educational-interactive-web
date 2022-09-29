@@ -14,4 +14,4 @@ const StorageHelper = {
     },
   };
 
-  export default StorageHelper;
+export default StorageHelper;

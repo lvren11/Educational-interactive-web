@@ -2,6 +2,8 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
+  history:'hash',
+  hash:true,
   routes: [
     {
       path: '/',
@@ -27,14 +29,14 @@ export default {
         { path: '/fquestion_2/fquestion', component: '../pages/fquestion_2/fquestion' },
       ]
     },
-    {
-      path: '/fquestion_3',
+    // {
+    //   path: '/fquestion_3',
       
-      component: '../layouts/Qlayout.js',
-      routes: [
-        { path: '/fquestion_3/fquestion', component: '../pages/fquestion_3/fquestion' },
-      ]
-    },
+    //   component: '../layouts/Qlayout.js',
+    //   routes: [
+    //     { path: '/fquestion_3/fquestion', component: '../pages/fquestion_3/fquestion' },
+    //   ]
+    // },
     {
       path: '/fquestion_4',
       
@@ -82,7 +84,7 @@ export default {
       antd: true,
       dva: true,
       dynamicImport: false,
-      title: 'v',
+      title: 'sps',
       dll: false,
       
       routes: {

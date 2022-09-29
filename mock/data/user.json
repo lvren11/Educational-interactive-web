@@ -1,12 +1,12 @@
 {
     "school":"华东师范大学",
     "user":"51215901070",
-    "password":"123456",
+    "name":"江宇辉",
     "response":{
         "data":{
             "school":"华东师范大学",
             "user":"51215901070",
-            "password":"123456"
+            "name":"江宇辉"
         },
         "uid":1,
         "code":100,

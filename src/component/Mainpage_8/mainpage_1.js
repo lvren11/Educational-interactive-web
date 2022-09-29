@@ -74,14 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     margin: theme.spacing(1),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     border: "2px solid rgba(226,240,217)",
-  },
-  mainpaper: {
-    margin: '2px 0px',
-    height: '390px',
   },
   buju: {
     margin: '17px 40px 2px',
@@ -212,16 +205,14 @@ export default function MainPage_1(props) {
         </Grid>
 
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
-          <Paper className={classes.paper}>
-          <div className={classes.mainpaper}>
-          <ThemeProvider theme={theme}>
+          <div className={classes.paper}>
+            <ThemeProvider theme={theme}>
             <Typography variant="h5">
               <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
             </Typography>
             </ThemeProvider>
+            <Table data = {table_data}/>
         </div>
-        <Table data = {table_data}/>
-        </Paper>
         </Grid>
     </Grid>
   );

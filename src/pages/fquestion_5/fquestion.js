@@ -8,85 +8,65 @@ import Card from "../../component/Card/Card.js";
 import Button from '@material-ui/core/Button';
 import CardHeader from "../../component/Card/CardHeader.js";
 import CardBody from "../../component/Card/CardBody.js";
-import { makeStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Pagination from '@material-ui/lab/Pagination';
+import {ThemeProvider} from '@material-ui/core/styles';
 import Intro from '../../component/Mainpage_5/introduce';
 import MainPage from '../../component/Mainpage_5/mainpage';
 import MainPageUnity from '../../component/Mainpage_5/mainpageunity.js';
 import MainPageUnitytwo from '../../component/Mainpage_5/MainPageUnity_two.js';
 import data from '../../../mock/data/fifth.json';
-import useCountDown from 'react-countdown-hook';
 import router from 'umi/router';
+import StorageHelper from '../../component/Storage';
+import {    
+  GlobalCss,
+  theme,
+  useStyles } from '../../assets/css/Layout_css';
 
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  paper: {
-    margin: theme.spacing(4,8,0,8),
-    padding: theme.spacing(0,8,0,8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  button: {
-    margin: theme.spacing(2),
-    float:'right'
-  },
-  pagination:{
-    margin: theme.spacing(2,0,0,0)
-  },
-  timepaper: {
-    margin: theme.spacing(2,8,0,8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor:'#F0FFF0',
-    fontFamily:'STKaiti',
-    fontSize:20,
-    width:'80px'
-  },
-}));
-
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export default function Fquestion() {
   const classes = useStyles();
-  const [timeLeft, actions] = useCountDown(data[0].time*1000, 1000);
+  const pretime = StorageHelper.get('UseTime');
+  const [time, settime] = React.useState(Number(pretime));
   const [show,setshow] = React.useState(true);
   const [page, setPage] = React.useState(1);
-  const handleChange = (event, value) => {
-    if(value !== 1){
-      setPage(value);
-    }
-    if(value === 3 || value === 4 || value === 5){
-      console.log("开始记录");
-    }
-    if(value === 2){
-      console.log("不记录");
-    }
-  };
+  const [open, setOpen] = React.useState(false);
 
-  const handleNext = (page) => {
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleagree = () =>{
+    setOpen(false);
     if(page === data[0].allpage){
       setshow(false);
       console.log("结束记录",true,"../log/question5.log");
+      StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_6/fquestion');
     }else{
-      if(page === 1){
-        console.log("不记录");
-      }
-      if(page === 2 || page === 3 || page === 4){
-        console.log("开始记录");
-      }
       setPage(page+1);
     }
   };
 
-  const handleBefore = (page) => {
-    setPage(page-1);
-  };
+  const handleNext = (page) => {
+    if(page === 1){
+      console.log("不记录");
+      setPage(page+1);
+    }
+    else if(page === 2){
+      setOpen(true);
+      console.log("开始记录");
+    }else{
+      setOpen(true);
+    }
+    StorageHelper.set('UseTime', time);
+};
+
 
   const showunity = (page) =>{
     if(page === 1){
@@ -102,18 +82,19 @@ export default function Fquestion() {
     }
   }
 
-  useEffect(()=>{
-    console.log("开始");
-    actions.start();
-    return ()=>{
-        console.log("结束");
-        actions.reset();
+  useEffect(() => {
+    let flag = true;
+    (async () => {
+      while (flag) {
+        await sleep(1000);
+        settime(time => time + 1);
       }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    })();
+    return () => { flag = false; }
+  }, []);
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container component="main">
       <CssBaseline />
       <Grid item xs={12} sm={12} md={12} component={Paper} elevation={6} square>
         <div className={classes.paper}>
@@ -121,14 +102,39 @@ export default function Fquestion() {
             <CardHeader color='success'>
             <Grid container spacing={1}>
               <Grid item xs={3}>
-                <Paper className={classes.timepaper}>{parseInt(timeLeft / 60000)} : {(timeLeft % 60000) / 1000}</Paper>
+                <Paper className={classes.timepaper}>{parseInt(time / 3600)} : {parseInt(time / 60)} : {(time % 60)}</Paper>
               </Grid>
               <Grid item xs={4}>
-                <Pagination className={classes.pagination} count={data[0].allpage} color="primary" page={page} onChange={handleChange} variant="outlined" shape="rounded" />
+                <ThemeProvider theme={theme}>
+                  <GlobalCss />
+                  <Pagination className={classes.pagination} count={data[0].allpage} color="primary" page={page} variant="outlined" shape="rounded" size="large"/>
+                </ThemeProvider>
               </Grid>
               <Grid item xs={4}>
-                <Button variant="outlined" className={classes.button} color="primary" onClick={() => handleNext(page)}>{page === data[0].allpage ? "下一题":"下一页"}</Button>
-                <Button variant="outlined" className={classes.button} color="primary" onClick={() => handleBefore(page)} disabled={page <=2 ? true:false}>上一页</Button>
+                <ThemeProvider theme={theme}>
+                  <Button variant="outlined" className={classes.button} color="primary" onClick={() => handleNext(page)}>{page === data[0].allpage ? "下一题":"下一页"}</Button>
+                  <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle id="alert-dialog-title">{"提示："}</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-description">
+                      {page === data[0].allpage ? "进入下一题后将不可返回，是否要继续前往？":"进入下一页后将不可返回，是否要继续前往？"}
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} color="primary">
+                      返回任务
+                      </Button>
+                      <Button onClick={handleagree} color="primary" autoFocus>
+                      继续前往
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                </ThemeProvider>
               </Grid>
             </Grid>
             </CardHeader>

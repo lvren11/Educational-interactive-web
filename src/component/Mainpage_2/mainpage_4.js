@@ -2,120 +2,26 @@ import React, { useEffect }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createTheme, ThemeProvider, withStyles} from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
+import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_2.json';
+import A from '../../assets/another/A.png';
+import B from '../../assets/another/B.png';
+import C from '../../assets/another/C.png';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
-
-const theme = createTheme({
-  typography: {
-    h5: {
-      fontFamily:'STKaiti',
-      fontSize:'1.3rem',
-    },
-    h4: {
-      fontFamily:'STKaiti',
-      fontWeight: 600,
-      fontSize:'2rem',
-    }
-  },
-});
-
-const BootstrapInput = withStyles((theme) => ({
-    input: {
-      borderRadius: 2,
-      position: 'relative',
-      backgroundColor: theme.palette.background.paper,
-      border: '1px solid #ced4da',
-      fontSize: 20,
-      padding: '1px',
-      transition: theme.transitions.create(['border-color', 'box-shadow']),
-      // Use the system font instead of the default Roboto font.
-      fontFamily: 'STKaiti',
-      textAlign: 'center',
-      '&:focus': {
-        borderRadius: 4,
-        borderColor: '#80bdff',
-        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-      },
-    },
-  }))(InputBase);
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '78vh',
-  },
-  ccolor:{
-    height: '61vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  formControl: {
-    minWidth: 120,
-    margin: theme.spacing(0, 1, 0),
-  },
-  appBar: {
-    position: 'relative',
-  },
-  title: {
-    margin: theme.spacing(2, 2),
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  image: {
-    width: 228,
-    height: 145,
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  bcolor:{
-    backgroundColor:'#F0FFF0',
-    height: '15vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  paper: {
-    margin: theme.spacing(1),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    border: "2px solid rgba(226,240,217)",
-  },
-  mainpaper: {
-    margin: '2px 0px',
-    height: '390px',
-  },
-  buju: {
-    margin: '17px 40px 2px',
-  },
-  buju1: {
-    margin: theme.spacing(1, 1),
-  },
-  mainintro:{
-    margin: theme.spacing(3, 0, 0),
-  },
-  buju2: {
-    margin: theme.spacing(1, 4, 1),
-    whiteSpace: 'pre-wrap',
-  },
-  iconidnex:{
-    position: 'absolute',
-    top: '25%',
-    left: '48%',
-  },
-  Radiobuju:{
-    margin: theme.spacing(0, 11, 0)
-  }
-}));
+import {
+  theme,
+  useStyles,
+} from '../../assets/css/Main_css';
 
 function showhtml(htmlString){
     var html = {__html:htmlString};
@@ -123,33 +29,33 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Second/Build/Second.loader.js", // public下目录
-  dataUrl: "/Second/Build/Second.data",
-  frameworkUrl: "/Second/Build/Second.framework.js",
-  codeUrl: "/Second/Build/Second.wasm",
-  streamingAssetsUrl: "/Second/StreamingAssets",
+  loaderUrl: "/Second/Second_3/Build/Second_3.loader.js", // public下目录
+  dataUrl: "/Second/Second_3/Build/Second_3.data",
+  frameworkUrl: "/Second/Second_3/Build/Second_3.framework.js",
+  codeUrl: "/Second/Second_3/Build/Second_3.wasm",
+  streamingAssetsUrl: "/Second/Second_3/StreamingAssets",
  });
 
-export default function MainPage(props) {
+export default function MainPage_3(props) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
-  const [age, setAge] = React.useState({});
+  const [value, setValue] = React.useState('none');
   const [table_data,settabledata]=React.useState(tabledata[0]);
-  let dicttoname = {"6":"第一个下拉","7":"第二个下拉"}
-  const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
+
+  const ChangeValue = (event) => {
+    setValue(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
   useEffect(() => {
-    window.alert = console.log;
     // When the component is unmounted, we'll unregister the event listener.
+    window.alert = console.log;
     return function () {
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
     };
-  }, [props.show]);
+  }, [props.page]);
 
   useEffect(function () {
     let id = 0;
@@ -183,55 +89,38 @@ export default function MainPage(props) {
         </div>
         </div>
         <Paper className={classes.ccolor}>
+          <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
                     <Typography className={classes.buju1} variant="h5">
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
-                              case 0:return showhtml(data.maincontent[curpage - 2].subcontent);
+                              case 0:break;
                               case 1:break;
                               case 2:break;
-                              case 3:break;
-                              case 4:return (
+                              case 3:return (
                                 <>
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
-                                <FormControl className={classes.formControl}>
-                                  <NativeSelect
-                                    value={age[String(curpage)]}
-                                    onChange={handleChange}
-                                    name={String(curpage)}
-                                    className={classes.selectEmpty}
-                                    input={<BootstrapInput />}
-                                  >
-                                    <option value="">下拉选择</option>
-                                    {
-                                      data.maincontent[curpage - 2].value.map(function(name,index){
-                                        return <option value={name} key={index}>{name}</option>
-                                        })
-                                    }
-                                  </NativeSelect>
+                                <FormControl component="fieldset" className={classes.radiocss}>
+                                  <RadioGroup row aria-label="agree" name="agree" value={value} onChange={ChangeValue}>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A" />
+                                      <img src={A} className={classes.image} alt="A"/>
+                                    </div>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B" />
+                                      <img src={B} className={classes.image} alt="B"/>
+                                    </div>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="C" control={<Radio color="primary" />} label="C" />
+                                      <img src={C} className={classes.image} alt="C"/>
+                                    </div>
+                                  </RadioGroup>
                                 </FormControl>
-                                {data.maincontent[curpage - 2].subcontent2}
-                                <FormControl className={classes.formControl}>
-                                  <NativeSelect
-                                    value={String(age[curpage+1])}
-                                    onChange={handleChange}
-                                    name={String(curpage+1)}
-                                    className={classes.selectEmpty}
-                                    input={<BootstrapInput />}
-                                  >
-                                    <option value="">下拉选择</option>
-                                    {
-                                      data.maincontent[curpage - 2].value2.map(function(name,index){
-                                        return <option value={name} key={index}>{name}</option>
-                                        })
-                                    }
-                                  </NativeSelect>
-                                </FormControl>
-                                {data.maincontent[curpage - 2].subcontent3}
                                 </>
                               );
+                              case 4: break;
                               default:return null;
                             }
                           }
@@ -245,14 +134,12 @@ export default function MainPage(props) {
 
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
           <div className={classes.paper}>
-          <div className={classes.mainpaper}>
-          <ThemeProvider theme={theme}>
+            <ThemeProvider theme={theme}>
             <Typography variant="h5">
               <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
             </Typography>
             </ThemeProvider>
-        </div>
-        <Table data = {table_data}/>
+            <Table data = {table_data}/>
         </div>
         </Grid>
     </Grid>

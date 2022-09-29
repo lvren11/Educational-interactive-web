@@ -15,13 +15,13 @@ const useStyles = makeStyles({
     width: '100%',
   },
   container: {
-    maxHeight: 220,
+    maxHeight: 240,
   },
 });
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: 'rgba(112,173,71)',
+    backgroundColor: '#F0FFF0',
     color: theme.palette.common.black,
   },
   root:{
@@ -71,7 +71,7 @@ export default function StickyHeadTable(props) {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <StyledTableRow>
-            <StyledTableCell align='center'>记录</StyledTableCell>
+            {/* <StyledTableCell align='center'>记录</StyledTableCell> */}
               {tabledata.tablecolumn.map((column,index) => (
                 <StyledTableCell
                   align='center'
@@ -86,15 +86,15 @@ export default function StickyHeadTable(props) {
             {tabledata.tabledata.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
                 <StyledTableRow key={row.id}>
-                <StyledTableCell component="th" scope="row" align="center">
+                {/* <StyledTableCell component="th" scope="row" align="center">
                   {row.id}
-                </StyledTableCell>
+                </StyledTableCell> */}
                 {
                   row.value.map(function(value,index){
                   return <StyledTableCell align="center" key={index}>{value}</StyledTableCell>
                   })
                 }
-                <StyledTableCell align="center"><Button variant="outlined" color="secondary" onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
+                <StyledTableCell align="center"><Button color="secondary" onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
               </StyledTableRow>
               );
             })}

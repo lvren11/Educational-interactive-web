@@ -5,97 +5,25 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createTheme, ThemeProvider, withStyles} from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
+import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
-
-const theme = createTheme({
-    typography: {
-      h5: {
-        fontFamily:'STKaiti',
-        fontSize:'1.3rem',
-      },
-      h4: {
-        fontFamily:'STKaiti',
-        fontWeight: 600,
-        fontSize:'2rem',
-      }
-    },
-
-  });
-
-const BootstrapInput = withStyles((theme) => ({
-  input: {
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    borderBottom: '2px solid #ced4da',
-    fontSize: 20,
-    padding: '1px',
-    width:'100px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: 'STKaiti',
-    textAlign: 'center',
-    '&:focus': {
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-}))(InputBase);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '80vh',
-  },
-  ccolor:{
-    height: '61vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  formControl: {
-    minWidth: 120,
-    margin: theme.spacing(0, 1, 0),
-  },
-  title: {
-    margin: theme.spacing(2, 2),
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  bcolor:{
-    backgroundColor:'#F0FFF0',
-    height: '15vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  paper: {
-    margin: theme.spacing(1),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    border: "2px solid rgba(226,240,217)",
-  },
-  mainpaper: {
-    margin: '2px 0px',
-    height: '390px',
-  },
-  buju: {
-    margin: '17px 40px 2px',
-  },
-  buju1: {
-    margin: theme.spacing(1, 1),
-  },
-  mainintro:{
-    margin: theme.spacing(3, 0, 0),
-  }
-}));
+import {
+  theme,
+  useStyles,
+  BootLineInput,
+  BootstrapInput
+} from '../../assets/css/Main_css';
   
 function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
+
 const unityContext = new UnityContext({
   loaderUrl: "/Fourth/Build/Buildfile.loader.js", // public下目录
   dataUrl: "/Fourth/Build/Buildfile.data",
@@ -110,7 +38,13 @@ export default function MainPageUnity(props) {
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [inputv, setinputv] = useState();
+  const [age, setAge] = React.useState({});
 
+  let dicttoname = {"3":"第一个下拉","4":"第二个下拉"}
+  const handleChange = (event) => {
+    setAge({ ...age, [event.target.name]: event.target.value});
+    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
+  };
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
@@ -142,13 +76,13 @@ export default function MainPageUnity(props) {
   }, []);
 
   return (
-    <Grid container spacing={1} className={classes.root}>
+    <Grid container spacing={1}>
       <CssBaseline />
-      <Grid item xs={12} sm={4} md={5} elevation={6} className={classes.root}>
+      <Grid item xs={12} sm={4} md={5} elevation={6}>
       <div className={classes.bcolor}>
       <div className={classes.title}>
         <ThemeProvider theme={theme}>
-            <Typography component="h1" variant="h4">
+            <Typography component="h4" variant="h4">
                     {data.name}
             </Typography>
             <Typography className={classes.buju} variant="h5">
@@ -158,6 +92,7 @@ export default function MainPageUnity(props) {
         </div>
         </div>
         <div className={classes.ccolor}>
+          <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
                     <Typography className={classes.buju1} variant="h5">
@@ -169,7 +104,7 @@ export default function MainPageUnity(props) {
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl>
-                                <BootstrapInput
+                                <BootLineInput
                                   id="standard-adornment-weight"
                                   value={inputv}
                                   onChange={Changeinputv}
@@ -179,6 +114,42 @@ export default function MainPageUnity(props) {
                                   }}
                                 />
                               </FormControl>
+                              {data.maincontent[curpage - 2].subcontent2}
+                              <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent3}
+                                <FormControl className={classes.formControl}>
+                                  <NativeSelect
+                                    value={age[String(curpage)]}
+                                    onChange={handleChange}
+                                    name={String(curpage)}
+                                    className={classes.selectEmpty}
+                                    input={<BootstrapInput />}
+                                  >
+                                    <option value="">下拉选择</option>
+                                    {
+                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                        return <option value={name} key={index}>{name}</option>
+                                        })
+                                    }
+                                  </NativeSelect>
+                                </FormControl>
+                              {data.maincontent[curpage - 2].subcontent2}
+                              {data.maincontent[curpage - 2].subcontent4}
+                                <FormControl className={classes.formControl}>
+                                  <NativeSelect
+                                    value={age[String(curpage+1)]}
+                                    onChange={handleChange}
+                                    name={String(curpage+1)}
+                                    className={classes.selectEmpty}
+                                    input={<BootstrapInput />}
+                                  >
+                                    <option value="">下拉选择</option>
+                                    {
+                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                        return <option value={name} key={index}>{name}</option>
+                                        })
+                                    }
+                                  </NativeSelect>
+                                </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
                                 </>
                               );
@@ -195,14 +166,12 @@ export default function MainPageUnity(props) {
         </Grid>
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
           <div className={classes.paper}>
-          <div className={classes.mainpaper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
               <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
             </Typography>
             </ThemeProvider>
-        </div>
-        <Table data = {table_data}/>
+            <Table data = {table_data}/>
         </div>
         </Grid>
     </Grid>

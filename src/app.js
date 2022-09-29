@@ -47,3 +47,25 @@ console.log = (function (oriLogFunc) {
     }
   }
 })(console.log);
+
+(function(window){
+
+  'use strict'
+  
+  //判断当前浏览器是否支持history和pushState,据我测试当前大部分浏览器都支持
+  
+  if(window.history && window.history.pushState)
+  
+  {
+  
+  window.onpopstate = function(){
+  
+  window.history.pushState({},null,"");
+  
+  //window.history.forward(1); 这句我没理解什么意思，不加也可以实现，所以注释掉了
+  
+  }
+  
+  }
+  
+  })(window);

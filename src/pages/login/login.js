@@ -6,11 +6,10 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
 import SchoolIcon from '@material-ui/icons/School';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import StorageHelper from '../../component/Storage';
 import router from 'umi/router';
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    // margin: theme.spacing(0,0,0,0),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '80%', // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -68,7 +67,10 @@ export default function Login() {
 	const [formValues, setFormValues] = useState({
 		school: "",
 		snumber: "",
-		password: "",
+    grade:"",
+    class:"",
+    sex:"",
+		name: "",
 		marketing: false,
 	});
 
@@ -76,11 +78,11 @@ export default function Login() {
     console.log(formValues);
     if(formValues.school === userdata.school){
       if(formValues.snumber === userdata.user){
-        if(formValues.password === userdata.password){
+        if(formValues.name === userdata.name){
           StorageHelper.set('web_user_id', userdata.response.uid);
           StorageHelper.set('web_user', userdata.response.data);
           StorageHelper.set('x-auth-token', userdata.response.token);
-          router.push('/fquestion_1/fquestion');
+          router.push('/fquestion_2/fquestion');
         }
       }
     }
@@ -99,10 +101,10 @@ export default function Login() {
 	};
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square> */}
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <SchoolIcon />
@@ -140,11 +142,46 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="密码"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              id="grade"
+              label="年级"
+              name="grade"
+              autoComplete="grade"
+              autoFocus
+              onChange={e => handleChange(e)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="class"
+              label="班级"
+              name="class"
+              autoComplete="class"
+              autoFocus
+              onChange={e => handleChange(e)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="sex"
+              label="性别"
+              name="sex"
+              autoComplete="sex"
+              autoFocus
+              onChange={e => handleChange(e)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="姓名"
+              id="name"
+              autoComplete="name"
               onChange={e => handleChange(e)}
             />
             <Button
@@ -156,21 +193,12 @@ export default function Login() {
             >
               登录
             </Button>
-            <Grid container>
-              <Grid item xs>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"登录须知"}
-                </Link>
-              </Grid>
-            </Grid>
             <Box mt={5}>
               <Copyright />
             </Box>
           </form>
         </div>
-      </Grid>
-    </Grid>
+      {/* </Grid> */}
+    </Container>
   );
 }
