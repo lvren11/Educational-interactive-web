@@ -18,6 +18,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import Intro from '../../component/Mainpage_4/introduce';
 import MainPage from '../../component/Mainpage_4/mainpage';
 import MainPageUnity from '../../component/Mainpage_4/mainpageunity.js';
+import MainPageUnity2 from '../../component/Mainpage_4/mainpageunity_2.js';
 import MainPageUnitytwo from '../../component/Mainpage_4/MainPageUnity_two.js';
 import data from '../../../mock/data/fourth.json';
 import router from 'umi/router';
@@ -75,7 +76,9 @@ export default function Fquestion() {
       return <MainPage data = {data[0]} page = {page}/>
     }else if(page === 3){
       return <MainPageUnity data = {data[0]} page = {page}/>
-    }else if(page === 4 || page === 5){
+    }else if(page === 4){
+      return <MainPageUnity2 data = {data[0]} page = {page}/>
+    }else if(page === 5 || page === 6){
       return <MainPageUnitytwo data = {data[0]} page = {page} show={show} />
     }
   }

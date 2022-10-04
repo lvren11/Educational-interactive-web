@@ -1,7 +1,7 @@
 [
     {
         "time":600,
-        "allpage":5,
+        "allpage":6,
         "name":"(四)物质鉴别",
         "title":"物质鉴别",
         "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密度是物质的一种特性，利用密度可以鉴别物质。<br />&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。",
@@ -16,10 +16,16 @@
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br /><br />",
              "nextsubcontent":"(1)物质A的密度为",
              "subcontent2":"g/cm³。",
-             "subcontent3":"(2)物质B的密度为",
-             "value":["大于25", "15~25之间", "小于15"],
-             "subcontent4":"、物质C的密度为",
              "type":1
+            },
+            {
+             "subtitle":"3.解决问题(-1nC)",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br /><br />",
+             "nextsubcontent":"(2)物质B的密度为",
+             "subcontent2":"g/cm³。",
+             "subcontent3":"物质C的密度为",
+             "value":["大于25", "15~25之间", "小于15"],
+             "type":4
             },
             {
              "subtitle":"3.解决问题(-2aaC)",

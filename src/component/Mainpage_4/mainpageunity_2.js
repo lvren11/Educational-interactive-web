@@ -1,10 +1,11 @@
-import React, { useState, useEffect }from 'react';
+import React, { useEffect }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import NativeSelect from '@material-ui/core/NativeSelect';
 import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
@@ -14,7 +15,7 @@ import util from '../../../utils/util';
 import {
   theme,
   useStyles,
-  BootLineInput
+  BootstrapInput
 } from '../../assets/css/Main_css';
   
 function showhtml(htmlString){
@@ -35,11 +36,12 @@ export default function MainPageUnity(props) {
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
-  const [inputv, setinputv] = useState();
+  const [age, setAge] = React.useState({});
 
-  const Changeinputv = (e) =>{
-    setinputv(e.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+  let dicttoname = {"3":"第一个下拉","4":"第二个下拉"}
+  const handleChange = (event) => {
+    setAge({ ...age, [event.target.name]: event.target.value});
+    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
   };
 
   useEffect(() => {
@@ -91,25 +93,50 @@ export default function MainPageUnity(props) {
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
-                              case 1:return (
+                              case 4:return (
                                 <>
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
-                                <FormControl>
-                                <BootLineInput
-                                  id="standard-adornment-weight"
-                                  value={inputv}
-                                  onChange={Changeinputv}
-                                  aria-describedby="standard-weight-helper-text"
-                                  inputProps={{
-                                    'aria-label': 'weight',
-                                  }}
-                                />
-                              </FormControl>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}
+                                <FormControl className={classes.formControl}>
+                                  <NativeSelect
+                                    value={age[String(curpage)]}
+                                    onChange={handleChange}
+                                    name={String(curpage)}
+                                    className={classes.selectEmpty}
+                                    input={<BootstrapInput />}
+                                  >
+                                    <option value="">下拉选择</option>
+                                    {
+                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                        return <option value={name} key={index}>{name}</option>
+                                        })
+                                    }
+                                  </NativeSelect>
+                                </FormControl>
+                              {data.maincontent[curpage - 2].subcontent2}
+                              {data.maincontent[curpage - 2].subcontent3}
+                                <FormControl className={classes.formControl}>
+                                  <NativeSelect
+                                    value={age[String(curpage+1)]}
+                                    onChange={handleChange}
+                                    name={String(curpage+1)}
+                                    className={classes.selectEmpty}
+                                    input={<BootstrapInput />}
+                                  >
+                                    <option value="">下拉选择</option>
+                                    {
+                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                        return <option value={name} key={index}>{name}</option>
+                                        })
+                                    }
+                                  </NativeSelect>
+                                </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
                                 </>
                               );
                               case 2:break;
+                              case 1:break;
+                              case 3:break;
                               default:return null;
                             }
                           }
