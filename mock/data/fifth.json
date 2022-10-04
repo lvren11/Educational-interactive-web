@@ -8,7 +8,7 @@
         "maincontent":[
             {
              "subtitle":"2.模拟练习",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校提供了一个温室，可以用来进行实验。这个温室共有三层，顶层光照强度“高”，中间层光照强度“中等”，底层光照强度“低”。除光照强度不同外，其余条件（如空气、湿度、温度等）均相同。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟植物生长。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意一盆植物至温室中的任意一层；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.在弹出的提示框中选择你想添加的肥料数量；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将使温室中的所有植物同时生长；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录刹车距离，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校提供了一个温室，可以用来进行实验。这个温室共有三层，顶层光照强度“高”，中间层光照强度“中等”，底层光照强度“低”。除光照强度不同外，其余条件（如空气、湿度、温度等）均相同。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟植物生长。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意一盆植物至温室中的任意一层；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.在弹出的提示框中选择你想添加的肥料数量；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将使温室中的所有植物同时生长；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
              "type":0
             },
             {
