@@ -25,9 +25,9 @@ function showhtml(htmlString){
 
 const unityContext = new UnityContext({
   loaderUrl: "/Fourth/Moni/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Fourth/Moni/Build/Buildfile.data",
-  frameworkUrl: "/Fourth/Moni/Build/Buildfile.framework.js",
-  codeUrl: "/Fourth/Moni/Build/Buildfile.wasm",
+  dataUrl: "/Fourth/Moni/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fourth/Moni/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fourth/Moni/Build/Buildfile.wasm.unityweb",
   streamingAssetsUrl: "/Fourth/Moni/StreamingAssets",
  });
  
@@ -38,7 +38,7 @@ export default function MainPageUnity(props) {
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [age, setAge] = React.useState({});
 
-  let dicttoname = {"3":"第一个下拉","4":"第二个下拉"}
+  let dicttoname = {"4":"第一个下拉","5":"第二个下拉"}
   const handleChange = (event) => {
     setAge({ ...age, [event.target.name]: event.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);

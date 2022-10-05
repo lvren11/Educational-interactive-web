@@ -44,7 +44,7 @@ export default function Fquestion() {
     setOpen(false);
     if(page === data[0].allpage){
       setshow(false);
-      console.log("结束记录",true,"../log/question6.log");
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
       StorageHelper.clear('UseTime');
       StorageHelper.clear('web_user_id');
       StorageHelper.clear('web_user');

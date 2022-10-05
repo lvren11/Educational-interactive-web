@@ -45,7 +45,7 @@ export default function MainPageUnity(props) {
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
-  let dicttoname = {"4":"A","5":"B","6":"C","7":"D"};
+  let dicttoname = {"5":"A","6":"B","7":"C","8":"D"};
   const handleChange = (event) => {
     setAge({ ...age, [event.target.name]: event.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);

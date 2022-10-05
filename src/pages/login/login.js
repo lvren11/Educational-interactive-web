@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import StorageHelper from '../../component/Storage';
 import router from 'umi/router';
-import userdata from '../../../mock/data/user.json';
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -75,17 +75,34 @@ export default function Login() {
 	});
 
 	const handleLogin = () => {
-    console.log(formValues);
-    if(formValues.school === userdata.school){
-      if(formValues.snumber === userdata.user){
-        if(formValues.name === userdata.name){
-          StorageHelper.set('web_user_id', userdata.response.uid);
-          StorageHelper.set('web_user', userdata.response.data);
-          StorageHelper.set('x-auth-token', userdata.response.token);
-          router.push('/fquestion_2/fquestion');
-        }
+    // console.log(formValues);
+    axios.post('/api/login',{
+      "school":formValues.school,
+      "snumber":formValues.snumber,
+      "grade":formValues.grade,
+      "classes":formValues.class,
+      "sex":formValues.sex,
+      "name":formValues.name
+    }).then(function(response){
+      if(response.data.code === 1000){
+        StorageHelper.set('web_user_id', response.data.userid);
+        StorageHelper.set('web_user', formValues.snumber);
+        StorageHelper.set('x-auth-token', response.data.token);
+        router.push('/fquestion_2/fquestion');
       }
-    }
+    }).catch(function(error){
+        console.log("error:",error)
+    });
+    // if(formValues.school === userdata.school){
+    //   if(formValues.snumber === userdata.user){
+    //     if(formValues.name === userdata.name){
+    //       StorageHelper.set('web_user_id', userdata.response.uid);
+    //       StorageHelper.set('web_user', userdata.response.data);
+    //       StorageHelper.set('x-auth-token', userdata.response.token);
+    //       router.push('/fquestion_2/fquestion');
+    //     }
+    //   }
+    // }
 	};
 
   const handleChange = e => {

@@ -46,7 +46,7 @@ export default function Fquestion() {
     setOpen(false);
     if(page === data[0].allpage){
       setshow(false);
-      console.log("结束记录",true,"../log/question2.log");
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_4/fquestion');

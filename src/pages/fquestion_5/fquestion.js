@@ -44,7 +44,7 @@ export default function Fquestion() {
     setOpen(false);
     if(page === data[0].allpage){
       setshow(false);
-      console.log("结束记录",true,"../log/question5.log");
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_6/fquestion');
@@ -75,9 +75,7 @@ export default function Fquestion() {
       return <MainPage data = {data[0]} page = {page}/>
     }else if(page === 3){
       return <MainPageUnity data = {data[0]} page = {page}/>
-    }else if(page === 4){
-      return <MainPageUnitytwo data = {data[0]} page = {page} />
-    }else if(page === 5){
+    }else if(page === 4 || page === 5){
       return <MainPageUnitytwo data = {data[0]} page = {page} show={show} />
     }
   }

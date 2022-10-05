@@ -1,3 +1,4 @@
+import axios from 'axios';
 export const dva = {
   config: {
     onError(err) {
@@ -21,8 +22,14 @@ console.log = (function (oriLogFunc) {
             json[a[0]] = a[1]; 
           }
           begin_log = false;
-          oriLogFunc.call(console, file_path);
-          oriLogFunc.call(console, json); //直接输出要的log数据
+          axios.post('/api/putlog',{
+              "logvalue":json,
+              "snumber":file_path
+          }).then(function(response){
+            oriLogFunc.call(console, "success");
+          }).catch(function(error){
+              console.error("error:",error)
+          });
           log_value.splice(0,log_value.length);
         }
       }
