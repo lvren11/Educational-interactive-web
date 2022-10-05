@@ -11,7 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
-import tabledata  from '../../../mock/data/exdata_6.json';
+import tabledata  from '../../../mock/data/exdata_6_2.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
 import {

@@ -23,11 +23,11 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Fourth/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Fourth/Build/Buildfile.data",
-  frameworkUrl: "/Fourth/Build/Buildfile.framework.js",
-  codeUrl: "/Fourth/Build/Buildfile.wasm",
-  streamingAssetsUrl: "/Fourth/StreamingAssets",
+  loaderUrl: "/Fourth/water_1/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Fourth/water_1/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fourth/water_1/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fourth/water_1/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Fourth/water_1/StreamingAssets",
  });
  
 export default function MainPageUnity(props) {

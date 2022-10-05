@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Accordingextend from '../Extends/Extend_Accordion';
 import Table from '../Table/table';
-import tabledata  from '../../../mock/data/exdata_6.json';
+import tabledata  from '../../../mock/data/exdata_6_2.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
 import {

@@ -34,9 +34,9 @@ function showhtml(htmlString){
 
 const unityContext = new UnityContext({
   loaderUrl: "/Fifth/Page2/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Fifth/Page2/Build/Buildfile.data",
-  frameworkUrl: "/Fifth/Page2/Build/Buildfile.framework.js",
-  codeUrl: "/Fifth/Page2/Build/Buildfile.wasm",
+  dataUrl: "/Fifth/Page2/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fifth/Page2/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fifth/Page2/Build/Buildfile.wasm.unityweb",
   streamingAssetsUrl: "/Fifth/Page2/StreamingAssets",
  });
 

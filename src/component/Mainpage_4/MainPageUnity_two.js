@@ -24,14 +24,14 @@ function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-const unityContext = new UnityContext({
+
+ const unityContext = new UnityContext({
   loaderUrl: "/Fourth/Page4/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Fourth/Page4/Build/Buildfile.data",
-  frameworkUrl: "/Fourth/Page4/Build/Buildfile.framework.js",
-  codeUrl: "/Fourth/Page4/Build/Buildfile.wasm",
+  dataUrl: "/Fourth/Page4/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fourth/Page4/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fourth/Page4/Build/Buildfile.wasm.unityweb",
   streamingAssetsUrl: "/Fourth/Page4/StreamingAssets",
  });
- 
 export default function MainPageUnity(props) {
   const classes = useStyles();
   const data = props.data;
