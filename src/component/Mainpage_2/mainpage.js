@@ -21,9 +21,9 @@ function showhtml(htmlString){
 
 const unityContext = new UnityContext({
   loaderUrl: "/Second/Build/Second.loader.js", // public下目录
-  dataUrl: "/Second/Build/Second.data",
-  frameworkUrl: "/Second/Build/Second.framework.js",
-  codeUrl: "/Second/Build/Second.wasm",
+  dataUrl: "/Second/Build/Second.data.unityweb",
+  frameworkUrl: "/Second/Build/Second.framework.js.unityweb",
+  codeUrl: "/Second/Build/Second.wasm.unityweb",
   streamingAssetsUrl: "/Second/StreamingAssets",
  });
 

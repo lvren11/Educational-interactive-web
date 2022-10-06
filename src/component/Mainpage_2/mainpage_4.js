@@ -16,7 +16,7 @@ import tabledata  from '../../../mock/data/exdata_2.json';
 import A from '../../assets/another/A.png';
 import B from '../../assets/another/B.png';
 import C from '../../assets/another/C.png';
-import Unity, { UnityContext } from "react-unity-webgl";
+import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
 import {
   theme,
@@ -27,14 +27,6 @@ function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-
-const unityContext = new UnityContext({
-  loaderUrl: "/Second/Second_3/Build/Second_3.loader.js", // public下目录
-  dataUrl: "/Second/Second_3/Build/Second_3.data",
-  frameworkUrl: "/Second/Second_3/Build/Second_3.framework.js",
-  codeUrl: "/Second/Second_3/Build/Second_3.wasm",
-  streamingAssetsUrl: "/Second/Second_3/StreamingAssets",
- });
 
 export default function MainPage_3(props) {
   const classes = useStyles();
@@ -48,19 +40,10 @@ export default function MainPage_3(props) {
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
-  useEffect(() => {
-    // When the component is unmounted, we'll unregister the event listener.
-    window.alert = console.log;
-    return function () {
-      unityContext.removeAllEventListeners();
-      unityContext.quitUnityInstance();
-    };
-  }, [props.page]);
-
   useEffect(function () {
     let id = 0;
     let templist = [];
-    unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
+    props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
       let arr_list=TempList.split(',');
       id++;
       let temp_dict={"id":id,"value":arr_list};
@@ -70,7 +53,7 @@ export default function MainPage_3(props) {
         tabledata:templist
       }));
       });
-  }, []);
+  }, [props.unityContext]);
 
   return (
     <Grid container spacing={1} className={classes.root}>
@@ -136,7 +119,7 @@ export default function MainPage_3(props) {
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
-              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
+              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
             </Typography>
             </ThemeProvider>
             <Table data = {table_data}/>

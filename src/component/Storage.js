@@ -1,16 +1,16 @@
 const StorageHelper = {
     get: (key) => {
       try {
-        return localStorage.getItem(key);
+        return sessionStorage.getItem(key);
       } catch (e) {
         return undefined;
       }
     },
     set: (key, value) => {
-      localStorage.setItem(key, value);
+      sessionStorage.setItem(key, value);
     },
     clear: (key) => {
-      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
     },
   };
 

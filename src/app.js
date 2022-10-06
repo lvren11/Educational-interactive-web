@@ -1,4 +1,6 @@
 import axios from 'axios';
+// import StorageHelper from './component/Storage';
+
 export const dva = {
   config: {
     onError(err) {
@@ -76,3 +78,11 @@ console.log = (function (oriLogFunc) {
   }
   
   })(window);
+
+  
+// window.onbeforeunload = function(){
+//   StorageHelper.clear('UseTime');
+//   StorageHelper.clear('web_user_id');
+//   StorageHelper.clear('web_user');
+//   StorageHelper.clear('x-auth-token');
+// };

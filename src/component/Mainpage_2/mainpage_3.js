@@ -26,11 +26,11 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Second/Build/Second.loader.js", // public下目录
-  dataUrl: "/Second/Build/Second.data",
-  frameworkUrl: "/Second/Build/Second.framework.js",
-  codeUrl: "/Second/Build/Second.wasm",
-  streamingAssetsUrl: "/Second/StreamingAssets",
+  loaderUrl: "/Second/Second_3/Build/Second_3.loader.js", // public下目录
+  dataUrl: "/Second/Second_3/Build/Second_3.data.unityweb",
+  frameworkUrl: "/Second/Second_3/Build/Second_3.framework.js.unityweb",
+  codeUrl: "/Second/Second_3/Build/Second_3.wasm.unityweb",
+  streamingAssetsUrl: "/Second/Second_3/StreamingAssets",
  });
 
 export default function MainPage(props) {

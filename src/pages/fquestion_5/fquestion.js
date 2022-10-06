@@ -22,18 +22,30 @@ import MainPageUnitytwo from '../../component/Mainpage_5/MainPageUnity_two.js';
 import data from '../../../mock/data/fifth.json';
 import router from 'umi/router';
 import StorageHelper from '../../component/Storage';
+import { UnityContext } from "react-unity-webgl";
 import {    
   GlobalCss,
   theme,
   useStyles } from '../../assets/css/Layout_css';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const unityContext = new UnityContext({
+  loaderUrl: "/Fifth/Page2/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Fifth/Page2/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fifth/Page2/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fifth/Page2/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Fifth/Page2/StreamingAssets",
+ });
+
+const listener = e => {
+  e.preventDefault();
+  e.returnValue = '刷新或离开当前页后，需要登录页面重新开始答题' // 浏览器有可能不会提示这个信息，会按照固定信息提示
+}
 
 export default function Fquestion() {
   const classes = useStyles();
   const pretime = StorageHelper.get('UseTime');
   const [time, settime] = React.useState(Number(pretime));
-  const [show,setshow] = React.useState(true);
   const [page, setPage] = React.useState(1);
   const [open, setOpen] = React.useState(false);
 
@@ -43,12 +55,16 @@ export default function Fquestion() {
   const handleagree = () =>{
     setOpen(false);
     if(page === data[0].allpage){
-      setshow(false);
+      unityContext.removeAllEventListeners();
+      unityContext.quitUnityInstance();
       console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_6/fquestion');
     }else{
+      if(page === 2){
+        console.log("开始记录");
+      }
       setPage(page+1);
     }
   };
@@ -60,7 +76,6 @@ export default function Fquestion() {
     }
     else if(page === 2){
       setOpen(true);
-      console.log("开始记录");
     }else{
       setOpen(true);
     }
@@ -76,9 +91,16 @@ export default function Fquestion() {
     }else if(page === 3){
       return <MainPageUnity data = {data[0]} page = {page}/>
     }else if(page === 4 || page === 5){
-      return <MainPageUnitytwo data = {data[0]} page = {page} show={show} />
+      return <MainPageUnitytwo data = {data[0]} page = {page} unityContext={unityContext} />
     }
   }
+
+  useEffect(() =>{
+    window.addEventListener('beforeunload', listener)
+    return () =>{
+      window.removeEventListener('beforeunload', listener)
+    }
+  });
 
   useEffect(() => {
     let flag = true;
