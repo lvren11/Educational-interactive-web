@@ -4,15 +4,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Typography from '@material-ui/core/Typography';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_4.json';
-import Unity from "react-unity-webgl";
+import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
 import {
   theme,
@@ -24,19 +21,19 @@ function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-
+const unityContext = new UnityContext({
+  loaderUrl: "/Fourth/Page4/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Fourth/Page4/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fourth/Page4/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fourth/Page4/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Fourth/Page4/StreamingAssets",
+ });
 export default function MainPageUnity(props) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [age, setAge] = React.useState({});
-  const [value, setValue] = React.useState('none');
-
-  const handleRadio = (event) => {
-    setValue(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
-  };
 
   let dicttoname = {"5":"A","6":"B","7":"C","8":"D"};
   const handleChange = (event) => {
@@ -44,10 +41,19 @@ export default function MainPageUnity(props) {
     console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
   };
 
+  useEffect(() => {
+    window.alert = console.log;
+    // When the component is unmounted, we'll unregister the event listener.
+    return function () {
+      unityContext.removeAllEventListeners();
+      unityContext.quitUnityInstance();
+    };
+  }, [props.page]);
+
   useEffect(function () {
     let id = 0;
     let templist = [];
-    props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
+    unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
       let arr_list = TempList.split(',');
       id++;
       let temp_dict = {"id":id, "value":arr_list};
@@ -57,7 +63,7 @@ export default function MainPageUnity(props) {
         tabledata:templist
       }));
       });
-  }, [props.unityContext]);
+  }, []);
 
   return (
     <Grid container spacing={1}>
@@ -174,17 +180,7 @@ export default function MainPageUnity(props) {
                                 </div>
                                 </>
                               );
-                              case 3:return (
-                                <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
-                                <FormControl component="fieldset" className={classes.radiocss}>
-                                  <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleRadio}>
-                                    <FormControlLabel value="A" control={<Radio color="primary" />} label="A 内部材质" />
-                                    <FormControlLabel value="B" control={<Radio color="primary" />} label="B 外部材质" />
-                                  </RadioGroup>
-                                </FormControl>
-                                </>
-                              );
+                              case 3:break;
                               default:return null;
                             }
                           }
@@ -199,7 +195,7 @@ export default function MainPageUnity(props) {
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
-              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
+              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
             </Typography>
             </ThemeProvider>
             <Table data = {table_data}/>

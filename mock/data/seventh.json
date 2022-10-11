@@ -8,7 +8,7 @@
         "maincontent":[
             {
              "subtitle":"2.模拟练习",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟航天器绕星球飞行的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.点击“星球”，可以调整星球的类型；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“半径”滑块，可以调整绕行半径的大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“试验”按钮，将模拟航天器绕星球飞行的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初试状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟航天器绕星球飞行的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.点击“星球”，可以调整星球的类型；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“半径”滑块，可以调整绕行半径的大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“试验”按钮，将模拟航天器绕星球飞行的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“恢复”按钮，计算机模拟将回到初始状态。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“记录”按钮，此时数据会记录在表格中，若要删去,可点击“删除”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“下一页”按钮。",
              "type":0
             },
             {

@@ -19,6 +19,7 @@ import Intro from '../../component/Mainpage_4/introduce';
 import MainPage from '../../component/Mainpage_4/mainpage';
 import MainPageUnity from '../../component/Mainpage_4/mainpageunity.js';
 import MainPageUnity2 from '../../component/Mainpage_4/mainpageunity_2.js';
+import MainPageUnitytwo2 from '../../component/Mainpage_4/MainPageUnity2.js';
 import MainPageUnitytwo from '../../component/Mainpage_4/MainPageUnity_two.js';
 import data from '../../../mock/data/fourth.json';
 import router from 'umi/router';
@@ -59,7 +60,7 @@ export default function Fquestion() {
     if(page === data[0].allpage){
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
-      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+StorageHelper.get('web_user_id')+","+data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_5/fquestion');
@@ -94,8 +95,10 @@ export default function Fquestion() {
       return <MainPageUnity data = {data[0]} page = {page}/>
     }else if(page === 4){
       return <MainPageUnity2 data = {data[0]} page = {page}/>
-    }else if(page === 5 || page === 6){
+    }else if(page === 5){
       return <MainPageUnitytwo data = {data[0]} page = {page} unityContext={unityContext}/>
+    }else if(page === 6){
+      return <MainPageUnitytwo2 data = {data[0]} page = {page} unityContext={unityContext}/>
     }
   }
   useEffect(() =>{

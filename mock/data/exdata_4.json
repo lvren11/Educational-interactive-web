@@ -1,7 +1,7 @@
 [
     {
         "name":"物质鉴别",
-        "tablecolumn":["材质","密度(g/com³)","状态","操作"],
+        "tablecolumn":["材质","液体密度(g/cm³)","状态","操作"],
         "tabledata":[
             {
                 "id":1,

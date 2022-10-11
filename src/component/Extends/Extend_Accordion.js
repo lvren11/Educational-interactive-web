@@ -24,7 +24,7 @@ export default function Accordingextend(props) {
         >
             <ThemeProvider theme={theme}>
               <Typography className={classes.buju1} variant="h5">
-                操作指南
+              模拟操作指南
               </Typography>
             </ThemeProvider>
         </AccordionSummary>

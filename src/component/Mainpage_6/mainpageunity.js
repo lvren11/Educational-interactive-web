@@ -96,7 +96,8 @@ export default function MainPageUnity(props) {
                               case 3:return (
                                 <>
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}<br /> 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent2}
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleChange}>
                                     <FormControlLabel value="A" control={<Radio color="primary" />} label="A 含大量泥炭土，不含颗粒土" />

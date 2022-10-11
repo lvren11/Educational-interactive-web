@@ -6,18 +6,11 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Typography from '@material-ui/core/Typography';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { ThemeProvider} from '@material-ui/core/styles';
 import Accordingextend from '../Extends/Extend_Accordion';
 import Table from '../Table/table';
 import tabledata  from '../../../mock/data/exdata_5.json';
-import A from '../../assets/another2/A.png';
-import B from '../../assets/another2/B.png';
-import C from '../../assets/another2/C.png';
-import D from '../../assets/another2/D.png';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
 import {
@@ -36,7 +29,6 @@ export default function MainPage_3(props) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
-  const [value, setValue] = React.useState('none');
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [inputv, setinputv] = useState("");
   const [age, setAge] = React.useState();
@@ -48,10 +40,6 @@ export default function MainPage_3(props) {
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
-  };
-  const ChangeValue = (event) => {
-    setValue(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
   useEffect(function () {
@@ -99,32 +87,7 @@ export default function MainPage_3(props) {
                               case 0:break;
                               case 1:break;
                               case 2:break;
-                              case 3:return (
-                                <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}<br />
-                                <FormControl component="fieldset" className={classes.radiocss}>
-                                  <RadioGroup row aria-label="agree" name="agree" value={value} onChange={ChangeValue}>
-                                    <div className={classes.oneRadio}>
-                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A" />
-                                      <img src={A} className={classes.image} alt="A"/>
-                                    </div>
-                                    <div className={classes.oneRadio}>
-                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B" />
-                                      <img src={B} className={classes.image} alt="B"/>
-                                    </div>
-                                    <div className={classes.oneRadio}>
-                                      <FormControlLabel value="C" control={<Radio color="primary" />} label="C" />
-                                      <img src={C} className={classes.image} alt="C"/>
-                                    </div>
-                                    <div className={classes.oneRadio}>
-                                      <FormControlLabel value="D" control={<Radio color="primary" />} label="D" />
-                                      <img src={D} className={classes.image} alt="D"/>
-                                    </div>
-                                  </RadioGroup>
-                                </FormControl>
-                                </>
-                              );
+                              case 3:break;
                               case 4:return (
                                 <>
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}

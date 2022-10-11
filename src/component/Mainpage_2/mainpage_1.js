@@ -2,10 +2,12 @@ import React, { useEffect }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Table from '../Table/table';
@@ -15,8 +17,7 @@ import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
 import {
   theme,
-  useStyles,
-  BootstrapInput
+  useStyles
 } from '../../assets/css/Main_css';
 
 function showhtml(htmlString){
@@ -36,11 +37,12 @@ export default function MainPage_1(props) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
-  const [age, setAge] = React.useState({});
   const [table_data,settabledata]=React.useState(tabledata[0]);
 
+  const [value, setValue] = React.useState('none');
+
   const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
+    setValue(event.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
   };
 
@@ -97,23 +99,13 @@ export default function MainPage_1(props) {
                                 <>
                                 {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
-                                <FormControl className={classes.formControl}>
-                                  <NativeSelect
-                                    value={age[String(curpage)]}
-                                    onChange={handleChange}
-                                    name={String(curpage)}
-                                    className={classes.selectEmpty}
-                                    input={<BootstrapInput />}
-                                  >
-                                    <option value="">下拉选择</option>
-                                    {
-                                      data.maincontent[curpage - 2].value.map(function(name,index){
-                                        return <option value={name} key={index}>{name}</option>
-                                        })
-                                    }
-                                  </NativeSelect>
+                                <FormControl component="fieldset" className={classes.radiocss}>
+                                  <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleChange}>
+                                    <FormControlLabel value="A" control={<Radio color="primary" />} label="A 水泥路" />
+                                    <FormControlLabel value="B" control={<Radio color="primary" />} label="B 柏油路" />
+                                    <FormControlLabel value="C" control={<Radio color="primary" />} label="C 沙石路" />
+                                  </RadioGroup>
                                 </FormControl>
-                                {data.maincontent[curpage - 2].subcontent2}
                                 </>
                               );
                               case 2: break;

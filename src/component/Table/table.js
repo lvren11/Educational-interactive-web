@@ -94,7 +94,7 @@ export default function StickyHeadTable(props) {
                   return <StyledTableCell align="center" key={index}>{value}</StyledTableCell>
                   })
                 }
-                <StyledTableCell align="center"><Button color="secondary" onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
+                <StyledTableCell align="center"><Button onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
               </StyledTableRow>
               );
             })}

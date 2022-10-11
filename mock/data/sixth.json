@@ -8,20 +8,20 @@
         "maincontent":[
             {
              "subtitle":"2.模拟练习",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;土壤的渗水实验可以用来检验土壤的通气性和保水性。相同时间内，土壤渗出的水越多，通气性越强，保水性越弱。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用计算机模拟土壤的组成和渗水过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>A</b>”滑块，选择在土壤中添加不同量的A种土；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>B</b>”滑块，选择在土壤中添加不同量的B种土；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟土壤的渗水过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;土壤的渗水实验可以用来检验土壤的通气性和保水性。相同时间内，土壤渗出的水越多，通气性越强，保水性越弱。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟土壤的组成和渗水过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>A</b>”滑块，选择在土壤中添加不同量的A种土；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>B</b>”滑块，选择在土壤中添加不同量的B种土；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟土壤的渗水过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
              "type":0
             },
             {
              "subtitle":"3.解决问题(-2aaC)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br /><br />",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
              "nextsubcontent":"(1)市场上常见的花土有两类：泥炭土和颗粒土，其中泥炭土中含有营养元素，颗粒土中不含有营养元素。人们常依据不同植物的喜好，将这两种花土搭配使用。",
              "subcontent2":"仙人球喜好排水好、透气性好的土壤，那么下列四种土壤中，哪种最适合种植仙人球？",
              "type":3
             },
             {
                 "subtitle":"3.解决问题(-2aaF)",
-                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用计算机模拟解决以下问题：<br /><br />",
-                "nextsubcontent":"(2)不同植物对土壤的喜好各不相同。某农场主欲使用砂粒和黏粒自行调制不同类型的混合土壤，以养殖不同类型的植物。若植物越是耐旱怕涝，则泥炭土的比例应越",
+                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
+                "nextsubcontent":"(2)不同植物对土壤的喜好各不相同。某农场主欲使用泥炭土和颗粒土自行调制不同类型的混合土壤，以养殖不同类型的植物。若植物越是耐旱怕涝，则泥炭土的比例应越",
                 "subcontent2":"，颗粒土的比例应越",
                 "subcontent3":"；若植物越是喜水喜肥，则则泥炭土的比例应越",
                 "subcontent4":",颗粒土的比例应越",

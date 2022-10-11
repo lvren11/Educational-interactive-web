@@ -57,7 +57,7 @@ export default function Fquestion() {
     if(page === data[0].allpage){
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
-      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+StorageHelper.get('web_user_id')+","+data[0].title);
       StorageHelper.clear('UseTime');
       StorageHelper.clear('web_user_id');
       StorageHelper.clear('web_user');

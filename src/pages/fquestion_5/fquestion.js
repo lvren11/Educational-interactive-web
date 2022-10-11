@@ -18,6 +18,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import Intro from '../../component/Mainpage_5/introduce';
 import MainPage from '../../component/Mainpage_5/mainpage';
 import MainPageUnity from '../../component/Mainpage_5/mainpageunity.js';
+import MainPageUnity2 from '../../component/Mainpage_5/mainpageunity2.js';
 import MainPageUnitytwo from '../../component/Mainpage_5/MainPageUnity_two.js';
 import data from '../../../mock/data/fifth.json';
 import router from 'umi/router';
@@ -30,11 +31,11 @@ import {
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const unityContext = new UnityContext({
-  loaderUrl: "/Fifth/Page2/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Fifth/Page2/Build/Buildfile.data.unityweb",
-  frameworkUrl: "/Fifth/Page2/Build/Buildfile.framework.js.unityweb",
-  codeUrl: "/Fifth/Page2/Build/Buildfile.wasm.unityweb",
-  streamingAssetsUrl: "/Fifth/Page2/StreamingAssets",
+  loaderUrl: "/Fifth/Page4/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Fifth/Page4/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Fifth/Page4/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Fifth/Page4/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Fifth/Page4/StreamingAssets",
  });
 
 const listener = e => {
@@ -57,7 +58,7 @@ export default function Fquestion() {
     if(page === data[0].allpage){
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
-      console.log("结束记录",true,StorageHelper.get('web_user')+","+data[0].title);
+      console.log("结束记录",true,StorageHelper.get('web_user')+","+StorageHelper.get('web_user_id')+","+data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_6/fquestion');
@@ -90,7 +91,9 @@ export default function Fquestion() {
       return <MainPage data = {data[0]} page = {page}/>
     }else if(page === 3){
       return <MainPageUnity data = {data[0]} page = {page}/>
-    }else if(page === 4 || page === 5){
+    }else if(page === 4){
+      return <MainPageUnity2 data = {data[0]} page = {page}/>
+    }else if(page === 5){
       return <MainPageUnitytwo data = {data[0]} page = {page} unityContext={unityContext} />
     }
   }
