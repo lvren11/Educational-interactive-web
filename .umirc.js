@@ -13,14 +13,14 @@ export default {
         { path: '/', component: '../pages/login/login' }
       ]
     },
-    // {
-    //   path: '/fquestion_1',
+    {
+      path: '/fquestion_1',
       
-    //   component: '../layouts/Qlayout.js',
-    //   routes: [
-    //     { path: '/fquestion_1/fquestion', component: '../pages/fquestion_1/fquestion' },
-    //   ]
-    // },
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_1/fquestion', component: '../pages/fquestion_1/fquestion' },
+      ]
+    },
     {
       path: '/fquestion_2',
       
@@ -61,22 +61,22 @@ export default {
         { path: '/fquestion_6/fquestion', component: '../pages/fquestion_6/fquestion' },
       ]
     },
-    // {
-    //   path: '/fquestion_7',
+    {
+      path: '/fquestion_7',
       
-    //   component: '../layouts/Qlayout.js',
-    //   routes: [
-    //     { path: '/fquestion_7/fquestion', component: '../pages/fquestion_7/fquestion' },
-    //   ]
-    // },
-    // {
-    //   path: '/fquestion_8',
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_7/fquestion', component: '../pages/fquestion_7/fquestion' },
+      ]
+    },
+    {
+      path: '/fquestion_8',
       
-    //   component: '../layouts/Qlayout.js',
-    //   routes: [
-    //     { path: '/fquestion_8/fquestion', component: '../pages/fquestion_8/fquestion' },
-    //   ]
-    // },
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_8/fquestion', component: '../pages/fquestion_8/fquestion' },
+      ]
+    },
   ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html

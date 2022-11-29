@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -30,23 +30,26 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "/First/StreamingAssets",
  });
  
-export default function MainPageUnity(props) {
+function MainPageUnity(props,parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState({});
+
   const handleChange = (event) => {
     setAge({ ...age, [event.target.name]: event.target.value});
     console.log(util.timetoformat() + "页" + event.target.name + "答案：" + event.target.value);
+    setisAnswer(true);
   };
 
-  useEffect(() => {
-    // When the component is unmounted, we'll unregister the event listener.
-      unityContext.removeAllEventListeners();
-      unityContext.quitUnityInstance();
-      window.alert = console.log;
-  }, [props.show]);
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(function () {
     let id = 0;
@@ -83,30 +86,49 @@ export default function MainPageUnity(props) {
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
-                    {data.maincontent[curpage - 2].subcontent2 === "" ? showhtml(data.maincontent[curpage - 2].subcontent) :
-                    <>
-                    {showhtml(data.maincontent[curpage - 2].subcontent)}
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
-                    <FormControl className={classes.formControl}>
-                      <NativeSelect
-                        value={age[String(curpage)]}
-                        onChange={handleChange}
-                        name={String(curpage)}
-                        className={classes.selectEmpty}
-                        input={<BootstrapInput />}
-                      >
-                        <option value="">下拉选择</option>
-                        {
-                          data.maincontent[curpage - 2].value.map(function(name,index){
-                            return <option value={name} key={index}>{name}</option>
-                            })
-                        }
-                      </NativeSelect>
-                    </FormControl>
-                      {data.maincontent[curpage - 2].subcontent2}
-                      </>}
-                    </Typography>
+                  <div className={classes.buju1}>
+                    {( ()=>{
+                            switch(data.maincontent[curpage - 2].type){
+                                case 0:return null;
+                                case 1:return (
+                                  <>
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
+                                    <FormControl className={classes.formControl}>
+                                      <NativeSelect
+                                        value={age[String(curpage)]}
+                                        onChange={handleChange}
+                                        name={String(curpage)}
+                                        className={classes.selectEmpty}
+                                        input={<BootstrapInput />}
+                                      >
+                                        <option value="">下拉选择</option>
+                                        {
+                                          data.maincontent[curpage - 2].value.map(function(name,index){
+                                            return <option value={name} key={index}>{name}</option>
+                                            })
+                                        }
+                                      </NativeSelect>
+                                    </FormControl>
+                                    {data.maincontent[curpage - 2].subcontent2}
+                                    <br />
+                                    <br />
+                                    <Typography variant="h6">
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                    </Typography>
+                                    </Typography>
+                                    </>
+                                );
+                                case 2: return null;
+                                default:return null;
+                              }
+                            }
+                        )()
+                      }
+                    </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -124,3 +146,5 @@ export default function MainPageUnity(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPageUnity);

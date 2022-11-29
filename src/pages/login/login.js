@@ -87,6 +87,7 @@ export default function Login() {
       if(response.data.code === 1000){
         StorageHelper.set('web_user_id', response.data.userid);
         StorageHelper.set('web_user', formValues.snumber);
+        StorageHelper.set('web_user_file', formValues.grade + "_" + formValues.sex + "_"  + formValues.name);
         StorageHelper.set('x-auth-token', response.data.token);
         router.push('/fquestion_2/fquestion');
       }

@@ -26,7 +26,7 @@ console.log = (function (oriLogFunc) {
           begin_log = false;
           axios.post('/api/putlog',{
               "logvalue":json,
-              "snumber":file_path
+              "file":file_path
           }).then(function(response){
             oriLogFunc.call(console, "success");
           }).catch(function(error){

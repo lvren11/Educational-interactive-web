@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,6 +11,7 @@ import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity, { UnityContext } from "react-unity-webgl";
+import example from '../../assets/another/fouth.png';
 import util from '../../../utils/util';
 import {
   theme,
@@ -31,11 +32,12 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "/Fourth/Moni/StreamingAssets",
  });
  
-export default function MainPageUnity(props) {
+function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState({});
 
   let dicttoname = {"4":"第一个下拉","5":"第二个下拉"}
@@ -43,6 +45,20 @@ export default function MainPageUnity(props) {
     setAge({ ...age, [event.target.name]: event.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
   };
+
+  useEffect(() => {
+    let arr = Object.keys(age); 
+    if(arr.length === 2){
+      setisAnswer(true);
+    }
+  },[age]);
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(() => {
     window.alert = console.log;
@@ -89,13 +105,22 @@ export default function MainPageUnity(props) {
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+              <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
                               case 4:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h5">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <div className={classes.exampleimgbox}>
+                                  <img src={example} className={classes.exampleimg} alt="example"/>
+                                </div>
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent1)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
@@ -114,7 +139,8 @@ export default function MainPageUnity(props) {
                                   </NativeSelect>
                                 </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
-                              {data.maincontent[curpage - 2].subcontent3}
+                              <br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent3}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
                                     value={age[String(curpage+1)]}
@@ -132,6 +158,11 @@ export default function MainPageUnity(props) {
                                   </NativeSelect>
                                 </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
+                              </Typography>
+                              <br />
+                              <Typography variant="h6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                              </Typography>
                                 </>
                               );
                               case 2:break;
@@ -142,7 +173,7 @@ export default function MainPageUnity(props) {
                           }
                       )()
                     }
-                    </Typography>
+                 </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -160,3 +191,5 @@ export default function MainPageUnity(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPageUnity);

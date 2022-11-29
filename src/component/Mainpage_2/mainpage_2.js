@@ -1,9 +1,8 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -31,17 +30,26 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "/Second/Second_2/StreamingAssets",
  });
 
-export default function MainPage_2(props) {
+function MainPage_2(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [inputv, setinputv] = useState();
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [table_data,settabledata]=React.useState(tabledata[0]);
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+    setisAnswer(true);
   };
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  })
 
   useEffect(() => {
     window.alert = console.log;
@@ -84,18 +92,21 @@ export default function MainPage_2(props) {
         </ThemeProvider>
         </div>
         </div>
-        <Paper className={classes.ccolor}>
+        <div className={classes.ccolor}>
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+                  <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
                               case 1:break;
                               case 2:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl>
                                 <BootLineInput
@@ -109,6 +120,12 @@ export default function MainPage_2(props) {
                                 />
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
+                              </Typography>
+                              <br />
+                              <br />
+                              <Typography variant="h6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                              </Typography>
                               </>
                                 );
                               case 3: break;
@@ -118,10 +135,10 @@ export default function MainPage_2(props) {
                           }
                       )()
                     }
-                    </Typography>
+                  </div>
                 </ThemeProvider>
                 </div>
-        </Paper>
+        </div>
         </Grid>
 
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
@@ -137,3 +154,5 @@ export default function MainPage_2(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPage_2);

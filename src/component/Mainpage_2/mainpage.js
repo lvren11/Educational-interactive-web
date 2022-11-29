@@ -2,7 +2,6 @@ import React, { useEffect }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider} from '@material-ui/core/styles';
@@ -74,14 +73,14 @@ export default function MainPage(props) {
         </ThemeProvider>
         </div>
         </div>
-        <Paper className={classes.ccolor}>
+        <div className={classes.ccolor}>
             <div className={classes.title}>
-                <ThemeProvider theme={theme}>
+            <ThemeProvider theme={theme}>
                     <Typography className={classes.buju1} variant="h5">
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:return showhtml(data.maincontent[curpage - 2].subcontent);
-                              case 1:break;
+                              case 1:return null;
                               case 2:break;
                               case 3:break;
                               case 4:break;
@@ -93,9 +92,8 @@ export default function MainPage(props) {
                     </Typography>
                 </ThemeProvider>
                 </div>
-        </Paper>
+        </div>
         </Grid>
-
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>

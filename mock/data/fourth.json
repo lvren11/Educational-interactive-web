@@ -13,30 +13,37 @@
             },
             {
              "subtitle":"3.解决问题(-1nC)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-             "nextsubcontent":"(1)材质A的密度为",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />",
+             "subcontent1":"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处，填写你的作答结果。<br /><br />",
+             "nextsubcontent":"材质A的密度为",
              "subcontent2":"g/cm³。（填写数字）",
+             "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":1
             },
             {
              "subtitle":"3.解决问题(-1nF)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-             "nextsubcontent":"(2)材质B的密度为",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人们发现，将物体投入液体中可以用来粗略比较物体的密度大小。当物体密度较大时，它会逐渐沉入液体底部；当物体密度较小时，它会漂浮在液面上；当物体密度等于液体密度时，它会悬浮在液体中。<br /><br />",
+             "subcontent1":"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并点击“下拉选择”，选择你的作答结果。<br /><br />",
+             "nextsubcontent":"材质B的密度为",
              "subcontent2":"g/cm³。",
              "subcontent3":"材质C的密度为",
              "value":["大于25", "15~25之间", "小于15"],
+             "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":4
             },
             {
              "subtitle":"3.解决问题(-2aaC)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-             "nextsubcontent":"(3)镀金或镀银钱币经常可以达到以假乱真的效果。通过在其他金属的表面上镀上一层金或银，可以使钱币的外表和纯金或纯银钱币几乎一样。现有A、B、C、D四种造型一致的钱币，它们分别可能为纯金、纯银、银镀金、金镀银材质。你能通过浮力大小将这四种钱币区分开来吗？",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）请你利用右边的计算机模拟解决以下问题，并点击“下拉选择”，选择你的作答结果。<br /><br />",
+             "nextsubcontent":"镀金或镀银钱币经常可以达到以假乱真的效果。通过在其他金属的表面上镀上一层金或银，可以使钱币的外表和纯金或纯银钱币几乎一样。现有A、B、C、D四种造型一致的钱币，它们分别可能为纯金、纯银、银镀金、金镀银材质。你能通过浮力大小将这四种钱币区分开来吗？",
              "value":["纯金","纯银","银镀金","金镀银"],
+             "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":2
             },
             {
             "subtitle":"3.解决问题(-2aaF)",
-            "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)当物质的外部镀上另一种薄层物质时，其密度主要是由其内部材质还是外部材质决定？<br />",
+            "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
+            "nextsubcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）当物质的外部镀上另一种薄层物质时，其密度主要是由其内部材质还是外部材质决定？<br />",
+            "finalcontent":"作答完成后，请点击“下一页”按钮。",
             "type":3
             }
         ]

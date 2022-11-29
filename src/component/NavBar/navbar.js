@@ -5,14 +5,14 @@ import {
   Toolbar,
   List,
   ListItem,
-  Avatar,
-  Button,
+  Avatar
+  // Button,
 } from '@material-ui/core';
 import logo from '../../assets/logo/logo.svg'
 import Avatar_img from '../../assets/avatar_01.png';
 import  Image  from '../Image';
-import StorageHelper from '../Storage';
-import router from 'umi/router';
+// import StorageHelper from '../Storage';
+// import router from 'umi/router';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -74,12 +74,12 @@ const Topbar = props => {
 
   const classes = useStyles();
 
-  const handleClose = () => {
-    StorageHelper.clear('web_user_id');
-    StorageHelper.clear('web_user');
-    StorageHelper.clear('x-auth-token');
-    router.push('/');
-  };
+  // const handleClose = () => {
+  //   StorageHelper.clear('web_user_id');
+  //   StorageHelper.clear('web_user');
+  //   StorageHelper.clear('x-auth-token');
+  //   router.push('/');
+  // };
 
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
@@ -99,17 +99,17 @@ const Topbar = props => {
           <Avatar className={classes.large} alt="Remy Sharp" src={Avatar_img} />
           </ListItem>
           <ListItem className={classes.listItem}>
-          <Button
+          {/* <Button
               size="large"
-              variant="outlined"
-              color="primary"
+              // variant="outlined"
+              color="secondary"
               component="a"
               target="blank"
               onClick={() => handleClose()}
               className={classes.listItemButton}
             >
               退出登录
-            </Button>
+            </Button> */}
           </ListItem>
         </List>
     </Toolbar>

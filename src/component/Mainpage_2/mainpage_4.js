@@ -1,8 +1,7 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
@@ -28,17 +27,26 @@ function showhtml(htmlString){
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
 
-export default function MainPage_3(props) {
+function MainPage(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [value, setValue] = React.useState('none');
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [table_data,settabledata]=React.useState(tabledata[0]);
 
   const ChangeValue = (event) => {
     setValue(event.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    setisAnswer(true);
   };
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(function () {
     let id = 0;
@@ -71,11 +79,11 @@ export default function MainPage_3(props) {
         </ThemeProvider>
         </div>
         </div>
-        <Paper className={classes.ccolor}>
+        <div className={classes.ccolor}>
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+                  <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
@@ -83,7 +91,10 @@ export default function MainPage_3(props) {
                               case 2:break;
                               case 3:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={ChangeValue}>
@@ -101,6 +112,11 @@ export default function MainPage_3(props) {
                                     </div>
                                   </RadioGroup>
                                 </FormControl>
+                                </Typography>
+                                <br />
+                                <Typography variant="h6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                </Typography>
                                 </>
                               );
                               case 4: break;
@@ -109,10 +125,10 @@ export default function MainPage_3(props) {
                           }
                       )()
                     }
-                    </Typography>
+                    </div>
                 </ThemeProvider>
                 </div>
-        </Paper>
+        </div>
         </Grid>
 
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
@@ -128,3 +144,5 @@ export default function MainPage_3(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPage);

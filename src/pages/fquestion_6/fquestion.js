@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,6 +23,7 @@ import data from '../../../mock/data/sixth.json';
 import router from 'umi/router';
 import StorageHelper from '../../component/Storage';
 import { UnityContext } from "react-unity-webgl";
+import util from '../../../utils/util';
 import {    
   GlobalCss,
   theme,
@@ -44,10 +45,12 @@ const unityContext = new UnityContext({
 
 export default function Fquestion() {
   const classes = useStyles();
+  const parentRef = useRef();
   const pretime = StorageHelper.get('UseTime');
   const [time, settime] = React.useState(Number(pretime));
   const [page, setPage] = React.useState(1);
   const [open, setOpen] = React.useState(false);
+  const [isNext, setisNext] = React.useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -57,7 +60,8 @@ export default function Fquestion() {
     if(page === data[0].allpage){
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
-      console.log("结束记录",true,StorageHelper.get('web_user')+","+StorageHelper.get('web_user_id')+","+data[0].title);
+      console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
+      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
       StorageHelper.clear('UseTime');
       StorageHelper.clear('web_user_id');
       StorageHelper.clear('web_user');
@@ -65,22 +69,41 @@ export default function Fquestion() {
       //保存log文件
       router.push('/');
     }else{
+      if(page > 2){
+        console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
+      }
       if(page === 2){
         console.log("开始记录");
+        console.log(util.timetoformat() + "进入第（" + (page - 1) + "）小题的问题解决页面");
       }
-      setPage(page+1);
+      if(page > 2){
+        console.log(util.timetoformat() + "进入第（" + (page - 1) + "）小题的问题解决页面");
+      }
+      if(page === 1){
+        setTimeout(() => {
+          setPage(page+1);
+        }, 300);
+      }else{
+        setPage(page+1);
+      }
+      setTimeout(() => {
+        setisNext(false);
+      }, 500);
     }
   };
 
   const handleNext = (page) => {
     if(page === 1){
       console.log("不记录");
-      setPage(page+1);
+      setOpen(true);
+      setisNext(true);
     }
     else if(page === 2){
       setOpen(true);
+      setisNext(true);
     }else{
       setOpen(true);
+      setisNext(parentRef.current.isAnswer);
     }
     StorageHelper.set('UseTime', time);
 };
@@ -91,9 +114,9 @@ export default function Fquestion() {
     }else if(page === 2){
       return <MainPage data = {data[0]} page = {page}/>
     }else if(page === 3){
-      return <MainPageUnity data = {data[0]} page = {page}/>
+      return <MainPageUnity ref={parentRef} data = {data[0]} page = {page}/>
     }else if(page === 4){
-      return <MainPageUnitytwo data = {data[0]} page = {page} unityContext={unityContext}/>
+      return <MainPageUnitytwo ref={parentRef} data = {data[0]} page = {page} unityContext={unityContext}/>
     }
   }
   useEffect(() =>{
@@ -141,19 +164,43 @@ export default function Fquestion() {
                     aria-describedby="alert-dialog-description"
                   >
                     <DialogTitle id="alert-dialog-title">{"提示："}</DialogTitle>
-                    <DialogContent>
-                      <DialogContentText id="alert-dialog-description">
-                      {page === data[0].allpage ? "你确定要结束答题吗？(即将退出界面，重新答题需重新登录。)":"进入下一页后将不可返回，是否要继续前往？"}
-                      </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClose} color="primary">
-                      返回任务
-                      </Button>
-                      <Button onClick={handleagree} color="primary" autoFocus>
-                      {page === data[0].allpage ? "确定结束":"继续前往"}
-                      </Button>
-                    </DialogActions>
+                    {
+                      isNext === false ? 
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                          请回答问题！回答问题后才能进入下一页。
+                        </DialogContentText>
+                      </DialogContent>
+                      :
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                        {page === data[0].allpage ? 
+                        "你确定要结束答题吗？(即将退出界面，重新答题需重新登录。)"
+                        :
+                        page === 1 ? 
+                        "该页需熟悉各项操作，无需回答问题，熟练操作后，可点击“下一页”进入答题界面"
+                        :
+                        "进入下一页后将不可返回，是否要继续前往？"}
+                        </DialogContentText>
+                      </DialogContent>
+                    }
+                    {
+                      isNext === false ? 
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                        返回任务
+                        </Button>
+                      </DialogActions>
+                      :
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                        返回任务
+                        </Button>
+                        <Button onClick={handleagree} color="primary" autoFocus>
+                        继续前往
+                        </Button>
+                      </DialogActions>
+                    }
                   </Dialog>
                 </ThemeProvider>
               </Grid>

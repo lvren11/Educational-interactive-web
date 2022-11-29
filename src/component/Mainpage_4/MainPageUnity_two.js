@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -28,11 +28,12 @@ const unityContext = new UnityContext({
   codeUrl: "/Fourth/Page4/Build/Buildfile.wasm.unityweb",
   streamingAssetsUrl: "/Fourth/Page4/StreamingAssets",
  });
-export default function MainPageUnity(props) {
+function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState({});
 
   let dicttoname = {"5":"A","6":"B","7":"C","8":"D"};
@@ -40,6 +41,20 @@ export default function MainPageUnity(props) {
     setAge({ ...age, [event.target.name]: event.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
   };
+
+  useEffect(() => {
+    let arr = Object.keys(age); 
+    if(arr.length === 4){
+      setisAnswer(true);
+    }
+  },[age]);
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(() => {
     window.alert = console.log;
@@ -85,14 +100,17 @@ export default function MainPageUnity(props) {
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+              <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
                               case 1:break;
                               case 2:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <div className={classes.Radiobuju}>
                                   <Grid container spacing={3}>
@@ -178,6 +196,11 @@ export default function MainPageUnity(props) {
                                     </Grid>
                                   </Grid>
                                 </div>
+                                </Typography>
+                                <br />
+                                <Typography variant="h6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                </Typography>
                                 </>
                               );
                               case 3:break;
@@ -186,7 +209,7 @@ export default function MainPageUnity(props) {
                           }
                       )()
                     }
-                    </Typography>
+                  </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -204,3 +227,5 @@ export default function MainPageUnity(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPageUnity);

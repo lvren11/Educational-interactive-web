@@ -25,7 +25,7 @@ export default function Intro(props) {
       <Grid item xs={12} sm={12} md={12} elevation={6} className={classes.bcolor}>
       <ThemeProvider theme={theme}>
         <div className={classes.title}>
-            <Typography component="h4" variant="h4">
+            <Typography component="h3" variant="h3">
                     {data.name}
             </Typography>
             <Typography className={classes.buju} variant="h5">
@@ -44,14 +44,14 @@ export default function Intro(props) {
       <Grid item xs={12} sm={12} md={12} elevation={6} zeroMinWidth>
         <div className={classes.mainpaper}>
         <ThemeProvider theme={theme}>
-          <Typography component="h4" variant="h4">
+          <Typography component="h3" variant="h3">
           {data.title}
           </Typography>
           <Typography className={classes.buju2} variant="h5">
               {showhtml(data.introduce)}
           </Typography>
           </ThemeProvider>
-          <img src={one} className={classes.image_car} alt="stove"/>
+          <img src={one} className={classes.image_water} alt="stove"/>
         </div>
       </Grid>
     </Grid>

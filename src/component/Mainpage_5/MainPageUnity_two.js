@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,22 +25,41 @@ function showhtml(htmlString){
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
 
-export default function MainPage_3(props) {
+function MainPage_3(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [inputv, setinputv] = useState("");
   const [age, setAge] = React.useState();
+  const [a,seta] = React.useState(false);
+  const [b,setb] = React.useState(false);
+  const [isAnswer, setisAnswer] = React.useState(false);
+
   const handleChange = (event) => {
     setAge(event.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    seta(true);
   };
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+    setb(true);
   };
+
+  useEffect(() => {
+    if(a === true && b === true){
+      setisAnswer(true);
+    }
+  },[a,b]);
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(function () {
     let id = 0;
@@ -81,7 +100,7 @@ export default function MainPage_3(props) {
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+                  <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
@@ -90,7 +109,10 @@ export default function MainPage_3(props) {
                               case 3:break;
                               case 4:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
@@ -117,6 +139,11 @@ export default function MainPage_3(props) {
                                   />
                                 </FormControl>
                                 {data.maincontent[curpage - 2].subcontent3}
+                                </Typography>
+                                <br />
+                                <Typography variant="h6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                </Typography>
                                 </>
                               );
                               default:return null;
@@ -124,7 +151,7 @@ export default function MainPage_3(props) {
                           }
                       )()
                     }
-                    </Typography>
+                  </div>
                 </ThemeProvider>
                 </div>
         </Paper>
@@ -143,3 +170,4 @@ export default function MainPage_3(props) {
     </Grid>
   );
 }
+export default forwardRef(MainPage_3);

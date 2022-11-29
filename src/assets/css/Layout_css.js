@@ -38,9 +38,14 @@ const GlobalCss = withStyles({
             fontWeight: 600,
             fontSize:'1.6rem',
           },
+        h3: {
+          fontFamily:'STKaiti',
+          fontWeight: 600,
+          fontSize:'2rem',
+        },
         h6: {
           fontFamily:'STKaiti',
-          fontSize:'1.3rem',
+          fontSize:'1.2rem',
         }
       },
       MuiButton: {

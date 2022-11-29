@@ -24,6 +24,11 @@ const theme = createTheme({
         fontFamily:'STKaiti',
         fontWeight: 600,
         fontSize:'1.6rem',
+      },
+      h6: {
+        fontFamily:'STKaiti',
+        fontStyle:'italic',
+        fontSize:'1.2rem',
       }
     },
 
@@ -117,6 +122,15 @@ const useStyles = makeStyles((theme) => ({
   },
   Radiobuju:{
     margin: theme.spacing(2, 2, 0),
+  },
+  exampleimgbox:{
+    height: window.screen.height / 6,
+    textAlign:'center'
+  },
+  exampleimg:{
+    width: window.screen.width / 5.5,
+    height: window.screen.height / 6,
+    margin: '0 auto'
   }
 }));
 

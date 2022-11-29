@@ -1,93 +1,25 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createTheme, ThemeProvider, withStyles} from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
+import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
+import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_7.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
+import {
+  theme,
+  useStyles,
+  BootLineInput
+} from '../../assets/css/Main_css';
 
-const theme = createTheme({
-    typography: {
-      h5: {
-        fontFamily:'STKaiti',
-        fontSize:'1.3rem',
-      },
-      h4: {
-        fontFamily:'STKaiti',
-        fontWeight: 600,
-        fontSize:'2rem',
-      }
-    },
-
-  });
-
-const BootstrapInput = withStyles((theme) => ({
-  input: {
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    borderBottom: '2px solid #ced4da',
-    fontSize: 20,
-    padding: '1px',
-    width:'100px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: 'STKaiti',
-    textAlign: 'center',
-    '&:focus': {
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-}))(InputBase);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '80vh',
-  },
-  ccolor:{
-    height: '61vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  formControl: {
-    minWidth: 120,
-    margin: theme.spacing(0, 1, 0),
-  },
-  title: {
-    margin: theme.spacing(2, 2),
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  bcolor:{
-    backgroundColor:'#F0FFF0',
-    height: '15vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  paper: {
-    margin: theme.spacing(1),
-    border: "2px solid rgba(226,240,217)",
-  },
-  buju: {
-    margin: '17px 40px 2px',
-  },
-  buju1: {
-    margin: theme.spacing(1, 1),
-  },
-  mainintro:{
-    margin: theme.spacing(3, 0, 0),
-  }
-}));
-  
 function showhtml(htmlString){
-    var html = {__html:htmlString};
-    return   <div dangerouslySetInnerHTML={html}></div> ;
+  var html = {__html:htmlString};
+  return   <div dangerouslySetInnerHTML={html}></div> ;
 }
 
 const unityContext = new UnityContext({
@@ -98,17 +30,39 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "/Seven/Seven_1/StreamingAssets",
  });
  
-export default function MainPageUnity(props) {
+ function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [isAnswer, setisAnswer] = React.useState(false);
+  const [a,seta] = React.useState(false);
+  const [b,setb] = React.useState(false);
   const [inputv, setinputv] = useState({"5":"","6":""});
   let dicttoname = {"5":"第一个下划线","6":"第二个下划线"};
   const Changeinputv = (e) =>{
     setinputv({ ...inputv, [e.target.name]: e.target.value});
     console.log(util.timetoformat() + "页" + curpage + dicttoname[e.target.name] + "答案：" + e.target.value);
+    if(e.target.name === "5"){
+      seta(true);
+    }else{
+      setb(true);
+    }
   };
+
+  useEffect(() => {
+    if(a === true && b === true){
+      setisAnswer(true);
+    }
+  },[a,b]);
+
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(() => {
     window.alert = console.log;
@@ -134,14 +88,15 @@ export default function MainPageUnity(props) {
       });
   }, []);
 
+
   return (
-    <Grid container spacing={1} className={classes.root}>
+    <Grid container spacing={1}>
       <CssBaseline />
-      <Grid item xs={12} sm={4} md={5} elevation={6} className={classes.root}>
+      <Grid item xs={12} sm={4} md={5} elevation={6}>
       <div className={classes.bcolor}>
       <div className={classes.title}>
         <ThemeProvider theme={theme}>
-            <Typography component="h1" variant="h4">
+            <Typography component="h4" variant="h4">
                     {data.name}
             </Typography>
             <Typography className={classes.buju} variant="h5">
@@ -151,19 +106,23 @@ export default function MainPageUnity(props) {
         </div>
         </div>
         <div className={classes.ccolor}>
+          <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+              <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
-                              case 0:return showhtml(data.maincontent[curpage - 2].subcontent);
+                              case 0:return null;
                               case 2:return null;
                               case 1:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl>
-                                <BootstrapInput
+                                <BootLineInput
                                   id="standard-adornment-weight"
                                   value={inputv["5"]}
                                   onChange={Changeinputv}
@@ -172,7 +131,7 @@ export default function MainPageUnity(props) {
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
                               <FormControl>
-                                <BootstrapInput
+                                <BootLineInput
                                   id="standard-adornment-weight"
                                   value={inputv["6"]}
                                   onChange={Changeinputv}
@@ -180,6 +139,11 @@ export default function MainPageUnity(props) {
                                 />
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent3}
+                              </Typography>
+                              <br />
+                              <Typography variant="h6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                              </Typography>
                               </>
                                 );
                               default:return null;
@@ -187,7 +151,7 @@ export default function MainPageUnity(props) {
                           }
                       )()
                     }
-                    </Typography>
+                  </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -205,3 +169,5 @@ export default function MainPageUnity(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPageUnity);

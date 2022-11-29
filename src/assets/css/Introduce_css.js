@@ -3,9 +3,9 @@ const theme = createTheme({
     typography: {
       h5: {
         fontFamily:'STKaiti',
-        fontSize:'1.4rem',
+        fontSize:'1.3rem',
       },
-      h4: {
+      h3: {
         fontFamily:'STKaiti',
         fontWeight: 600,
         fontSize:'2rem',
@@ -44,6 +44,15 @@ const useStyles = makeStyles((theme) => ({
   image_soil: {
     width: 277,
     height: 177,
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
+  image_sky: {
+    width: 300,
+    height: 200,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],

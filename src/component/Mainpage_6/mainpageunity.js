@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -31,17 +31,26 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "/Sixth/sixth_1/StreamingAssets",
  });
  
-export default function MainPageUnity(props) {
+function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [value, setValue] = React.useState('none');
+  const [isAnswer, setisAnswer] = React.useState(false);
 
   const handleChange = (event) => {
     setValue(event.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    setisAnswer(true);
   };
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(() => {
     window.alert = console.log;
@@ -87,7 +96,7 @@ export default function MainPageUnity(props) {
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+              <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
@@ -95,17 +104,34 @@ export default function MainPageUnity(props) {
                               case 2:break;
                               case 3:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
+                                {showhtml(data.maincontent[curpage - 2].addcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}<br /> 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent2}
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleChange}>
-                                    <FormControlLabel value="A" control={<Radio color="primary" />} label="A 含大量泥炭土，不含颗粒土" />
-                                    <FormControlLabel value="B" control={<Radio color="primary" />} label="B 含大量颗粒土，不含泥炭土" />
-                                    <FormControlLabel value="C" control={<Radio color="primary" />} label="C 含少量泥炭土和大量颗粒土" />
-                                    <FormControlLabel value="D" control={<Radio color="primary" />} label="D 含少量颗粒土和大量泥炭土" />
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="A" control={<Radio color="primary" />} label={showhtml(data.maincontent[curpage - 2].A)} />
+                                    </div>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="B" control={<Radio color="primary" />} label={showhtml(data.maincontent[curpage - 2].B)} />
+                                    </div>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="C" control={<Radio color="primary" />} label={showhtml(data.maincontent[curpage - 2].C)} />
+                                    </div>
+                                    <div className={classes.oneRadio}>
+                                      <FormControlLabel value="D" control={<Radio color="primary" />} label={showhtml(data.maincontent[curpage - 2].D)} />
+                                    </div>
                                   </RadioGroup>
                                 </FormControl>
+                                </Typography>
+                                <br />
+                                <Typography variant="h6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                </Typography>
                                 </>
                               );
                               case 4:break;
@@ -114,7 +140,7 @@ export default function MainPageUnity(props) {
                           }
                       )()
                     }
-                    </Typography>
+                  </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -132,3 +158,4 @@ export default function MainPageUnity(props) {
     </Grid>
   );
 }
+export default forwardRef(MainPageUnity);

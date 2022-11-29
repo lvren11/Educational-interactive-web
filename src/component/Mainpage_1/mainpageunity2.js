@@ -1,39 +1,39 @@
 import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
+// import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import Typography from '@material-ui/core/Typography';
 import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
-import tabledata  from '../../../mock/data/exdata_4.json';
+import tabledata  from '../../../mock/data/exdata.json';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
 import {
   theme,
-  useStyles
+  useStyles,
+  BootstrapInput
 } from '../../assets/css/Main_css';
   
 function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-
+ 
 function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  const [value, setValue] = React.useState('none');
+  const [age, setAge] = React.useState({});
 
-  const handleRadio = (event) => {
-    setValue(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+  const handleChange = (event) => {
+    setAge({ ...age, [event.target.name]: event.target.value});
+    console.log(util.timetoformat() + "页" + event.target.name + "答案：" + event.target.value);
     setisAnswer(true);
   };
 
@@ -78,43 +78,50 @@ function MainPageUnity(props, parentRef) {
         <div className={classes.ccolor}>
           <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
-            <ThemeProvider theme={theme}>
-              <div className={classes.buju1}>
+                <ThemeProvider theme={theme}>
+                  <div className={classes.buju1}>
                     {( ()=>{
-                          switch(data.maincontent[curpage - 2].type){
-                              case 0:break;
-                              case 1:break;
-                              case 2:break;
-                              case 3:return (
-                                <>
+                            switch(data.maincontent[curpage - 2].type){
+                                case 0:return null;
+                                case 2:return (
+                                  <>
                                 <Typography variant="h6">
                                   {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 </Typography>
                                 <Typography variant="h5">
-                                {showhtml(data.maincontent[curpage - 2].nextcontent)}
-                                <FormControl component="fieldset" className={classes.radiocss}>
-                                  <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleRadio}>
-                                    <div className={classes.oneRadio}>
-                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A 内部材质" />
-                                    </div>
-                                    <div className={classes.oneRadio}>  
-                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B 外部材质" />
-                                    </div>
-                                  </RadioGroup>
-                                </FormControl>
-                                </Typography>
-                                <br />
-                                <Typography variant="h6">
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
-                                </Typography>
-                                </>
-                              );
-                              default:return null;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
+                                    <FormControl className={classes.formControl}>
+                                      <NativeSelect
+                                        value={age[String(curpage)]}
+                                        onChange={handleChange}
+                                        name={String(curpage)}
+                                        className={classes.selectEmpty}
+                                        input={<BootstrapInput />}
+                                      >
+                                        <option value="">下拉选择</option>
+                                        {
+                                          data.maincontent[curpage - 2].value.map(function(name,index){
+                                            return <option value={name} key={index}>{name}</option>
+                                            })
+                                        }
+                                      </NativeSelect>
+                                    </FormControl>
+                                    {data.maincontent[curpage - 2].subcontent2}
+                                    <br />
+                                    <br />
+                                    <Typography variant="h6">
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                                    </Typography>
+                                    </Typography>
+                                    </>
+                                );
+                                case 1: return null;
+                                default:return null;
+                              }
                             }
-                          }
-                      )()
-                    }
-                   </div>
+                        )()
+                      }
+                    </div>
                 </ThemeProvider>
                 </div>
         </div>
@@ -123,7 +130,7 @@ function MainPageUnity(props, parentRef) {
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
-              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
+                <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
             </Typography>
             </ThemeProvider>
             <Table data = {table_data}/>

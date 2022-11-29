@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +16,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Intro from '../../component/Mainpage_1/introduce';
 import MainPage from '../../component/Mainpage_1/mainpage';
 import MainPageUnity from '../../component/Mainpage_1/mainpageunity.js';
+import MainPageUnity2 from '../../component/Mainpage_1/mainpageunity2.js';
 import data from '../../../mock/data/first.json';
 import router from 'umi/router';
 import StorageHelper from '../../component/Storage';
+import { UnityContext } from "react-unity-webgl";
+import util from '../../../utils/util';
 import {    
   GlobalCss,
   theme,
@@ -26,12 +29,28 @@ import {
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const unityContext = new UnityContext({
+  loaderUrl: "/First/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/First/Build/Buildfile.data",
+  frameworkUrl: "/First/Build/Buildfile.framework.js",
+  codeUrl: "/First/Build/Buildfile.wasm",
+  streamingAssetsUrl: "/First/StreamingAssets",
+ });
+ 
+
+const listener = e => {
+  e.preventDefault();
+  e.returnValue = '刷新或离开当前页后，需要登录页面重新开始答题' // 浏览器有可能不会提示这个信息，会按照固定信息提示
+}
+
 export default function Fquestion() {
   const classes = useStyles();
-  const [time, settime] = React.useState(0);
-  const [show, setshow] = React.useState(true);
+  const parentRef = useRef();
+  const pretime = StorageHelper.get('UseTime');
+  const [time, settime] = React.useState(Number(pretime));
   const [page, setPage] = React.useState(1);
   const [open, setOpen] = React.useState(false);
+  const [isNext, setisNext] = React.useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -39,37 +58,71 @@ export default function Fquestion() {
   const handleagree = () =>{
     setOpen(false);
     if(page === data[0].allpage){
-      setshow(false);
-      console.log("结束记录",true,"../log/question1.log");
+      unityContext.removeAllEventListeners();
+      unityContext.quitUnityInstance();
+      console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
+      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_2/fquestion');
     }else{
-      setPage(page+1);
-    }
-  };
-  const handleNext = (page) => {
+      if(page > 2){
+        console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
+      }
+      if(page === 2){
+        console.log("开始记录");
+        console.log(util.timetoformat() + "进入第（" + (page - 1) + "）小题的问题解决页面");
+      }
+      if(page > 2){
+        console.log(util.timetoformat() + "进入第（" + (page - 1) + "）小题的问题解决页面");
+      }
       if(page === 1){
-        console.log("不记录");
+        setTimeout(() => {
+          setPage(page+1);
+        }, 200);
+      }else{
         setPage(page+1);
       }
-      else if(page === 2){
-        setOpen(true);
-        console.log("开始记录");
-      }else{
-        setOpen(true);
-      }
+      setTimeout(() => {
+        setisNext(false);
+      }, 500);
+    }
   };
+
+  const handleNext = (page) => {
+    if(page === 1){
+      console.log("不记录");
+      setOpen(true);
+      setisNext(true);
+    }
+    else if(page === 2){
+      setOpen(true);
+      setisNext(true);
+    }else{
+      setOpen(true);
+      setisNext(parentRef.current.isAnswer);
+    }
+    StorageHelper.set('UseTime', time);
+};
 
   const showunity = (page) =>{
     if(page === 1){
       return <Intro data = {data[0]}/>
     }else if(page === 2){
       return <MainPage data = {data[0]} page = {page}/>
+    }else if(page === 3){
+      return <MainPageUnity ref={parentRef} data = {data[0]} page = {page}/>
     }else{
-      return <MainPageUnity data = {data[0]} page = {page} show={show}/>
+      return <MainPageUnity2 ref={parentRef} data = {data[0]} page = {page} unityContext={unityContext}/>
     }
   }
+
+  useEffect(() =>{
+    window.addEventListener('beforeunload', listener)
+    return () =>{
+      window.removeEventListener('beforeunload', listener)
+    }
+  });
 
   useEffect(() => {
     let flag = true;
@@ -109,19 +162,43 @@ export default function Fquestion() {
                     aria-describedby="alert-dialog-description"
                   >
                     <DialogTitle id="alert-dialog-title">{"提示："}</DialogTitle>
-                    <DialogContent>
-                      <DialogContentText id="alert-dialog-description">
-                      {page === data[0].allpage ? "进入下一题后将不可返回，是否要继续前往？":"进入下一页后将不可返回，是否要继续前往？"}
-                      </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClose} color="primary">
-                      返回任务
-                      </Button>
-                      <Button onClick={handleagree} color="primary" autoFocus>
-                      继续前往
-                      </Button>
-                    </DialogActions>
+                    {
+                      isNext === false ? 
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                          请回答问题！回答问题后才能进入下一页。
+                        </DialogContentText>
+                      </DialogContent>
+                      :
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                        {page === data[0].allpage ? 
+                        "进入下一题后将不可返回，是否要继续前往？"
+                        :
+                        page === 1 ? 
+                        "该页需熟悉各项操作，无需回答问题，熟练操作后，可点击“下一页”进入答题界面"
+                        :
+                        "进入下一页后将不可返回，是否要继续前往？"}
+                        </DialogContentText>
+                      </DialogContent>
+                    }
+                    {
+                      isNext === false ? 
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                        返回任务
+                        </Button>
+                      </DialogActions>
+                      :
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                        返回任务
+                        </Button>
+                        <Button onClick={handleagree} color="primary" autoFocus>
+                        继续前往
+                        </Button>
+                      </DialogActions>
+                    }
                   </Dialog>
                 </ThemeProvider>
               </Grid>

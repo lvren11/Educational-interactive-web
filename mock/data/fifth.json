@@ -13,22 +13,24 @@
             },
             {
              "subtitle":"3.解决问题(3-1aF)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-             "nextsubcontent":"(1)对于这批新植物而言，光照量增强主要能起到什么效果？",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
+             "nextsubcontent":"对于这批新植物而言，光照量增强主要能起到什么效果？",
+             "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":1
             },
             {
              "subtitle":"3.解决问题(7-1nF)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-             "nextsubcontent":"(2)对于这批新植物而言，下列哪幅图体现了肥量对这批新植物的主要影响?",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
+             "nextsubcontent":"对于这批新植物而言，下列哪幅图体现了肥量对这批新植物的主要影响?",
              "type":3
             },
             {
                 "subtitle":"3.解决问题(-2anC)",
-                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你利用右边的计算机模拟解决以下问题：<br /><br />",
-                "nextsubcontent":"(3)现学校又引进了一批新植物，为了使这批新植物尽可能地长高和开花，可为该植物提供",
+                "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处和点击“下拉选择”，填写你的作答结果。<br /><br />",
+                "nextsubcontent":"现学校又引进了一批新植物，为了使这批新植物尽可能地长高和开花，可为该植物提供",
                 "subcontent2":"强度的阳光和",
                 "subcontent3":"g 肥料？",
+                "finalcontent":"作答完成后，请点击“下一页”按钮。",
                 "value":["高","中","低"],
                 "type":4
             }

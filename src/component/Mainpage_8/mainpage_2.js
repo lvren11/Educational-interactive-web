@@ -1,113 +1,36 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useImperativeHandle, forwardRef }from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createTheme, ThemeProvider, withStyles} from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
+import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_8.json';
-import Unity, { UnityContext } from "react-unity-webgl";
+import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
-
-const theme = createTheme({
-    typography: {
-      h5: {
-        fontFamily:'STKaiti',
-        fontSize:'1.4rem',
-      },  
-      h4: {
-        fontFamily:'STKaiti',
-        fontWeight: 600,
-        fontSize:'2rem',
-      }
-      
-    },
-
-  });
-
-const BootstrapInput = withStyles((theme) => ({
-    input: {
-      borderRadius: 2,
-      position: 'relative',
-      backgroundColor: theme.palette.background.paper,
-      border: '1px solid #ced4da',
-      fontSize: 20,
-      padding: '1px',
-      transition: theme.transitions.create(['border-color', 'box-shadow']),
-      // Use the system font instead of the default Roboto font.
-      fontFamily: 'STKaiti',
-      textAlign: 'center',
-      '&:focus': {
-        borderRadius: 4,
-        borderColor: '#80bdff',
-        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-      },
-    },
-  }))(InputBase);
+import {
+  theme,
+  useStyles,
+  BootstrapInput
+} from '../../assets/css/Main_css';
   
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '80vh',
-  },
-  ccolor:{
-    height: '61vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  formControl: {
-    minWidth: 120,
-    margin: theme.spacing(0, 1, 0),
-  },
-  title: {
-    margin: theme.spacing(2, 2),
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  bcolor:{
-    backgroundColor:'#F0FFF0',
-    height: '15vh',
-    border: "1px solid rgba(226,240,217)",
-    margin: theme.spacing(1),
-  },
-  paper: {
-    margin: theme.spacing(1),
-    border: "2px solid rgba(226,240,217)",
-  },
-  buju: {
-    margin: '17px 40px 2px',
-  },
-  buju1: {
-    margin: theme.spacing(1, 1),
-  },
-  mainintro:{
-    margin: theme.spacing(3, 0, 0),
-  }
-}));
-
 function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-
-const unityContext = new UnityContext({
-  loaderUrl: "/Eight/Eight_1/Build/Eight_1.loader.js", // public下目录
-  dataUrl: "/Eight/Eight_1/Build/Eight_1.data",
-  frameworkUrl: "/Eight/Eight_1/Build/Eight_1.framework.js",
-  codeUrl: "/Eight/Eight_1/Build/Eight_1.wasm",
-  streamingAssetsUrl: "/Eight/Eight_1/StreamingAssets",
- });
-
-export default function MainPage_2(props) {
+ 
+ function MainPageUnity(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
+  const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState({});
-  const [table_data,settabledata]=React.useState(tabledata[0]);
+
   let dicttoname = {"4":"第一个下拉","5":"第二个下拉"}
   const handleChange = (event) => {
     setAge({ ...age, [event.target.name]: event.target.value});
@@ -115,37 +38,42 @@ export default function MainPage_2(props) {
   };
 
   useEffect(() => {
-    window.alert = console.log;
-    // When the component is unmounted, we'll unregister the event listener.
-    return function () {
-      unityContext.removeAllEventListeners();
-      unityContext.quitUnityInstance();
-    };
-  }, [props.show]);
+    let arr = Object.keys(age); 
+    if(arr.length === 2){
+      setisAnswer(true);
+    }
+  },[age]);
+
+  useImperativeHandle(parentRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      isAnswer
+    }
+  });
 
   useEffect(function () {
     let id = 0;
     let templist = [];
-    unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
-      let arr_list=TempList.split(',');
+    props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
+      let arr_list = TempList.split(',');
       id++;
-      let temp_dict={"id":id,"value":arr_list};
+      let temp_dict = {"id":id, "value":arr_list};
       templist.push(temp_dict);
       settabledata(table_data =>({
         ...table_data, 
         tabledata:templist
       }));
       });
-  }, []);
-
+  }, [props.unityContext]);
+  
   return (
-    <Grid container spacing={1} className={classes.root}>
+    <Grid container spacing={1}>
       <CssBaseline />
-      <Grid item xs={12} sm={4} md={5} elevation={6} className={classes.root}>
+      <Grid item xs={12} sm={4} md={5} elevation={6}>
       <div className={classes.bcolor}>
       <div className={classes.title}>
         <ThemeProvider theme={theme}>
-            <Typography component="h1" variant="h4">
+            <Typography component="h4" variant="h4">
                     {data.name}
             </Typography>
             <Typography className={classes.buju} variant="h5">
@@ -154,18 +82,22 @@ export default function MainPage_2(props) {
         </ThemeProvider>
         </div>
         </div>
-        <Paper className={classes.ccolor}>
+        <div className={classes.ccolor}>
+          <Accordingextend data={data.maincontent[0].subcontent}/>
             <div className={classes.title}>
-                <ThemeProvider theme={theme}>
-                    <Typography className={classes.buju1} variant="h5">
+            <ThemeProvider theme={theme}>
+              <div className={classes.buju1}>
                     {( ()=>{
                           switch(data.maincontent[curpage - 2].type){
                               case 0:break;
                               case 1:break;
-                              case 2: return (
+                              case 2:return (
                                 <>
-                                {showhtml(data.maincontent[curpage - 2].subcontent)}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
+                                <Typography variant="h6">
+                                  {showhtml(data.maincontent[curpage - 2].subcontent)}
+                                </Typography>
+                                <Typography variant="h5">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
                                     value={age[String(curpage)]}
@@ -182,10 +114,10 @@ export default function MainPage_2(props) {
                                     }
                                   </NativeSelect>
                                 </FormControl>
-                                {data.maincontent[curpage - 2].subcontent2}
+                              {data.maincontent[curpage - 2].subcontent2}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={String(age[curpage+1])}
+                                    value={age[String(curpage+1)]}
                                     onChange={handleChange}
                                     name={String(curpage+1)}
                                     className={classes.selectEmpty}
@@ -199,7 +131,12 @@ export default function MainPage_2(props) {
                                     }
                                   </NativeSelect>
                                 </FormControl>
-                                {data.maincontent[curpage - 2].subcontent3}
+                              {data.maincontent[curpage - 2].subcontent3}
+                              </Typography>
+                              <br />
+                              <Typography variant="h6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
+                              </Typography>
                               </>
                               );
                               default:return null;
@@ -207,17 +144,16 @@ export default function MainPage_2(props) {
                           }
                       )()
                     }
-                    </Typography>
+                    </div>
                 </ThemeProvider>
                 </div>
-        </Paper>
+        </div>
         </Grid>
-
         <Grid item xs={12} sm={8} md={7} elevation={6}> 
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
-              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
+              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
             </Typography>
             </ThemeProvider>
             <Table data = {table_data}/>
@@ -226,3 +162,5 @@ export default function MainPage_2(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPageUnity);

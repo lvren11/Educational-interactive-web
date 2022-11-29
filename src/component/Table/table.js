@@ -7,7 +7,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Button from '@material-ui/core/Button';
 import util from '../../../utils/util';
 
 const useStyles = makeStyles({
@@ -15,8 +14,18 @@ const useStyles = makeStyles({
     width: '100%',
   },
   container: {
-    maxHeight: 240,
+    maxHeight: 257,
   },
+  bt:{
+    fontFamily:'STKaiti',
+    fontSize: 18,
+    backgroundColor: 'Transparent',
+    backgroundRepeat:'no-repeat',
+    border: 'none',
+    cursor:'pointer',
+    overflow: 'hidden',
+    outline:'none'
+  }
 });
 
 const StyledTableCell = withStyles((theme) => ({
@@ -94,7 +103,7 @@ export default function StickyHeadTable(props) {
                   return <StyledTableCell align="center" key={index}>{value}</StyledTableCell>
                   })
                 }
-                <StyledTableCell align="center"><Button onClick={() => handleClick(row.id)}>删除</Button></StyledTableCell>
+                <StyledTableCell align="center"><button className={classes.bt} onClick={() => handleClick(row.id)}>删除</button></StyledTableCell>
               </StyledTableRow>
               );
             })}
