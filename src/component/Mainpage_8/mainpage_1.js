@@ -23,12 +23,13 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Eight/Eight_2/Build/Eight_2.loader.js", // public下目录
-  dataUrl: "/Eight/Eight_2/Build/Eight_2.data",
-  frameworkUrl: "/Eight/Eight_2/Build/Eight_2.framework.js",
-  codeUrl: "/Eight/Eight_2/Build/Eight_2.wasm",
-  streamingAssetsUrl: "/Eight/Eight_2/StreamingAssets",
+  loaderUrl: "/Eight/Eight_1/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Eight/Eight_1/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Eight/Eight_1/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Eight/Eight_1/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Eight/Eight_1/StreamingAssets",
  });
+
  
  function MainPageUnity(props, parentRef) {
   const classes = useStyles();
@@ -127,6 +128,7 @@ const unityContext = new UnityContext({
                                   id="standard-adornment-weight"
                                   value={inputv["1"]}
                                   onChange={Changeinputv}
+                                  autoComplete='off'
                                   name="1"
                                 />
                               </FormControl>
@@ -136,6 +138,7 @@ const unityContext = new UnityContext({
                                   id="standard-adornment-weight"
                                   value={inputv["2"]}
                                   onChange={Changeinputv}
+                                  autoComplete='off'
                                   name="2"
                                 />
                               </FormControl>

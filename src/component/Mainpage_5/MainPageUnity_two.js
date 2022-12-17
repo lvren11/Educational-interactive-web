@@ -135,6 +135,7 @@ function MainPage_3(props, parentRef) {
                                     id="standard-adornment-weight1"
                                     value={inputv}
                                     onChange={Changeinputv}
+                                    autoComplete='off'
                                     name="1"
                                   />
                                 </FormControl>

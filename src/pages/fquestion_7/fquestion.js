@@ -37,10 +37,10 @@ import {
   }
 
   const unityContext = new UnityContext({
-    loaderUrl: "/Seven/Seven_2/Build/Seven_2.loader.js", // public下目录
-    dataUrl: "/Seven/Seven_2/Build/Seven_2.data",
-    frameworkUrl: "/Seven/Seven_2/Build/Seven_2.framework.js",
-    codeUrl: "/Seven/Seven_2/Build/Seven_2.wasm",
+    loaderUrl: "/Seven/Seven_2/Build/Buildfile.loader.js", // public下目录
+    dataUrl: "/Seven/Seven_2/Build/Buildfile.data.unityweb",
+    frameworkUrl: "/Seven/Seven_2/Build/Buildfile.framework.js.unityweb",
+    codeUrl: "/Seven/Seven_2/Build/Buildfile.wasm.unityweb",
     streamingAssetsUrl: "/Seven/Seven_2/StreamingAssets",
    });
 

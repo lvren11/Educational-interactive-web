@@ -114,6 +114,7 @@ function MainPage_2(props, parentRef) {
                                   value={inputv ? inputv : ""}
                                   onChange={Changeinputv}
                                   aria-describedby="standard-weight-helper-text"
+                                  autoComplete='off'
                                   inputProps={{
                                     'aria-label': 'weight',
                                   }}

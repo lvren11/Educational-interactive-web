@@ -19,11 +19,11 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Seven/Seven_1/Build/Seven_1.loader.js", // public下目录
-  dataUrl: "/Seven/Seven_1/Build/Seven_1.data",
-  frameworkUrl: "/Seven/Seven_1/Build/Seven_1.framework.js",
-  codeUrl: "/Seven/Seven_1/Build/Seven_1.wasm",
-  streamingAssetsUrl: "/Seven/Seven_1/StreamingAssets",
+  loaderUrl: "/Seven/Moni/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Seven/Moni/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Seven/Moni/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Seven/Moni/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Seven/Moni/StreamingAssets",
  });
 
  export default function MainPage(props) {

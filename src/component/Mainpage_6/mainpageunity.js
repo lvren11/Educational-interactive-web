@@ -109,7 +109,7 @@ function MainPageUnity(props, parentRef) {
                                 </Typography>
                                 <Typography variant="h5">
                                 {showhtml(data.maincontent[curpage - 2].addcontent)}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}<br /> 
+                                {showhtml(data.maincontent[curpage - 2].nextsubcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent2}
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleChange}>

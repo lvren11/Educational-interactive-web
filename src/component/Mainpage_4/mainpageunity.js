@@ -120,6 +120,7 @@ function MainPageUnity(props, parentRef) {
                                   value={inputv}
                                   onChange={Changeinputv}
                                   aria-describedby="standard-weight-helper-text"
+                                  autoComplete='off'
                                   inputProps={{
                                     'aria-label': 'weight',
                                   }}

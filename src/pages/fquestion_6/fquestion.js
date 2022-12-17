@@ -62,12 +62,9 @@ export default function Fquestion() {
       unityContext.quitUnityInstance();
       console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
       console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
-      StorageHelper.clear('UseTime');
-      StorageHelper.clear('web_user_id');
-      StorageHelper.clear('web_user');
-      StorageHelper.clear('x-auth-token');
+      StorageHelper.set('UseTime', time);
       //保存log文件
-      router.push('/');
+      router.push('/fquestion_7/fquestion');
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
@@ -175,7 +172,7 @@ export default function Fquestion() {
                       <DialogContent>
                         <DialogContentText id="alert-dialog-description">
                         {page === data[0].allpage ? 
-                        "你确定要结束答题吗？(即将退出界面，重新答题需重新登录。)"
+                        "进入下一题后将不可返回，是否要继续前往？"
                         :
                         page === 1 ? 
                         "该页需熟悉各项操作，无需回答问题，熟练操作后，可点击“下一页”进入答题界面"

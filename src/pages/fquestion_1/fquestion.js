@@ -30,11 +30,11 @@ import {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const unityContext = new UnityContext({
-  loaderUrl: "/First/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/First/Build/Buildfile.data",
-  frameworkUrl: "/First/Build/Buildfile.framework.js",
-  codeUrl: "/First/Build/Buildfile.wasm",
-  streamingAssetsUrl: "/First/StreamingAssets",
+  loaderUrl: "/First/First1/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/First/First1/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/First/First1/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/First/First1/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/First/First1/StreamingAssets",
  });
  
 

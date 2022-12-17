@@ -18,12 +18,13 @@ function showhtml(htmlString){
     return   <div dangerouslySetInnerHTML={html}></div> ;
 } 
 const unityContext = new UnityContext({
-  loaderUrl: "/Eight/Eight_2/Build/Eight_2.loader.js", // public下目录
-  dataUrl: "/Eight/Eight_2/Build/Eight_2.data",
-  frameworkUrl: "/Eight/Eight_2/Build/Eight_2.framework.js",
-  codeUrl: "/Eight/Eight_2/Build/Eight_2.wasm",
-  streamingAssetsUrl: "/Eight/Eight_2/StreamingAssets",
+  loaderUrl: "/Eight/Moni/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Eight/Moni/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Eight/Moni/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Eight/Moni/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Eight/Moni/StreamingAssets",
  });
+
  
 export default function MainPage(props) {
   const classes = useStyles();

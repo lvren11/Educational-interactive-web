@@ -89,7 +89,7 @@ export default function Login() {
         StorageHelper.set('web_user', formValues.snumber);
         StorageHelper.set('web_user_file', formValues.grade + "_" + formValues.sex + "_"  + formValues.name);
         StorageHelper.set('x-auth-token', response.data.token);
-        router.push('/fquestion_2/fquestion');
+        router.push('/fquestion_1/fquestion');
       }
     }).catch(function(error){
         console.log("error:",error)
@@ -139,7 +139,7 @@ export default function Login() {
               id="school"
               label="学校名称"
               name="school"
-              autoComplete="school"
+              autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
@@ -151,7 +151,7 @@ export default function Login() {
               id="snumber"
               label="学号"
               name="snumber"
-              autoComplete="snumber"
+              autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
@@ -163,7 +163,7 @@ export default function Login() {
               id="grade"
               label="年级"
               name="grade"
-              autoComplete="grade"
+              autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
@@ -175,7 +175,7 @@ export default function Login() {
               id="class"
               label="班级"
               name="class"
-              autoComplete="class"
+              autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
@@ -187,7 +187,7 @@ export default function Login() {
               id="sex"
               label="性别"
               name="sex"
-              autoComplete="sex"
+              autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
@@ -199,7 +199,7 @@ export default function Login() {
               name="name"
               label="姓名"
               id="name"
-              autoComplete="name"
+              autoComplete="off"
               onChange={e => handleChange(e)}
             />
             <Button

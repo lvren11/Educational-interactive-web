@@ -18,11 +18,11 @@ function showhtml(htmlString){
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
 const unityContext = new UnityContext({
-  loaderUrl: "/First/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/First/Build/Buildfile.data",
-  frameworkUrl: "/First/Build/Buildfile.framework.js",
-  codeUrl: "/First/Build/Buildfile.wasm",
-  streamingAssetsUrl: "/First/StreamingAssets",
+  loaderUrl: "/First/First/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/First/First/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/First/First/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/First/First/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/First/First/StreamingAssets",
  });
  
 export default function MainPage(props) {

@@ -23,10 +23,10 @@ function showhtml(htmlString){
 }
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Seven/Seven_1/Build/Seven_1.loader.js", // public下目录
-  dataUrl: "/Seven/Seven_1/Build/Seven_1.data",
-  frameworkUrl: "/Seven/Seven_1/Build/Seven_1.framework.js",
-  codeUrl: "/Seven/Seven_1/Build/Seven_1.wasm",
+  loaderUrl: "/Seven/Seven_1/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Seven/Seven_1/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Seven/Seven_1/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Seven/Seven_1/Build/Buildfile.wasm.unityweb",
   streamingAssetsUrl: "/Seven/Seven_1/StreamingAssets",
  });
  
@@ -126,6 +126,7 @@ const unityContext = new UnityContext({
                                   id="standard-adornment-weight"
                                   value={inputv["5"]}
                                   onChange={Changeinputv}
+                                  autoComplete='off'
                                   name="5"
                                 />
                               </FormControl>
@@ -135,6 +136,7 @@ const unityContext = new UnityContext({
                                   id="standard-adornment-weight"
                                   value={inputv["6"]}
                                   onChange={Changeinputv}
+                                  autoComplete='off'
                                   name="6"
                                 />
                               </FormControl>
