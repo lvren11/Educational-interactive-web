@@ -36,33 +36,24 @@ const unityContext = new UnityContext({
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
-  const [isAnswer, setisAnswer] = React.useState(false);
-  const [a,seta] = React.useState(false);
-  const [b,setb] = React.useState(false);
-  const [inputv, setinputv] = useState({"1":"","2":""});
-  let dicttoname = {"1":"第一个下划线","2":"第二个下划线"};
+  const [isAnswer] = React.useState(false);
+  const [inputv, setinputv] = useState("");
+  const [inputv2, setinputv2] = useState("");
 
   const Changeinputv = (e) =>{
-    setinputv({ ...inputv, [e.target.name]: e.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[e.target.name] + "答案：" + e.target.value);
-    if(e.target.name === "1"){
-      seta(true);
-    }else{
-      setb(true);
-    }
+    setinputv(e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第一个下划线答案：" + e.target.value);
   };
 
-  useEffect(() => {
-    if(a === true && b === true){
-      setisAnswer(true);
-    }
-  },[a,b]);
-
+  const Changeinputv2 = (e) =>{
+    setinputv2(e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第二个下划线答案：" + e.target.value);
+  };
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer,inputv,inputv2
     }
   });
 
@@ -108,7 +99,7 @@ const unityContext = new UnityContext({
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -126,20 +117,20 @@ const unityContext = new UnityContext({
                                 <FormControl>
                                 <BootLineInput
                                   id="standard-adornment-weight"
-                                  value={inputv["1"]}
+                                  value={inputv ? inputv : ""}
                                   onChange={Changeinputv}
                                   autoComplete='off'
-                                  name="1"
+                                  name="input1"
                                 />
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
                               <FormControl>
                                 <BootLineInput
                                   id="standard-adornment-weight"
-                                  value={inputv["2"]}
-                                  onChange={Changeinputv}
+                                  value={inputv2 ? inputv2 : ""}
+                                  onChange={Changeinputv2}
                                   autoComplete='off'
-                                  name="2"
+                                  name="input2"
                                 />
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent3}

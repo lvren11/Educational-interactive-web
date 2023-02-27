@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import NativeSelect from '@material-ui/core/NativeSelect';
 import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
@@ -14,6 +15,7 @@ import util from '../../../utils/util';
 import {
   theme,
   useStyles,
+  BootstrapInput,
   BootLineInput
 } from '../../assets/css/Main_css';
 
@@ -36,31 +38,24 @@ const unityContext = new UnityContext({
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  const [a,seta] = React.useState(false);
-  const [b,setb] = React.useState(false);
-  const [inputv, setinputv] = useState({"5":"","6":""});
-  let dicttoname = {"5":"第一个下划线","6":"第二个下划线"};
-  const Changeinputv = (e) =>{
-    setinputv({ ...inputv, [e.target.name]: e.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[e.target.name] + "答案：" + e.target.value);
-    if(e.target.name === "5"){
-      seta(true);
-    }else{
-      setb(true);
-    }
+  const [inputv, setinputv] = useState("");
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    setisAnswer(true);
   };
 
-  useEffect(() => {
-    if(a === true && b === true){
-      setisAnswer(true);
-    }
-  },[a,b]);
-
+  const Changeinputv = (e) =>{
+    setinputv(e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+  };
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer,inputv
     }
   });
 
@@ -106,7 +101,7 @@ const unityContext = new UnityContext({
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -121,23 +116,29 @@ const unityContext = new UnityContext({
                                 </Typography>
                                 <Typography variant="h5">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
-                                <FormControl>
-                                <BootLineInput
-                                  id="standard-adornment-weight"
-                                  value={inputv["5"]}
-                                  onChange={Changeinputv}
-                                  autoComplete='off'
-                                  name="5"
-                                />
-                              </FormControl>
+                                <FormControl className={classes.formControl}>
+                                  <NativeSelect
+                                    value={age}
+                                    onChange={handleChange}
+                                    className={classes.selectEmpty}
+                                    input={<BootstrapInput />}
+                                  >
+                                    <option value="" disabled>下拉选择</option>
+                                    {
+                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                        return <option value={name} key={index}>{name}</option>
+                                        })
+                                    }
+                                  </NativeSelect>
+                                </FormControl>
                               {data.maincontent[curpage - 2].subcontent2}
                               <FormControl>
                                 <BootLineInput
                                   id="standard-adornment-weight"
-                                  value={inputv["6"]}
+                                  value={inputv ? inputv : ""}
                                   onChange={Changeinputv}
                                   autoComplete='off'
-                                  name="6"
+                                  name="xingqiu"
                                 />
                               </FormControl>
                               {data.maincontent[curpage - 2].subcontent3}

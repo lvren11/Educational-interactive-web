@@ -10,12 +10,13 @@
              "subtitle":"2.模拟练习",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟汽车在不同情况下的刹车过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>速度</b>”滑块，可以调整刹车前的速度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>天气</b>”滑块，可以选择天气情况；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.移动“<b>路面</b>”滑块，可以改变路面情况；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>试验</b>”按钮，将模拟汽车开始刹车后的减速过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录刹车距离，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
              "finalcontent":"作答完成后，请点击“下一页”按钮。",
+             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟汽车在不同情况下的刹车过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>速度</b>”滑块，可以调整刹车前的速度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>天气</b>”滑块，可以选择天气情况；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.移动“<b>路面</b>”滑块，可以改变路面情况；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>试验</b>”按钮，将模拟汽车开始刹车后的减速过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录刹车距离，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。",
              "type":0
             },
             {
              "subtitle":"3.解决问题(3-1aF)",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
-             "nextsubcontent":"若长途汽车在行驶途中先后经过水泥路、柏油路、沙石路。那么，在40km/h，晴天条件下，尤其需要注意防止刹车追尾的是什么路段？",
+             "nextsubcontent":"若长途汽车在行驶途中先后经过水泥路、柏油路、沙石路。那么，在相同车况和天气下，尤其需要注意防止刹车追尾的是什么路段？",
              "subcontent2":"路段。",
              "value":["水泥路","柏油","沙石路"],
              "finalcontent":"作答完成后，请点击“下一页”按钮。",
@@ -40,7 +41,7 @@
              "subtitle":"解决问题(18-2anF)",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
              "nextsubcontent":"在冰雪天气下，当司机在柏油路上行驶时，下列哪幅图可以体现车速对刹车距离的影响？",
-             "finalcontent":"作答完成后，请点击“下一页”按钮。",
+             "finalcontent":"作答完成后，请点击“下一题”按钮。",
              "type":3
             }
  

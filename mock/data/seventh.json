@@ -9,14 +9,16 @@
             {
              "subtitle":"2.模拟练习",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟航天器绕星球飞行的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>星球</b>”滑块，可以调整星球的类型；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>半径</b>”滑块，可以调整绕行半径的大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟航天器绕星球飞行的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟航天器绕星球飞行的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>星球</b>”滑块，可以调整星球的类型；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>半径</b>”滑块，可以调整绕行半径的大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟航天器绕星球飞行的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。",
              "type":0
             },
             {
              "subtitle":"3.解决问题(-2anC)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处，填写你的作答结果。<br /><br />",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处和点击“下拉选择”，填写你的作答结果。<br /><br />",
              "nextsubcontent":"在该模拟中，若航天器的飞行速度保持不变，那么，为了保证安全，该航天器适合绕行的星球为",
              "subcontent2":"，宜将其放置在半径为",
-             "subcontent3":"的位置上。",
+             "subcontent3":"×10³km的位置上。",
+             "value":["地球","月球","火星"],
              "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":1
             },
@@ -28,7 +30,7 @@
              "subcontent3":"。",
              "value":["大","小"],
              "value2":["大","小"],
-             "finalcontent":"作答完成后，请点击“下一页”按钮。",
+             "finalcontent":"作答完成后，请点击“下一题”按钮。",
              "type":2
             }
         ]

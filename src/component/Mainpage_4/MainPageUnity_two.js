@@ -11,6 +11,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
+import example from '../../assets/another/fouth.png';
 import {
   theme,
   useStyles,
@@ -34,20 +35,36 @@ function MainPageUnity(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  const [age, setAge] = React.useState({});
+  const [age, setAge] = React.useState('');
+  const [age2, setAge2] = React.useState('');
+  const [age3, setAge3] = React.useState('');
+  const [age4, setAge4] = React.useState('');
 
-  let dicttoname = {"5":"A","6":"B","7":"C","8":"D"};
   const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
+    setAge(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "A答案：" + event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setAge2(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "B答案：" + event.target.value);
+  };
+
+  const handleChange3 = (event) => {
+    setAge3(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "C答案：" + event.target.value);
+  };
+
+  const handleChange4 = (event) => {
+    setAge4(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "D答案：" + event.target.value);
   };
 
   useEffect(() => {
-    let arr = Object.keys(age); 
-    if(arr.length === 4){
+    if(age !== '' && age2 !== '' && age3 !== '' && age4 !== ''){
       setisAnswer(true);
     }
-  },[age]);
+  },[age,age2,age3,age4]);
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
@@ -97,7 +114,7 @@ function MainPageUnity(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -107,6 +124,12 @@ function MainPageUnity(props, parentRef) {
                               case 1:break;
                               case 2:return (
                                 <>
+                                <Typography variant="h5">
+                                  {showhtml(data.maincontent[curpage - 2].addcontent)}
+                                </Typography>
+                                <div className={classes.exampleimgbox}>
+                                  <img src={example} className={classes.exampleimg} alt="example"/>
+                                </div>
                                 <Typography variant="h6">
                                   {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 </Typography>
@@ -118,13 +141,13 @@ function MainPageUnity(props, parentRef) {
                                       <div className={classes.paper2}>A:
                                         <FormControl className={classes.formControl}>
                                           <NativeSelect
-                                            value={age[String(curpage)]}
+                                            value={age}
                                             onChange={handleChange}
-                                            name={String(curpage)}
+                                            name='A'
                                             className={classes.selectEmpty}
                                             input={<BootstrapInput />}
                                           >
-                                            <option value="">下拉选择</option>
+                                            <option value="" disabled>下拉选择</option>
                                             {
                                               data.maincontent[curpage - 2].value.map(function(name,index){
                                                 return <option value={name} key={index}>{name}</option>
@@ -138,13 +161,13 @@ function MainPageUnity(props, parentRef) {
                                       <div className={classes.paper2}>B:
                                         <FormControl className={classes.formControl}>
                                           <NativeSelect
-                                            value={age[String(curpage+1)]}
-                                            onChange={handleChange}
-                                            name={String(curpage+1)}
+                                            value={age2}
+                                            onChange={handleChange2}
+                                            name='B'
                                             className={classes.selectEmpty}
                                             input={<BootstrapInput />}
                                           >
-                                            <option value="">下拉选择</option>
+                                            <option value="" disabled>下拉选择</option>
                                             {
                                               data.maincontent[curpage - 2].value.map(function(name,index){
                                                 return <option value={name} key={index}>{name}</option>
@@ -158,13 +181,13 @@ function MainPageUnity(props, parentRef) {
                                       <div className={classes.paper2}>C:
                                         <FormControl className={classes.formControl}>
                                           <NativeSelect
-                                            value={age[String(curpage+2)]}
-                                            onChange={handleChange}
-                                            name={String(curpage+2)}
+                                            value={age3}
+                                            onChange={handleChange3}
+                                            name='C'
                                             className={classes.selectEmpty}
                                             input={<BootstrapInput />}
                                           >
-                                            <option value="">下拉选择</option>
+                                            <option value="" disabled>下拉选择</option>
                                             {
                                               data.maincontent[curpage - 2].value.map(function(name,index){
                                                 return <option value={name} key={index}>{name}</option>
@@ -178,13 +201,13 @@ function MainPageUnity(props, parentRef) {
                                       <div className={classes.paper2}>D:
                                         <FormControl className={classes.formControl}>
                                           <NativeSelect
-                                            value={age[String(curpage+3)]}
-                                            onChange={handleChange}
-                                            name={String(curpage+3)}
+                                            value={age4}
+                                            onChange={handleChange4}
+                                            name='D'
                                             className={classes.selectEmpty}
                                             input={<BootstrapInput />}
                                           >
-                                            <option value="">下拉选择</option>
+                                            <option value="" disabled>下拉选择</option>
                                             {
                                               data.maincontent[curpage - 2].value.map(function(name,index){
                                                 return <option value={name} key={index}>{name}</option>

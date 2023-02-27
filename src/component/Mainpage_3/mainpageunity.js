@@ -171,7 +171,7 @@ export default function MainPageUnity(props) {
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    {/* <option value="">下拉选择</option> */}
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -188,7 +188,7 @@ export default function MainPageUnity(props) {
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    {/* <option value="">下拉选择</option> */}
                                     {
                                       data.maincontent[curpage - 2].value2.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>

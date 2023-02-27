@@ -28,21 +28,39 @@ function MainPage(props, parentRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
-  const [age, setAge] = React.useState({});
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  let dicttoname = {"4":"第一个下拉","5":"第二个下拉","6":"第三个下拉","7":"第四个下拉"}
+  const [age, setAge] = React.useState('');
+  const [age2, setAge2] = React.useState('');
+  const [age3, setAge3] = React.useState('');
+  const [age4, setAge4] = React.useState('');
+
   const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
+    setAge(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第一个下拉答案：" + event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setAge2(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第二个下拉答案：" + event.target.value);
+  };
+
+  const handleChange3 = (event) => {
+    setAge3(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第三个下拉答案：" + event.target.value);
+  };
+
+  const handleChange4 = (event) => {
+    setAge4(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第四个下拉答案：" + event.target.value);
   };
 
   useEffect(() => {
-    let arr = Object.keys(age); 
-    if(arr.length === 4){
+    if(age !== '' && age2 !== '' && age3 !== '' && age4 !== ''){
       setisAnswer(true);
     }
-  },[age]);
+  },[age,age2,age3,age4]);
+
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
@@ -84,7 +102,7 @@ function MainPage(props, parentRef) {
         </div>
         </div>
         <Paper className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
                   <div className={classes.buju1}>
@@ -96,21 +114,23 @@ function MainPage(props, parentRef) {
                               case 3:break;
                               case 4:return (
                                 <>
+                                <Typography variant="h5">
+                                  {showhtml(data.maincontent[curpage - 2].addcontent)}
+                                </Typography>
                                 <Typography variant="h6">
                                   {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 </Typography>
                                 <Typography variant="h5">
-                                {showhtml(data.maincontent[curpage - 2].addcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={age[String(curpage)]}
+                                    value={age}
                                     onChange={handleChange}
-                                    name={String(curpage)}
+                                    name='first'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -121,13 +141,13 @@ function MainPage(props, parentRef) {
                                 {data.maincontent[curpage - 2].subcontent2}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={String(age[curpage+1])}
-                                    onChange={handleChange}
-                                    name={String(curpage+1)}
+                                    value={age2}
+                                    onChange={handleChange2}
+                                    name='second'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -138,13 +158,13 @@ function MainPage(props, parentRef) {
                                 {data.maincontent[curpage - 2].subcontent3}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={String(age[curpage+2])}
-                                    onChange={handleChange}
-                                    name={String(curpage+2)}
+                                    value={age3}
+                                    onChange={handleChange3}
+                                    name='third'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -155,13 +175,13 @@ function MainPage(props, parentRef) {
                                 {data.maincontent[curpage - 2].subcontent4}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={String(age[curpage+3])}
-                                    onChange={handleChange}
-                                    name={String(curpage+3)}
+                                    value={age4}
+                                    onChange={handleChange4}
+                                    name='fourth'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>

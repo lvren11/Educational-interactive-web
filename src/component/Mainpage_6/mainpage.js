@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect , useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -24,11 +24,12 @@ const unityContext = new UnityContext({
   codeUrl: "/Sixth/sixth_2/Build/sixth_2.wasm.unityweb",
   streamingAssetsUrl: "/Sixth/sixth_2/StreamingAssets",
  });
-export default function MainPage(props) {
+function MainPage(props,emuRef) {
   const classes = useStyles();
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
+  const [sfinal, setfinal] = React.useState(false);
 
   useEffect(() => {
     window.alert = console.log;
@@ -54,7 +55,21 @@ export default function MainPage(props) {
       });
   }, []);
 
+  useEffect(function () {
+    unityContext.on("ConfirmSignal", function (temp) { // 监听GameOver事件
+      if(temp === "over"){
+        setfinal(true);
+      }
+    })
+  }, []);
 
+  useImperativeHandle(emuRef, () => {
+    // return返回的值就可以被父组件获取到
+    return {
+      sfinal
+    }
+  });
+  
   return (
     <Grid container spacing={1}>
       <CssBaseline />
@@ -105,3 +120,5 @@ export default function MainPage(props) {
     </Grid>
   );
 }
+
+export default forwardRef(MainPage);

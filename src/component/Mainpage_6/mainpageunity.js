@@ -93,7 +93,7 @@ function MainPageUnity(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -104,11 +104,13 @@ function MainPageUnity(props, parentRef) {
                               case 2:break;
                               case 3:return (
                                 <>
+                                <Typography variant="h5">
+                                  {showhtml(data.maincontent[curpage - 2].addcontent)}
+                                </Typography>
                                 <Typography variant="h6">
                                   {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 </Typography>
                                 <Typography variant="h5">
-                                {showhtml(data.maincontent[curpage - 2].addcontent)}
                                 {showhtml(data.maincontent[curpage - 2].nextsubcontent)}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].subcontent2}
                                 <FormControl component="fieldset" className={classes.radiocss}>

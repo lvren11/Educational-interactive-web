@@ -13,6 +13,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
+import example from '../../assets/another/fouth.png';
 import {
   theme,
   useStyles
@@ -76,7 +77,7 @@ function MainPageUnity(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -87,11 +88,17 @@ function MainPageUnity(props, parentRef) {
                               case 2:break;
                               case 3:return (
                                 <>
+                                <Typography variant="h5">
+                                  {showhtml(data.maincontent[curpage - 2].addcontent)}
+                                </Typography>
+                                <div className={classes.exampleimgbox}>
+                                  <img src={example} className={classes.exampleimg} alt="example"/>
+                                </div>
                                 <Typography variant="h6">
                                   {showhtml(data.maincontent[curpage - 2].subcontent)}
                                 </Typography>
                                 <Typography variant="h5">
-                                {showhtml(data.maincontent[curpage - 2].nextcontent)}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleRadio}>
                                     <div className={classes.oneRadio}>

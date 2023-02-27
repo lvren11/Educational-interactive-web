@@ -11,6 +11,8 @@ export const dva = {
 };
 let begin_log = false;
 let log_value = [];
+var date = new Date();
+var year = date.getFullYear();
 console.log = (function (oriLogFunc) {
   return function () {
     //判断配置文件是否开启日志调试
@@ -44,7 +46,7 @@ console.log = (function (oriLogFunc) {
           begin_log = true;
         }
         if(begin_log){
-          let islogget = _log.split("/")[0] === "2022" ? true : false;
+          let islogget = _log.split("/")[0] === String(year) ? true : false;
           if(islogget){
             log_value.push(_log);
           }

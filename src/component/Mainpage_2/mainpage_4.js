@@ -80,7 +80,7 @@ function MainPage(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
                   <div className={classes.buju1}>

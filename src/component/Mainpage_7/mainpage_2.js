@@ -29,20 +29,23 @@ function showhtml(htmlString){
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  const [age, setAge] = React.useState({});
+  const [age, setAge] = React.useState('');
+  const [age2, setAge2] = React.useState('');
 
-  let dicttoname = {"4":"第一个下拉","5":"第二个下拉"}
-  const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
-    console.log(util.timetoformat() + "页" + curpage + dicttoname[event.target.name] + "答案：" + event.target.value);
+  const handleChange1 = (event) => {
+    setAge(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第一个下拉答案：" + event.target.value);
+  };
+  const handleChange2 = (event) => {
+    setAge2(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第二个下拉答案：" + event.target.value);
   };
 
   useEffect(() => {
-    let arr = Object.keys(age); 
-    if(arr.length === 2){
+    if(age !== '' && age2 !== ''){
       setisAnswer(true);
     }
-  },[age]);
+  },[age,age2]); 
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
@@ -83,7 +86,7 @@ function showhtml(htmlString){
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -100,13 +103,13 @@ function showhtml(htmlString){
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={age[String(curpage)]}
-                                    onChange={handleChange}
+                                    value={age}
+                                    onChange={handleChange1}
                                     name={String(curpage)}
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -114,16 +117,16 @@ function showhtml(htmlString){
                                     }
                                   </NativeSelect>
                                 </FormControl>
-                              {data.maincontent[curpage - 2].subcontent2}
+                                {data.maincontent[curpage - 2].subcontent2}
                                 <FormControl className={classes.formControl}>
                                   <NativeSelect
-                                    value={age[String(curpage+1)]}
-                                    onChange={handleChange}
+                                    value={age2}
+                                    onChange={handleChange2}
                                     name={String(curpage+1)}
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value2.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>

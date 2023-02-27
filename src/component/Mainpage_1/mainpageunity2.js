@@ -29,11 +29,11 @@ function MainPageUnity(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
-  const [age, setAge] = React.useState({});
+  const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
-    setAge({ ...age, [event.target.name]: event.target.value});
-    console.log(util.timetoformat() + "页" + event.target.name + "答案：" + event.target.value);
+    setAge(event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
     setisAnswer(true);
   };
 
@@ -76,7 +76,7 @@ function MainPageUnity(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
                   <div className={classes.buju1}>
@@ -92,13 +92,13 @@ function MainPageUnity(props, parentRef) {
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].nextsubcontent} 
                                     <FormControl className={classes.formControl}>
                                       <NativeSelect
-                                        value={age[String(curpage)]}
+                                        value={age}
                                         onChange={handleChange}
                                         name={String(curpage)}
                                         className={classes.selectEmpty}
                                         input={<BootstrapInput />}
                                       >
-                                        <option value="">下拉选择</option>
+                                        <option value="" disabled >下拉选择</option>
                                         {
                                           data.maincontent[curpage - 2].value.map(function(name,index){
                                             return <option value={name} key={index}>{name}</option>

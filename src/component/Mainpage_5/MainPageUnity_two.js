@@ -31,33 +31,24 @@ function MainPage_3(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [inputv, setinputv] = useState("");
-  const [age, setAge] = React.useState();
-  const [a,seta] = React.useState(false);
-  const [b,setb] = React.useState(false);
+  const [age, setAge] = React.useState('');
   const [isAnswer, setisAnswer] = React.useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
-    seta(true);
+    setisAnswer(true);
   };
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
     console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
-    setb(true);
   };
-
-  useEffect(() => {
-    if(a === true && b === true){
-      setisAnswer(true);
-    }
-  },[a,b]);
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer,inputv
     }
   });
 
@@ -97,7 +88,7 @@ function MainPage_3(props, parentRef) {
         </div>
         </div>
         <Paper className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
                 <ThemeProvider theme={theme}>
                   <div className={classes.buju1}>
@@ -121,7 +112,7 @@ function MainPage_3(props, parentRef) {
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
                                   >
-                                    <option value="">下拉选择</option>
+                                    <option value="" disabled>下拉选择</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -133,10 +124,10 @@ function MainPage_3(props, parentRef) {
                                 <FormControl>
                                   <BootLineInput
                                     id="standard-adornment-weight1"
-                                    value={inputv}
+                                    value={inputv ? inputv : ""}
                                     onChange={Changeinputv}
                                     autoComplete='off'
-                                    name="1"
+                                    name="fg"
                                   />
                                 </FormControl>
                                 {data.maincontent[curpage - 2].subcontent3}

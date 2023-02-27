@@ -48,7 +48,7 @@ function MainPageUnity(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer,inputv
     }
   });
 
@@ -94,7 +94,7 @@ function MainPageUnity(props, parentRef) {
         </div>
         </div>
         <div className={classes.ccolor}>
-          <Accordingextend data={data.maincontent[0].subcontent}/>
+          <Accordingextend data={data.maincontent[0].tips}/>
             <div className={classes.title}>
             <ThemeProvider theme={theme}>
               <div className={classes.buju1}>
@@ -117,7 +117,7 @@ function MainPageUnity(props, parentRef) {
                                 <FormControl>
                                 <BootLineInput
                                   id="standard-adornment-weight"
-                                  value={inputv}
+                                  value={inputv ? inputv : ""}
                                   onChange={Changeinputv}
                                   aria-describedby="standard-weight-helper-text"
                                   autoComplete='off'

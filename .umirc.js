@@ -77,6 +77,14 @@ export default {
         { path: '/fquestion_8/fquestion', component: '../pages/fquestion_8/fquestion' },
       ]
     },
+    {
+      path: '/fquestion_9',
+      
+      component: '../layouts/Qlayout.js',
+      routes: [
+        { path: '/fquestion_9/fquestion', component: '../pages/fquestion_9/fquestion' },
+      ]
+    },
   ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
@@ -100,8 +108,8 @@ export default {
   ],
   proxy: {
     '/api': {
-      // target: 'http://121.37.141.88:8081/',
-      target: 'http://127.0.0.1:8081/',
+      target: 'http://121.37.141.88:8081/',
+      // target: 'http://127.0.0.1:8081/',
       pathRewrite: { '^/api': '' },
       changeOrigin: true
     }

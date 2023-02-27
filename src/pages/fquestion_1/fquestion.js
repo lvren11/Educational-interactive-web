@@ -46,14 +46,23 @@ const listener = e => {
 export default function Fquestion() {
   const classes = useStyles();
   const parentRef = useRef();
+  const emuRef = useRef();
   const pretime = StorageHelper.get('UseTime');
   const [time, settime] = React.useState(Number(pretime));
   const [page, setPage] = React.useState(1);
   const [open, setOpen] = React.useState(false);
   const [isNext, setisNext] = React.useState(false);
+  const [tipsopen,setTipsopen] = React.useState(true);
+  const [isover,setisover] = React.useState(false);
 
+  const TipsClose = () =>{
+    setTipsopen(false);
+  };
   const handleClose = () => {
     setOpen(false);
+    setTimeout(() => {
+      setisNext(false);
+    }, 500);
   };
   const handleagree = () =>{
     setOpen(false);
@@ -76,27 +85,25 @@ export default function Fquestion() {
       if(page > 2){
         console.log(util.timetoformat() + "进入第（" + (page - 1) + "）小题的问题解决页面");
       }
-      if(page === 1){
-        setTimeout(() => {
-          setPage(page+1);
-        }, 200);
-      }else{
-        setPage(page+1);
-      }
       setTimeout(() => {
         setisNext(false);
-      }, 500);
+      }, 200);
+      setTimeout(() => {
+        setPage(page+1);
+      }, 200);
     }
   };
 
   const handleNext = (page) => {
     if(page === 1){
       console.log("不记录");
-      setOpen(true);
-      setisNext(true);
+      // setOpen(true);
+      // setisNext(true);
+      setPage(page+1);
     }
     else if(page === 2){
       setOpen(true);
+      setisover(emuRef.current.sfinal);
       setisNext(true);
     }else{
       setOpen(true);
@@ -109,7 +116,7 @@ export default function Fquestion() {
     if(page === 1){
       return <Intro data = {data[0]}/>
     }else if(page === 2){
-      return <MainPage data = {data[0]} page = {page}/>
+      return <MainPage ref={emuRef} data = {data[0]} page = {page}/>
     }else if(page === 3){
       return <MainPageUnity ref={parentRef} data = {data[0]} page = {page}/>
     }else{
@@ -155,51 +162,95 @@ export default function Fquestion() {
               <Grid item xs={4}>
                 <ThemeProvider theme={theme}>
                   <Button variant="outlined" className={classes.button} color="primary" onClick={() => handleNext(page)}>{page === data[0].allpage ? "下一题":"下一页"}</Button>
-                  <Dialog
+                  {
+                    page === 2 ?
+                    <Dialog
+                    open={tipsopen}
+                    onClose={TipsClose}
+                    aria-labelledby="tips-dialog-title"
+                    aria-describedby="tips-dialog-description"
+                    >
+                    <DialogTitle id="tips-dialog-title">{"提示："}</DialogTitle>
+                      <DialogContent>
+                        <DialogContentText id="tips-desc">
+                          该页需熟悉各项操作，无需回答问题，熟练操作后，可点击“下一页”进入答题界面
+                        </DialogContentText>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={TipsClose} color="primary">
+                          确认
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                    :""
+                  }
+                  {
+                    isover === false ? 
+                    <Dialog
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
-                  >
-                    <DialogTitle id="alert-dialog-title">{"提示："}</DialogTitle>
-                    {
-                      isNext === false ? 
+                    > 
+                      <DialogTitle id="alert-dialog-title">{"注意："}</DialogTitle>
                       <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                          请回答问题！回答问题后才能进入下一页。
+                          应当要全部操作完才可点击进入下一页
                         </DialogContentText>
                       </DialogContent>
-                      :
-                      <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                        {page === data[0].allpage ? 
-                        "进入下一题后将不可返回，是否要继续前往？"
-                        :
-                        page === 1 ? 
-                        "该页需熟悉各项操作，无需回答问题，熟练操作后，可点击“下一页”进入答题界面"
-                        :
-                        "进入下一页后将不可返回，是否要继续前往？"}
-                        </DialogContentText>
-                      </DialogContent>
-                    }
-                    {
-                      isNext === false ? 
                       <DialogActions>
                         <Button onClick={handleClose} color="primary">
                         返回任务
                         </Button>
                       </DialogActions>
-                      :
-                      <DialogActions>
-                        <Button onClick={handleClose} color="primary">
-                        返回任务
-                        </Button>
-                        <Button onClick={handleagree} color="primary" autoFocus>
-                        继续前往
-                        </Button>
-                      </DialogActions>
-                    }
-                  </Dialog>
+                    </Dialog>
+                    :
+                    <Dialog
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="alert-dialog-title"
+                      aria-describedby="alert-dialog-description"
+                    >
+                      <DialogTitle id="alert-dialog-title">{"提示："}</DialogTitle>
+                      {
+                        isNext === false ? 
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description">
+                          {page === data[0].allpage ? 
+                          "请回答问题！回答问题后才能进入下一题。"
+                          :
+                          "请回答问题！回答问题后才能进入下一页。"}
+                          </DialogContentText>
+                        </DialogContent>
+                        :
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description">
+                          {page === data[0].allpage ? 
+                          "进入下一题后将不可返回，是否要继续前往？"
+                          :
+                          "进入下一页后将不可返回，是否要继续前往？"}
+                          </DialogContentText>
+                        </DialogContent>
+                      }
+                      {
+                        isNext === false ? 
+                        <DialogActions>
+                          <Button onClick={handleClose} color="primary">
+                          返回任务
+                          </Button>
+                        </DialogActions>
+                        :
+                        <DialogActions>
+                          <Button onClick={handleClose} color="primary">
+                          返回任务
+                          </Button>
+                          <Button onClick={handleagree} color="primary" autoFocus>
+                          继续前往
+                          </Button>
+                        </DialogActions>
+                      }
+                    </Dialog>
+                  }
                 </ThemeProvider>
               </Grid>
             </Grid>
