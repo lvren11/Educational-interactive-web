@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
+import React, { useEffect, useRef, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -30,6 +30,8 @@ function MainPageUnity(props, parentRef) {
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState('');
+  const domRef = useRef();
+  const [downselect, setdown] = React.useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -43,6 +45,21 @@ function MainPageUnity(props, parentRef) {
       isAnswer
     }
   });
+
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+        var _a;
+        // 判断用户点击的对象是否在DOM节点内部
+        if ((_a = domRef.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+            setdown(true);
+            return;
+        }
+    };
+    document.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+        document.removeEventListener("mousedown", handleClickOutSide);
+    };
+}, []);
 
   useEffect(function () {
     let id = 0;
@@ -97,8 +114,9 @@ function MainPageUnity(props, parentRef) {
                                         name={String(curpage)}
                                         className={classes.selectEmpty}
                                         input={<BootstrapInput />}
+                                        ref={domRef}
                                       >
-                                        <option value="" disabled >下拉选择</option>
+                                        <option value="" disabled >{downselect ? "" : "下拉选择"}</option>
                                         {
                                           data.maincontent[curpage - 2].value.map(function(name,index){
                                             return <option value={name} key={index}>{name}</option>

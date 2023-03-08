@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useImperativeHandle, forwardRef}from 'react';
+import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -33,6 +33,8 @@ function MainPage_3(props, parentRef) {
   const [inputv, setinputv] = useState("");
   const [age, setAge] = React.useState('');
   const [isAnswer, setisAnswer] = React.useState(false);
+  const domRef = useRef();
+  const [downselect, setdown] = React.useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -70,6 +72,22 @@ function MainPage_3(props, parentRef) {
       }));
       });
   }, [props.unityContext]);
+
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+        var _a;
+        // 判断用户点击的对象是否在DOM节点内部
+        if ((_a = domRef.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+            setdown(true);
+            return;
+        }
+    };
+    document.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+        document.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
+
 
   return (
     <Grid container spacing={1}>
@@ -111,8 +129,9 @@ function MainPage_3(props, parentRef) {
                                     onChange={handleChange}
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
+                                    ref={domRef}
                                   >
-                                    <option value="" disabled>下拉选择</option>
+                                    <option value="" disabled >{downselect ? "" : "下拉选择"}</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>

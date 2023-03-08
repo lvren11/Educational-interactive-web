@@ -73,7 +73,7 @@ export default function Fquestion() {
       console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
       StorageHelper.set('UseTime', time);
       //保存log文件
-      router.push('/fquestion_7/fquestion');
+      router.push('/fquestion_5/fquestion');
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");

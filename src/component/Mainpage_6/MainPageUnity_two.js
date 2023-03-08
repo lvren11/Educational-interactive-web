@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, forwardRef}from 'react';
+import React, { useEffect, useRef, useImperativeHandle, forwardRef}from 'react';
 // import { useForm } from 'react-hook-form';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,6 +34,15 @@ function MainPage(props, parentRef) {
   const [age2, setAge2] = React.useState('');
   const [age3, setAge3] = React.useState('');
   const [age4, setAge4] = React.useState('');
+  const domRef = useRef();
+  const [downselect, setdown] = React.useState(false);
+  const domRef1 = useRef();
+  const [downselect1, setdown1] = React.useState(false);
+  const domRef2 = useRef();
+  const [downselect2, setdown2] = React.useState(false);
+  const domRef3 = useRef();
+  const [downselect3, setdown3] = React.useState(false);
+
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -85,6 +94,33 @@ function MainPage(props, parentRef) {
       });
     }, [props.unityContext]);
 
+    useEffect(() => {
+      const handleClickOutSide = (e) => {
+          var _a;
+          // 判断用户点击的对象是否在DOM节点内部
+          if ((_a = domRef.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+              setdown(true);
+              return;
+          }
+          if ((_a = domRef1.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+            setdown1(true);
+            return;
+          }
+          if ((_a = domRef2.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+            setdown2(true);
+            return;
+          }
+          if ((_a = domRef3.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+            setdown3(true);
+            return;
+          }
+      };
+      document.addEventListener("mousedown", handleClickOutSide);
+      return () => {
+          document.removeEventListener("mousedown", handleClickOutSide);
+      };
+  }, []);
+
   return (
     <Grid container spacing={1}>
       <CssBaseline />
@@ -129,8 +165,9 @@ function MainPage(props, parentRef) {
                                     name='first'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
+                                    ref={domRef}
                                   >
-                                    <option value="" disabled>下拉选择</option>
+                                    <option value="" disabled >{downselect ? "" : "下拉选择"}</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -146,8 +183,9 @@ function MainPage(props, parentRef) {
                                     name='second'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
+                                    ref={domRef1}
                                   >
-                                    <option value="" disabled>下拉选择</option>
+                                    <option value="" disabled >{downselect1 ? "" : "下拉选择"}</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -163,8 +201,9 @@ function MainPage(props, parentRef) {
                                     name='third'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
+                                    ref={domRef2}
                                   >
-                                    <option value="" disabled>下拉选择</option>
+                                    <option value="" disabled >{downselect2 ? "" : "下拉选择"}</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
@@ -180,8 +219,9 @@ function MainPage(props, parentRef) {
                                     name='fourth'
                                     className={classes.selectEmpty}
                                     input={<BootstrapInput />}
+                                    ref={domRef3}
                                   >
-                                    <option value="" disabled>下拉选择</option>
+                                    <option value="" disabled >{downselect3 ? "" : "下拉选择"}</option>
                                     {
                                       data.maincontent[curpage - 2].value.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>

@@ -79,7 +79,7 @@ export default function Fquestion() {
       StorageHelper.clear('web_user');
       StorageHelper.clear('x-auth-token');
       //保存log文件
-      router.push('/fquestion_4/fquestion');
+      router.push('/fquestion_8/fquestion');
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
