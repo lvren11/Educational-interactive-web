@@ -32,11 +32,11 @@ import {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Ninth/Ninth_1/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Ninth/Ninth_1/Build/Buildfile.data.unityweb",
-  frameworkUrl: "/Ninth/Ninth_1/Build/Buildfile.framework.js.unityweb",
-  codeUrl: "/Ninth/Ninth_1/Build/Buildfile.wasm.unityweb",
-  streamingAssetsUrl: "/Ninth/Ninth_1/StreamingAssets",
+  loaderUrl: "/Ninth/Ninth_2/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Ninth/Ninth_2/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Ninth/Ninth_2/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Ninth/Ninth_2/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Ninth/Ninth_2/StreamingAssets",
  });
 
 
