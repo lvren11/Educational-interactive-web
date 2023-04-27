@@ -14,6 +14,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_5.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
+import TextInput from '../Input/TextInput';
 import A from '../../assets/another2/A.png';
 import B from '../../assets/another2/B.png';
 import C from '../../assets/another2/C.png';
@@ -41,6 +42,7 @@ function MainPageUnity(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [value, setValue] = React.useState('none');
+  const [textvalue, settextvalue] = React.useState('');
   const [isAnswer, setisAnswer] = React.useState(false);
 
   const ChangeValue = (event) => {
@@ -52,7 +54,7 @@ function MainPageUnity(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -140,6 +142,7 @@ function MainPageUnity(props, parentRef) {
                                   </FormControl>
                                   </Typography>
                                   <br />
+                                  <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                   <Typography variant="h6">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                   </Typography>

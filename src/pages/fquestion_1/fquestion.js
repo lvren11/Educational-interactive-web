@@ -107,7 +107,16 @@ export default function Fquestion() {
       setisNext(true);
     }else{
       setOpen(true);
-      setisNext(parentRef.current.isAnswer);
+      if(parentRef.current.textvalue !== undefined){
+        if(parentRef.current.textvalue !== "" && parentRef.current.textvalue !== null&& parentRef.current.textvalue !== undefined){
+          console.log(util.timetoformat() + "页" + String(page) + "作答理由：" + parentRef.current.textvalue);
+          setisNext(parentRef.current.isAnswer);
+        }else{
+          setisNext(false);
+        }
+      }else{
+        setisNext(parentRef.current.isAnswer);
+      }
     }
     StorageHelper.set('UseTime', time);
 };

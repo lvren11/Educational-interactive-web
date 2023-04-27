@@ -18,6 +18,7 @@ import {
   theme,
   useStyles
 } from '../../assets/css/Main_css';
+import TextInput from '../Input/TextInput';
 
 function showhtml(htmlString){
     var html = {__html:htmlString};
@@ -38,6 +39,7 @@ function MainPage_1(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata]=React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
+  const [textvalue, settextvalue] = React.useState('');
   const [value, setValue] = React.useState('none');
 
   const handleChange = (event) => {
@@ -49,7 +51,7 @@ function MainPage_1(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -124,6 +126,7 @@ function MainPage_1(props, parentRef) {
                                 </FormControl>
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

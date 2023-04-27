@@ -12,6 +12,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import Table from '../Table/table';
 import tabledata  from '../../../mock/data/exdata_6_2.json';
 import Unity from "react-unity-webgl";
+import TextInput from '../Input/TextInput';
 import util from '../../../utils/util';
 import {
   theme,
@@ -32,16 +33,17 @@ function MainPage(props, parentRef) {
   const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState('');
   const [age2, setAge2] = React.useState('');
-  const [age3, setAge3] = React.useState('');
-  const [age4, setAge4] = React.useState('');
+  // const [age3, setAge3] = React.useState('');
+  // const [age4, setAge4] = React.useState('');
+  const [textvalue, settextvalue] = React.useState('');
   const domRef = useRef();
   const [downselect, setdown] = React.useState(false);
   const domRef1 = useRef();
   const [downselect1, setdown1] = React.useState(false);
-  const domRef2 = useRef();
-  const [downselect2, setdown2] = React.useState(false);
-  const domRef3 = useRef();
-  const [downselect3, setdown3] = React.useState(false);
+  // const domRef2 = useRef();
+  // const [downselect2, setdown2] = React.useState(false);
+  // const domRef3 = useRef();
+  // const [downselect3, setdown3] = React.useState(false);
 
 
   const handleChange = (event) => {
@@ -54,27 +56,27 @@ function MainPage(props, parentRef) {
     console.log(util.timetoformat() + "页" + curpage + "第二个下拉答案：" + event.target.value);
   };
 
-  const handleChange3 = (event) => {
-    setAge3(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第三个下拉答案：" + event.target.value);
-  };
+  // const handleChange3 = (event) => {
+  //   setAge3(event.target.value);
+  //   console.log(util.timetoformat() + "页" + curpage + "第三个下拉答案：" + event.target.value);
+  // };
 
-  const handleChange4 = (event) => {
-    setAge4(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第四个下拉答案：" + event.target.value);
-  };
+  // const handleChange4 = (event) => {
+  //   setAge4(event.target.value);
+  //   console.log(util.timetoformat() + "页" + curpage + "第四个下拉答案：" + event.target.value);
+  // };
 
   useEffect(() => {
-    if(age !== '' && age2 !== '' && age3 !== '' && age4 !== ''){
+    if(age !== '' && age2 !== ''){
       setisAnswer(true);
     }
-  },[age,age2,age3,age4]);
+  },[age,age2]);
 
 
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -82,8 +84,10 @@ function MainPage(props, parentRef) {
     let id = 0;
     let templist = [];
     props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
-      console.log(TempList);
-      let arr_list=TempList.split(',');
+      let arr_list = [];
+      arr_list.push(util.getnowtime());
+      let arr_list_temp = TempList.split(',');
+      arr_list = arr_list.concat(arr_list_temp);
       id++;
       let temp_dict={"id":id,"value":arr_list};
       templist.push(temp_dict);
@@ -106,14 +110,14 @@ function MainPage(props, parentRef) {
             setdown1(true);
             return;
           }
-          if ((_a = domRef2.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
-            setdown2(true);
-            return;
-          }
-          if ((_a = domRef3.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
-            setdown3(true);
-            return;
-          }
+          // if ((_a = domRef2.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+          //   setdown2(true);
+          //   return;
+          // }
+          // if ((_a = domRef3.current) === null || _a === void 0 ? void 0 : _a.contains(e.target)) {
+          //   setdown3(true);
+          //   return;
+          // }
       };
       document.addEventListener("mousedown", handleClickOutSide);
       return () => {
@@ -194,7 +198,7 @@ function MainPage(props, parentRef) {
                                   </NativeSelect>
                                 </FormControl>
                                 {data.maincontent[curpage - 2].subcontent3}
-                                <FormControl className={classes.formControl}>
+                                {/* <FormControl className={classes.formControl}>
                                   <NativeSelect
                                     value={age3}
                                     onChange={handleChange3}
@@ -229,9 +233,10 @@ function MainPage(props, parentRef) {
                                     }
                                   </NativeSelect>
                                 </FormControl>
-                                {data.maincontent[curpage - 2].subcontent5}
+                                {data.maincontent[curpage - 2].subcontent5} */}
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

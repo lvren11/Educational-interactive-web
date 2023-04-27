@@ -17,6 +17,7 @@ import B from '../../assets/another/B.png';
 import C from '../../assets/another/C.png';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
+import TextInput from '../Input/TextInput';
 import {
   theme,
   useStyles,
@@ -33,6 +34,7 @@ function MainPage(props, parentRef) {
   const curpage = props.page;
   const [value, setValue] = React.useState('none');
   const [isAnswer, setisAnswer] = React.useState(false);
+  const [textvalue, settextvalue] = React.useState('');
   const [table_data,settabledata]=React.useState(tabledata[0]);
 
   const ChangeValue = (event) => {
@@ -44,7 +46,7 @@ function MainPage(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -114,6 +116,7 @@ function MainPage(props, parentRef) {
                                 </FormControl>
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

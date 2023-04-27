@@ -51,7 +51,7 @@ export default function Intro(props) {
               {showhtml(data.introduce)}
           </Typography>
           </ThemeProvider>
-          <img src={one} className={classes.image_water} alt="stove"/>
+          <img src={one} className={classes.image_plant} alt="stove"/>
         </div>
       </Grid>
     </Grid>

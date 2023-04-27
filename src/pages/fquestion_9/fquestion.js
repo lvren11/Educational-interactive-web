@@ -111,14 +111,23 @@ export default function Fquestion() {
       setisNext(true);
     }else{
       setOpen(true);
-      if(parentRef.current.inputv === undefined && parentRef.current.inputv2 === undefined){
-        setisNext(parentRef.current.isAnswer);
-      }else{
-        if(parentRef.current.inputv !== "" && parentRef.current.inputv !== null && parentRef.current.inputv2 !== "" && parentRef.current.inputv2 !== null){
-          setisNext(true);
+      if(parentRef.current.textvalue !== undefined){
+        if(parentRef.current.textvalue !== "" && parentRef.current.textvalue !== null&& parentRef.current.textvalue !== undefined){
+          console.log(util.timetoformat() + "页" + String(page) + "作答理由：" + parentRef.current.textvalue);
+          if(parentRef.current.inputv === undefined && parentRef.current.inputv2 === undefined){
+            setisNext(parentRef.current.isAnswer);
+          }else{
+            if(parentRef.current.inputv !== "" && parentRef.current.inputv !== null && parentRef.current.inputv2 !== "" && parentRef.current.inputv2 !== null){
+              setisNext(true);
+            }else{
+              setisNext(false);
+            }
+          }
         }else{
           setisNext(false);
         }
+      }else{
+        setisNext(parentRef.current.isAnswer);
       }
     }
     StorageHelper.set('UseTime', time);

@@ -15,6 +15,13 @@ const GlobalCss = withStyles({
       },
       '.MuiRadio-colorPrimary.Mui-checked':{
         color:'rgba(84,130,53)'
+      },
+      '.MuiInputBase-input':{
+        fontFamily:'STKaiti',
+        fontSize:'1.2rem'
+      },
+      '.MuiOutlinedInput-root':{
+        borderRadius:'0px'
       }
     },
   })(() => null);

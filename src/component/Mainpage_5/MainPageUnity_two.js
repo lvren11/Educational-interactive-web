@@ -12,6 +12,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import Table from '../Table/table';
 import tabledata  from '../../../mock/data/exdata_5.json';
 import Unity from "react-unity-webgl";
+import TextInput from '../Input/TextInput';
 import util from '../../../utils/util';
 import {
   theme,
@@ -34,6 +35,7 @@ function MainPage_3(props, parentRef) {
   const [age, setAge] = React.useState('');
   const [isAnswer, setisAnswer] = React.useState(false);
   const domRef = useRef();
+  const [textvalue, settextvalue] = React.useState('');
   const [downselect, setdown] = React.useState(false);
 
   const handleChange = (event) => {
@@ -50,7 +52,7 @@ function MainPage_3(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer,inputv
+      isAnswer,inputv, textvalue
     }
   });
 
@@ -152,6 +154,7 @@ function MainPage_3(props, parentRef) {
                                 {data.maincontent[curpage - 2].subcontent3}
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

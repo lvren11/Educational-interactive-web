@@ -14,6 +14,7 @@ import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
 import example from '../../assets/another/fouth.png';
+import TextInput from '../Input/TextInput';
 import {
   theme,
   useStyles
@@ -30,6 +31,7 @@ function MainPageUnity(props, parentRef) {
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
+  const [textvalue, settextvalue] = React.useState('');
   const [value, setValue] = React.useState('none');
 
   const handleRadio = (event) => {
@@ -41,7 +43,7 @@ function MainPageUnity(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -102,15 +104,16 @@ function MainPageUnity(props, parentRef) {
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={handleRadio}>
                                     <div className={classes.oneRadio}>
-                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A 内部材质" />
+                                      <FormControlLabel value="内部材质" control={<Radio color="primary" />} label="内部材质" />
                                     </div>
                                     <div className={classes.oneRadio}>  
-                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B 外部材质" />
+                                      <FormControlLabel value="外部材质" control={<Radio color="primary" />} label="外部材质" />
                                     </div>
                                   </RadioGroup>
                                 </FormControl>
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

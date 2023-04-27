@@ -8,15 +8,15 @@
         "maincontent":[
             {
              "subtitle":"2.模拟练习",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟炮弹的发射过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>发射角度</b>”滑块，可以调整炮筒的发射角度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>发射速度</b>”滑块，可以调整炮弹发射的速度大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟炮弹发射的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
-             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟炮弹的发射过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>发射角度</b>”滑块，可以调整炮筒的发射方向；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>发射速度</b>”滑块，可以调整炮弹发射的速度大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟炮弹发射的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟炮弹的发射过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>发射角度</b>”滑块，可以调整炮筒的发射角度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>发射速度</b>”滑块，可以调整炮弹发射的速度大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟炮弹发射的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟炮弹的发射过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>发射角度</b>”滑块，可以调整炮筒的发射方向；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>发射速度</b>”滑块，可以调整炮弹发射的速度大小；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟炮弹发射的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。",
              "type":0
             },
             {
              "subtitle":"3.解决问题(20-2nnC)",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处，填写你的作答结果。<br /><br />",
-             "nextsubcontent":"为使炮弹击中前方350~360米的目标物，可使炮筒的发射方向为",
-             "subcontent2":"°，炮弹的发射速度为",
+             "nextsubcontent":"为使炮弹能击中前方300米外的目标物，炮筒的发射角度至少为",
+             "subcontent2":"°，炮弹的发射速度至少为",
              "subcontent3":"m/s。",
              "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":1

@@ -10,6 +10,7 @@ import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_2.json';
 import Unity, { UnityContext } from "react-unity-webgl";
+import TextInput from '../Input/TextInput';
 import util from '../../../utils/util';
 import {
   theme,
@@ -36,6 +37,7 @@ function MainPage_2(props, parentRef) {
   const curpage = props.page;
   const [inputv, setinputv] = useState();
   const [isAnswer, setisAnswer] = React.useState(false);
+  const [textvalue, settextvalue] = React.useState('');
   const [table_data,settabledata]=React.useState(tabledata[0]);
 
   const Changeinputv = (e) =>{
@@ -47,7 +49,7 @@ function MainPage_2(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer,inputv
+      isAnswer,inputv, textvalue
     }
   })
 
@@ -124,6 +126,7 @@ function MainPage_2(props, parentRef) {
                               </Typography>
                               <br />
                               <br />
+                              <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                               <Typography variant="h6">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                               </Typography>

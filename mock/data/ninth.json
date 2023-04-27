@@ -4,12 +4,12 @@
         "allpage":4,
         "name":"(七)滑雪运动",
         "title":"滑雪运动",
-        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;炮弹发射会受到诸多因素的影响，例如发射的角度和速度等。滑雪运动是把滑雪板装在靴底上，并在雪地上进行速度、跳跃和滑降的竞赛运动。其中，助滑是滑雪的第一阶段，运动员从一定高度滑下，以获得最大速度，帮助完成后续的一系列高难度动作。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那么，如何提升助滑效果呢？",
+        "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滑雪运动是把滑雪板装在靴底上，并在雪地上进行速度、跳跃和滑降的竞赛运动。其中，助滑是滑雪的第一阶段，运动员从一定高度滑下，以获得最大速度，帮助完成后续的一系列高难度动作。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那么，如何提升助滑效果呢？",
         "maincontent":[
             {
              "subtitle":"2.模拟练习",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟滑雪运动的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>长度</b>”滑块，可调整助滑道的长度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>坡度</b>”滑块，可调整助滑道的坡度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟运动员从助滑道上滑下的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
-             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟滑雪运动的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>长度</b>”滑块，可调整助滑道的长度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>坡度</b>”滑块，可调整助滑道的坡度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟运动员从助滑道上滑下的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：若需要记录试验数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟滑雪运动的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>长度</b>”滑块，可调整助滑道的长度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>坡度</b>”滑块，可调整助滑道的坡度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟运动员从助滑道上滑下的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+             "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟滑雪运动的过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.移动“<b>长度</b>”滑块，可调整助滑道的长度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.移动“<b>坡度</b>”滑块，可调整助滑道的坡度；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>试验</b>”按钮，将模拟运动员从助滑道上滑下的过程；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初试状态。此后，你可以重新移动滑块并进行试验。",
              "type":0
             },
             {

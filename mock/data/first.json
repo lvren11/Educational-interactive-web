@@ -4,13 +4,13 @@
        "allpage":4,
        "name":"(一)煮食器皿",
        "title":"煮食器皿",
-       "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;煮食用的器皿必须达到高温才能彻底煮熟食物。当一定量的热能转移到器皿时，器皿会升温，进而对食物进行加热。但是，煮食器皿的材质会影响加热效果。<br /> &nbsp;&nbsp;&nbsp;&nbsp;某工厂现有三种原材料可用于制造煮食器皿，分别为麦饭石、不锈钢和铸铁，请你为该工厂挑选出最适合生产煮食器皿的原材料。",
+       "introduce":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;煮食用的器皿必须达到高温才能彻底煮熟食物。随着热传递的进行，器皿不断升温，进而对食物进行加热。但是，煮食器皿的材质会影响导热效果。<br /> &nbsp;&nbsp;&nbsp;&nbsp;某工厂现有三种原材料可用于制造煮食器皿，分别为麦饭石、不锈钢和铸铁，请你为该工厂挑选出最适合生产煮食器皿的原材料。",
        "maincontent":[
            {
                "subtitle":"2.模拟练习",
-               "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：锅具表面的温度显示器会实时显示当前锅具的平均温度。若需要记录当前温度数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+               "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
                "subcontent2":"",
-               "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：锅具表面的温度显示器会实时显示当前锅具的平均温度。若需要记录当前温度数据，可点击“<b>记录</b>”按钮，此时数据会记录在表格中，若要删去,可点击“<b>删除</b>”按钮。"
+               "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。"
            },
            {
             "subtitle":"3.解决问题(1-1aC)",
@@ -24,7 +24,7 @@
            {
             "subtitle":"3.解决问题(2-1aC)",
             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并点击“下拉选择”，选择你的作答结果。<br /><br />",
-            "nextsubcontent":"炖汤时需要长时间对食材进行炖煮，因此汤锅通常对保温性能要求较高。若要生产这类炖汤锅具，该工厂可考虑选用",
+            "nextsubcontent":"通常，人们希望炖汤用的锅具能有较好的保温效果，即便停止加热，其散热的速度也不会太快。若要生产这类炖汤锅具，该工厂可考虑选用",
             "subcontent2":"作为原材料。",
             "finalcontent":"作答完成后，请点击“下一题”按钮。",
             "value":["不锈钢","麦饭石","铸铁"],

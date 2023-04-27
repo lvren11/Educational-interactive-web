@@ -11,6 +11,7 @@ import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_9.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
+import TextInput from '../Input/TextInput';
 import {
   theme,
   useStyles,
@@ -27,7 +28,7 @@ const unityContext = new UnityContext({
   dataUrl: "/Ninth/Ninth_1/Build/Buildfile.data.unityweb",
   frameworkUrl: "/Ninth/Ninth_1/Build/Buildfile.framework.js.unityweb",
   codeUrl: "/Ninth/Ninth_1/Build/Buildfile.wasm.unityweb",
-  streamingAssetsUrl: "/Ninth/Ninth_1/StreamingAssets",
+  streamingAssetsUrl: "/Ninth/Ninth_1/StreamingAssets"
  });
 
  
@@ -38,6 +39,7 @@ const unityContext = new UnityContext({
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer] = React.useState(false);
   const [inputv, setinputv] = useState("");
+  const [textvalue, settextvalue] = React.useState('');
   const [inputv2, setinputv2] = useState("");
 
   const Changeinputv = (e) =>{
@@ -53,7 +55,7 @@ const unityContext = new UnityContext({
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer,inputv,inputv2
+      isAnswer,inputv,inputv2,textvalue
     }
   });
 
@@ -136,6 +138,7 @@ const unityContext = new UnityContext({
                               {data.maincontent[curpage - 2].subcontent3}
                               </Typography>
                               <br />
+                              <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                               <Typography variant="h6">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                               </Typography>

@@ -12,6 +12,7 @@ import tabledata  from '../../../mock/data/exdata_4.json';
 import Unity, { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
 import example from '../../assets/another/fouth.png';
+import TextInput from '../Input/TextInput';
 import {
   theme,
   useStyles,
@@ -39,6 +40,7 @@ function MainPageUnity(props, parentRef) {
   const [age2, setAge2] = React.useState('');
   const [age3, setAge3] = React.useState('');
   const [age4, setAge4] = React.useState('');
+  const [textvalue, settextvalue] = React.useState('');
   const domRef = useRef();
   const [downselect, setdown] = React.useState(false);
   const domRef1 = useRef();
@@ -77,7 +79,7 @@ function MainPageUnity(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -264,6 +266,7 @@ function MainPageUnity(props, parentRef) {
                                 </div>
                                 </Typography>
                                 <br />
+                                <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                 <Typography variant="h6">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                 </Typography>

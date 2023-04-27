@@ -11,6 +11,7 @@ import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata.json';
 import Unity from "react-unity-webgl";
+import TextInput from '../Input/TextInput';
 import util from '../../../utils/util';
 import {
   theme,
@@ -30,6 +31,7 @@ function MainPageUnity(props, parentRef) {
   const [table_data,settabledata] = React.useState(tabledata[0]);
   const [isAnswer, setisAnswer] = React.useState(false);
   const [age, setAge] = React.useState('');
+  const [textvalue, settextvalue] = React.useState('');
   const domRef = useRef();
   const [downselect, setdown] = React.useState(false);
 
@@ -42,7 +44,7 @@ function MainPageUnity(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer
+      isAnswer, textvalue
     }
   });
 
@@ -65,7 +67,10 @@ function MainPageUnity(props, parentRef) {
     let id = 0;
     let templist = [];
     props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
-      let arr_list = TempList.split(',');
+      let arr_list = [];
+      arr_list.push(util.getnowtime());
+      let arr_list_temp = TempList.split(',');
+      arr_list = arr_list.concat(arr_list_temp);
       id++;
       let temp_dict = {"id":id, "value":arr_list};
       templist.push(temp_dict);
@@ -127,6 +132,7 @@ function MainPageUnity(props, parentRef) {
                                     {data.maincontent[curpage - 2].subcontent2}
                                     <br />
                                     <br />
+                                    <TextInput textvalue = {textvalue} settextvalue={settextvalue}/>
                                     <Typography variant="h6">
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.maincontent[curpage - 2].finalcontent}
                                     </Typography>
