@@ -157,7 +157,7 @@ function MainPageUnity(props, parentRef) {
                                   >
                                     <option value="" disabled >{downselect ? "" : "下拉选择"}</option>
                                     {
-                                      data.maincontent[curpage - 2].value.map(function(name,index){
+                                      data.maincontent[curpage - 2].value1.map(function(name,index){
                                         return <option value={name} key={index}>{name}</option>
                                         })
                                     }

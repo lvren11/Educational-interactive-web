@@ -34,13 +34,13 @@ const useStyles = makeStyles((theme) => ({
   },
   image_water: {
     width: 366,
-    height: 120,
-    border:"10px solid rgba(255, 255, 255, .5)"
-    // backgroundRepeat: 'no-repeat',
-    // // backgroundColor:
-    // //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    // backgroundSize: 'cover',
-    // backgroundPosition: 'center',
+    height: 180,
+    // border:"10px solid rgba(255, 255, 255, .5)"
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
     image_plant: {
     width: 366,

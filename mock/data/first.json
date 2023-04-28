@@ -8,9 +8,9 @@
        "maincontent":[
            {
                "subtitle":"2.模拟练习",
-               "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
+               "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，加热器将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，加热器将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;熟练操作后，请点击“<b>下一页</b>”按钮。",
                "subcontent2":"",
-               "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，热源将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，热源将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单机“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。"
+               "tips":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在，你将使用右边的计算机模拟煮食器皿的加热过程。为了更好地了解计算机模拟的工作方式，请按顺序执行以下步骤：<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.使用鼠标拖拽任意锅具，将其放置于任意一个加热器上方；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.单击“<b>加热</b>”按钮，加热器将持续对锅具进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.单击“<b>停止</b>”按钮，加热器将停止对器皿进行加热；<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.单击“<b>记录</b>”按钮，计算机会自动记录试验数据，若要删去，可点击“<b>删除</b>”按钮。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.单击“<b>恢复</b>”按钮，计算机模拟将回到初始状态。此后，你可以重新进行试验。"
            },
            {
             "subtitle":"3.解决问题(1-1aC)",

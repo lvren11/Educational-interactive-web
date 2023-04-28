@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider} from '@material-ui/core/styles';
+import one from '../../assets/fquestion/10.png';
 import {
   theme,
   useStyles
@@ -50,7 +51,7 @@ export default function Intro(props) {
               {showhtml(data.introduce)}
           </Typography>
           </ThemeProvider>
-          <div className={classes.image_water} />
+          <img src={one} className={classes.image_water} alt="stove"/>
         </div>
       </Grid>
     </Grid>
