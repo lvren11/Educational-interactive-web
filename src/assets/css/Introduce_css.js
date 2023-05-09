@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image_soil: {
     width: 277,
-    height: 177,
+    height: 277,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],

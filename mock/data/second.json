@@ -26,21 +26,21 @@
              "subtitle":"3.解决问题(4-1nC)",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并在横线上的空白处，填写你的作答结果。<br /><br />",
              "nextsubcontent":"雨天，当驾驶一辆汽车在柏油路上行使时，车速不能超过",
-             "subcontent2":"km/h ，才能保证刹车时不撞到前方100米处的障碍物。",
+             "subcontent2":"km/h ，才能保证刹车时不撞倒前方100米处的障碍物。",
              "finalcontent":"作答完成后，请点击“下一页”按钮。",
              "type":2
             },
             {
                 "subtitle":"解决问题(5-1nF)",
                 "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
-                "nextsubcontent":"晴天，若驾驶一辆汽车在水泥路上行使，车速为90km/h，突遇紧急情况立即刹车的话，可能会撞上前方105m的障碍物吗？",
+                "nextsubcontent":"晴天，若驾驶一辆汽车在水泥路上行使，车速为90km/h，突遇紧急情况立即刹车的话，可能会撞上前方100m的障碍物吗？",
                 "finalcontent":"作答完成后，请点击“下一页”按钮。",
                 "type":4
             },
             {
              "subtitle":"解决问题(6-2anF)",
              "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
-             "nextsubcontent":"在冰雪天气下，当司机在柏油路上行驶时，下列哪幅图可以体现车速对刹车距离的影响？",
+             "nextsubcontent":"在冰雪天气下，当司机在柏油路上行驶时，车速可能对刹车距离造成什么影响？",
              "finalcontent":"作答完成后，请点击“下一题”按钮。",
              "type":3
             }

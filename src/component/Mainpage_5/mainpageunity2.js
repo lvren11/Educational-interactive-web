@@ -33,7 +33,7 @@ const unityContext = new UnityContext({
   dataUrl: "/Fifth/Page2/Build/Buildfile.data.unityweb",
   frameworkUrl: "/Fifth/Page2/Build/Buildfile.framework.js.unityweb",
   codeUrl: "/Fifth/Page2/Build/Buildfile.wasm.unityweb",
-  streamingAssetsUrl: "/Fifth/Page2/StreamingAssets",
+  streamingAssetsUrl: "/Fifth/Page2/StreamingAssets"
  });
  
 function MainPageUnity(props, parentRef) {

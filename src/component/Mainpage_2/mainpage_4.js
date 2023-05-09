@@ -12,9 +12,6 @@ import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_2.json';
-import A from '../../assets/another/A.png';
-import B from '../../assets/another/B.png';
-import C from '../../assets/another/C.png';
 import Unity from "react-unity-webgl";
 import util from '../../../utils/util';
 import TextInput from '../Input/TextInput';
@@ -101,16 +98,16 @@ function MainPage(props, parentRef) {
                                 <FormControl component="fieldset" className={classes.radiocss}>
                                   <RadioGroup row aria-label="agree" name="agree" value={value} onChange={ChangeValue}>
                                     <div className={classes.oneRadio}>
-                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A" />
-                                      <img src={A} className={classes.image} alt="A"/>
+                                      <FormControlLabel value="A" control={<Radio color="primary" />} label="A. 车速增加，刹车距离均匀地增大" />
+                                      {/* <img src={A} className={classes.image} alt="A"/> */}
                                     </div>
                                     <div className={classes.oneRadio}>
-                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B" />
-                                      <img src={B} className={classes.image} alt="B"/>
+                                      <FormControlLabel value="B" control={<Radio color="primary" />} label="B. 车速增加，刹车距离增加的幅度越来越大" />
+                                      {/* <img src={B} className={classes.image} alt="B"/> */}
                                     </div>
                                     <div className={classes.oneRadio}>
-                                      <FormControlLabel value="C" control={<Radio color="primary" />} label="C" />
-                                      <img src={C} className={classes.image} alt="C"/>
+                                      <FormControlLabel value="C" control={<Radio color="primary" />} label="C. 车速增加，刹车距离增加的幅度越来越小" />
+                                      {/* <img src={C} className={classes.image} alt="C"/> */}
                                     </div>
                                   </RadioGroup>
                                 </FormControl>

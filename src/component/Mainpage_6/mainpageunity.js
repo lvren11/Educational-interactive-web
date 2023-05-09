@@ -83,12 +83,9 @@ function MainPageUnity(props, parentRef) {
     let id = 0;
     let templist = [];
     unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
-      let arr_list = [];
-      arr_list.push(util.getnowtime());
-      let arr_list_temp = TempList.split(',');
-      arr_list = arr_list.concat(arr_list_temp);
+      let arr_list=TempList.split(',');
       id++;
-      let temp_dict = {"id":id, "value":arr_list};
+      let temp_dict={"id":id,"value":arr_list};
       templist.push(temp_dict);
       settabledata(table_data =>({
         ...table_data, 
