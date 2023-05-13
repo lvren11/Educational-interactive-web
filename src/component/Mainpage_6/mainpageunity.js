@@ -48,12 +48,12 @@ function MainPageUnity(props, parentRef) {
 
   const handleChange = (event) => {
     setAge(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第一个下拉答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第一个下拉选择：" + event.target.value);
   };
 
   const handleChange2 = (event) => {
     setAge2(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第二个下拉答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第二个下拉选择：" + event.target.value);
   };
 
 

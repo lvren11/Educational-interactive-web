@@ -20,7 +20,6 @@ import MainPage from '../../component/Mainpage_8/mainpage';
 import MainPageUnity from '../../component/Mainpage_8/mainpage_1';
 import MainPageUnitytwo from '../../component/Mainpage_8/mainpage_2';
 import data from '../../../mock/data/eighth.json';
-import router from 'umi/router';
 import StorageHelper from '../../component/Storage';
 import { UnityContext } from "react-unity-webgl";
 import util from '../../../utils/util';
@@ -73,16 +72,18 @@ export default function Fquestion() {
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
       console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
-      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
+      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       StorageHelper.clear('UseTime');
       StorageHelper.clear('web_user_id');
       StorageHelper.clear('web_user');
       StorageHelper.clear('x-auth-token');
       //保存log文件
-      router.push('/');
+      window.location.href = "https://www.wjx.cn/vm/wCXfU0v.aspx?width=750&source=iframe&s=t";
+
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
+        console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       }
       if(page === 2){
         console.log("开始记录");

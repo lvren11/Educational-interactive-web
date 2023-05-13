@@ -52,22 +52,22 @@ function MainPageUnity(props, parentRef) {
 
   const handleChange = (event) => {
     setAge(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "A答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "A下拉选择：" + event.target.value);
   };
 
   const handleChange2 = (event) => {
     setAge2(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "B答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "B下拉选择：" + event.target.value);
   };
 
   const handleChange3 = (event) => {
     setAge3(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "C答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "C下拉选择：" + event.target.value);
   };
 
   const handleChange4 = (event) => {
     setAge4(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "D答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "D下拉选择：" + event.target.value);
   };
 
   useEffect(() => {

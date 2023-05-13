@@ -40,13 +40,13 @@ function MainPage_3(props, parentRef) {
 
   const handleChange = (event) => {
     setAge(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "下拉选择：" + event.target.value);
     setisAnswer(true);
   };
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "填空：" + e.target.value);
   };
 
   useImperativeHandle(parentRef, () => {

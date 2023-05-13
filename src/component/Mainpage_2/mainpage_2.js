@@ -42,7 +42,7 @@ function MainPage_2(props, parentRef) {
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "填空：" + e.target.value);
     setisAnswer(true);
   };
 

@@ -23,8 +23,12 @@
             },
             {
              "subtitle":"3.解决问题(21-2nnF)",
-             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并点击一个选项，选择你的作答结果。<br /><br />",
-             "nextsubcontent":"若炮弹的发射角度为45°，发射速度为500m/s，炮弹能否击中距离大于2.5万米的障碍物？",
+             "subcontent":"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）请你利用右边的计算机模拟解决以下问题，并点击“下拉选项”，选择你的作答结果。<br /><br />",
+             "nextsubcontent":"为使炮弹落地尽可能地远，可以使炮弹的发射角度",
+             "subcontent2":"，同时发射速度",
+             "subcontent3":"。",
+             "value":["越大越好","越小越好","等于40°或50°","等于45°"],
+             "value1":["越大越好","越小越好"],
              "finalcontent":"作答完成后，请点击“下一题”按钮。",
              "type":2
             }

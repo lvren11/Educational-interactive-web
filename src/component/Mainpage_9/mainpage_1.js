@@ -44,12 +44,12 @@ const unityContext = new UnityContext({
 
   const Changeinputv = (e) =>{
     setinputv(e.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第一个下划线答案：" + e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第一个填空：" + e.target.value);
   };
 
   const Changeinputv2 = (e) =>{
     setinputv2(e.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "第二个下划线答案：" + e.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "第二个填空：" + e.target.value);
   };
 
   useImperativeHandle(parentRef, () => {

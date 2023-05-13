@@ -20,14 +20,16 @@ console.log = (function (oriLogFunc) {
       if(arguments && arguments.length > 1){
         if(arguments[1]){
           let file_path = arguments[2];
-          let json = {}
-          for(let i = 0;i < log_value.length; i++){
-            let a = log_value[i].split("  ");
-            json[a[0]] = a[1]; 
+          // let json = {}
+          // for(let i = 0;i < log_value.length; i++){
+          //   let a = log_value[i].split("  ");
+          //   json[a[0]] = a[1]; 
+          // }
+          if(arguments[3] === arguments[4]){
+             begin_log = false;
           }
-          begin_log = false;
           axios.post('/api/putlog',{
-              "logvalue":json,
+              "logvalue":log_value,
               "file":file_path
           }).then(function(response){
             oriLogFunc.call(console, "success");
@@ -49,6 +51,7 @@ console.log = (function (oriLogFunc) {
           let islogget = _log.split("/")[0] === String(year) ? true : false;
           if(islogget){
             log_value.push(_log);
+            // oriLogFunc.call(console, log_value);
           }
         }
         oriLogFunc.call(console, ...arguments);

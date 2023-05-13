@@ -32,11 +32,11 @@ import {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Ninth/Ninth_1/Build/Buildfile.loader.js", // public下目录
-  dataUrl: "/Ninth/Ninth_1/Build/Buildfile.data.unityweb",
-  frameworkUrl: "/Ninth/Ninth_1/Build/Buildfile.framework.js.unityweb",
-  codeUrl: "/Ninth/Ninth_1/Build/Buildfile.wasm.unityweb",
-  streamingAssetsUrl: "/Ninth/Ninth_1/StreamingAssets"
+  loaderUrl: "/Ninth/Ninth_2/Build/Buildfile.loader.js", // public下目录
+  dataUrl: "/Ninth/Ninth_2/Build/Buildfile.data.unityweb",
+  frameworkUrl: "/Ninth/Ninth_2/Build/Buildfile.framework.js.unityweb",
+  codeUrl: "/Ninth/Ninth_2/Build/Buildfile.wasm.unityweb",
+  streamingAssetsUrl: "/Ninth/Ninth_2/StreamingAssets"
  });
 
 
@@ -73,16 +73,14 @@ export default function Fquestion() {
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
       console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
-      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
-      StorageHelper.clear('UseTime');
-      StorageHelper.clear('web_user_id');
-      StorageHelper.clear('web_user');
-      StorageHelper.clear('x-auth-token');
+      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
+      StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_8/fquestion');
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
+        console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       }
       if(page === 2){
         console.log("开始记录");

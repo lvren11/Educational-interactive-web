@@ -71,13 +71,14 @@ export default function Fquestion() {
       unityContext.removeAllEventListeners();
       unityContext.quitUnityInstance();
       console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
-      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title);
+      console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       StorageHelper.set('UseTime', time);
       //保存log文件
       router.push('/fquestion_7/fquestion');
     }else{
       if(page > 2){
         console.log(util.timetoformat() + "离开第（" + (page - 2) + "）小题的问题解决页面");
+        console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       }
       if(page === 2){
         console.log("开始记录");

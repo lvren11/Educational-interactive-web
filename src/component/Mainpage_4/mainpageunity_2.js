@@ -54,7 +54,7 @@ function MainPageUnity(props, parentRef) {
   // };
   const handleChange2 = (event) => {
     setAge2(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "下拉选择：" + event.target.value);
   };
 
   // useEffect(() => {

@@ -36,7 +36,7 @@ function MainPageUnity(props, parentRef) {
 
   const handleRadio = (event) => {
     setValue(event.target.value);
-    console.log(util.timetoformat() + "页" + curpage + "答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + curpage + "点击选项：" + event.target.value);
     setisAnswer(true);
   };
 

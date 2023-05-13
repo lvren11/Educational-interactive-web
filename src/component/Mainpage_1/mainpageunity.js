@@ -44,7 +44,7 @@ function MainPageUnity(props,parentRef) {
 
   const handleChange = (event) => {
     setAge(event.target.value);
-    console.log(util.timetoformat() + "页" + String(curpage) + "答案：" + event.target.value);
+    console.log(util.timetoformat() + "页" + String(curpage) + "下拉选择：" + event.target.value);
     setisAnswer(true);
   };
 

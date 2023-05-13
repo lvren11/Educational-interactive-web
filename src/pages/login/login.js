@@ -75,6 +75,7 @@ export default function Login() {
 	});
 
 	const handleLogin = () => {
+    
     // console.log(formValues);
     axios.post('/api/login',{
       "school":formValues.school,
@@ -89,7 +90,28 @@ export default function Login() {
         StorageHelper.set('web_user', formValues.snumber);
         StorageHelper.set('web_user_file', formValues.grade + "_" + formValues.sex + "_"  + formValues.name);
         StorageHelper.set('x-auth-token', response.data.token);
-        router.push('/fquestion_1/fquestion');
+        let status = parseInt(response.data.status);
+        if(status === 1){
+          router.push('/fquestion_1/fquestion');
+        }else if(status === 2){
+          router.push('/fquestion_2/fquestion');
+        }else if(status === 3){
+          router.push('/fquestion_4/fquestion');
+        }else if(status === 4){
+          router.push('/fquestion_6/fquestion');
+        }else if(status === 5){
+          router.push('/fquestion_5/fquestion');
+        }else if(status === 6){
+          router.push('/fquestion_7/fquestion');
+        }else if(status === 7){
+          router.push('/fquestion_9/fquestion');
+        }else if(status === 8){
+          router.push('/fquestion_8/fquestion');
+        }else{
+          router.push('/');
+        }
+      }else if(response.data.code === 1001){
+        alert(response.data.error);
       }
     }).catch(function(error){
         console.log("error:",error)
