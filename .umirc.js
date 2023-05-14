@@ -108,8 +108,8 @@ export default {
   ],
   proxy: {
     '/api': {
-      // target: 'http://121.37.141.88:8081/',
-      target: 'http://127.0.0.1:8081/',
+      target: 'http://121.37.141.88:8081/',
+      // target: 'http://127.0.0.1:8081/',
       pathRewrite: { '^/api': '' },
       changeOrigin: true
     }
