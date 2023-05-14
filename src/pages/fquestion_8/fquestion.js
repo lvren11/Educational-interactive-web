@@ -115,6 +115,7 @@ export default function Fquestion() {
       if(parentRef.current.textvalue !== undefined){
         if(parentRef.current.textvalue !== "" && parentRef.current.textvalue !== null&& parentRef.current.textvalue !== undefined){
           console.log(util.timetoformat() + "页" + String(page) + "作答理由：" + parentRef.current.textvalue);
+          console.log(util.timetoformat() + "表格全部记录 " + util.arrayToJson(parentRef.current.table_data));
           if(parentRef.current.inputv === undefined && parentRef.current.inputv2 === undefined){
             setisNext(parentRef.current.isAnswer);
           }else{

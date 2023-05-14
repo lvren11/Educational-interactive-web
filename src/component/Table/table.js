@@ -56,6 +56,8 @@ export default function StickyHeadTable(props) {
     if(arr.tabledata.length !== 0){
       for(let i = 0; i <= arr.tabledata.length; i++){
         if(arr.tabledata[i] && arr.tabledata[i].id === id){
+          console.log(util.timetoformat() + "点击删除");
+          console.log(util.timetoformat() + "表格删除数据 “" + arr.tabledata[i].value +"”");
           arr.tabledata.splice(i, 1);;
         }
       }
@@ -65,7 +67,6 @@ export default function StickyHeadTable(props) {
         tabledata:arr.tabledata
       });
       // setRowsPerPage(arr.tabledata.length);
-      console.log(util.timetoformat() + "点击删除");
     }
   }
 

@@ -51,7 +51,7 @@ function MainPageUnity(props,parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer, textvalue
+      isAnswer, textvalue, table_data
     }
   });
 
@@ -65,6 +65,7 @@ function MainPageUnity(props,parentRef) {
       arr_list = arr_list.concat(arr_list_temp);
       id++;
       let temp_dict = {"id":id, "value":arr_list};
+      console.log(util.timetoformat() + "表格记录数据 “" + arr_list + "”");
       templist.push(temp_dict);
       settabledata(table_data =>({
         ...table_data, 

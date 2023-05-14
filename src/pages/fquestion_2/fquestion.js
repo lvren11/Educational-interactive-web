@@ -34,11 +34,11 @@ import {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const unityContext = new UnityContext({
-  loaderUrl: "/Second/Second_4/Build/Second_4.loader.js", // public下目录
-  dataUrl: "/Second/Second_4/Build/Second_4.data.unityweb",
-  frameworkUrl: "/Second/Second_4/Build/Second_4.framework.js.unityweb",
-  codeUrl: "/Second/Second_4/Build/Second_4.wasm.unityweb",
-  streamingAssetsUrl: "/Second/Second_4/StreamingAssets",
+  loaderUrl: "/Second/Second_3/Build/Second_3.loader.js", // public下目录
+  dataUrl: "/Second/Second_3/Build/Second_3.data.unityweb",
+  frameworkUrl: "/Second/Second_3/Build/Second_3.framework.js.unityweb",
+  codeUrl: "/Second/Second_3/Build/Second_3.wasm.unityweb",
+  streamingAssetsUrl: "/Second/Second_3/StreamingAssets",
  });
 
  const listener = e => {
@@ -113,6 +113,7 @@ export default function Fquestion() {
       if(parentRef.current.textvalue !== undefined){
         if(parentRef.current.textvalue !== "" && parentRef.current.textvalue !== null&& parentRef.current.textvalue !== undefined){
           console.log(util.timetoformat() + "页" + String(page) + "作答理由：" + parentRef.current.textvalue);
+          console.log(util.timetoformat() + "表格全部记录 " + util.arrayToJson(parentRef.current.table_data));
           if(parentRef.current.inputv !== undefined){
             if(parentRef.current.inputv !== "" && parentRef.current.inputv !== null&& parentRef.current.inputv !== undefined){
               setisNext(parentRef.current.isAnswer);
@@ -141,10 +142,10 @@ export default function Fquestion() {
       return <MainPage1 ref={parentRef} data = {data[0]} page = {page}/>
     }else if(page === 4){
       return <MainPage2 ref={parentRef} data = {data[0]} page = {page} />
-    }else if(page === 5){
-      return <MainPage3 ref={parentRef} data = {data[0]} page = {page}/>
     }else if(page === 6){
-      return <MainPage4 ref={parentRef} data = {data[0]} page = {page} unityContext={unityContext}/>
+      return <MainPage3 ref={parentRef} data = {data[0]} page = {page} unityContext={unityContext}/>
+    }else if(page === 5){
+      return <MainPage4 ref={parentRef} data = {data[0]} page = {page}/>
     }
   }
   

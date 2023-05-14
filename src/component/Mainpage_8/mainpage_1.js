@@ -55,7 +55,7 @@ const unityContext = new UnityContext({
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer,inputv,inputv2,textvalue
+      isAnswer,inputv,inputv2,textvalue, table_data
     }
   });
 
@@ -75,6 +75,7 @@ const unityContext = new UnityContext({
       let arr_list = TempList.split(',');
       id++;
       let temp_dict = {"id":id, "value":arr_list};
+      console.log(util.timetoformat() + "表格记录数据 “" + arr_list + "”");
       templist.push(temp_dict);
       settabledata(table_data =>({
         ...table_data, 

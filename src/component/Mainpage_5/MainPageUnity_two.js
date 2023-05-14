@@ -52,7 +52,7 @@ function MainPage_3(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer,inputv, textvalue
+      isAnswer,inputv, textvalue, table_data
     }
   });
 
@@ -66,6 +66,7 @@ function MainPage_3(props, parentRef) {
         let arr_list = arr_all[i].split(',');
         id++;
         let temp_dict = {"id":id, "value":arr_list};
+        console.log(util.timetoformat() + "表格记录数据 “" + arr_list + "”");
         templist.push(temp_dict);
       }
       settabledata(table_data =>({

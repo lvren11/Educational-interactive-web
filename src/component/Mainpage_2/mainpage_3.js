@@ -12,7 +12,7 @@ import { ThemeProvider} from '@material-ui/core/styles';
 import Table from '../Table/table';
 import Accordingextend from '../Extends/Extend_Accordion';
 import tabledata  from '../../../mock/data/exdata_2.json';
-import Unity, { UnityContext } from "react-unity-webgl";
+import Unity from "react-unity-webgl";
 import TextInput from '../Input/TextInput';
 import util from '../../../utils/util';
 import {
@@ -24,14 +24,6 @@ function showhtml(htmlString){
     var html = {__html:htmlString};
     return   <div dangerouslySetInnerHTML={html}></div> ;
 }
-
-const unityContext = new UnityContext({
-  loaderUrl: "/Second/Second_3/Build/Second_3.loader.js", // public下目录
-  dataUrl: "/Second/Second_3/Build/Second_3.data.unityweb",
-  frameworkUrl: "/Second/Second_3/Build/Second_3.framework.js.unityweb",
-  codeUrl: "/Second/Second_3/Build/Second_3.wasm.unityweb",
-  streamingAssetsUrl: "/Second/Second_3/StreamingAssets",
- });
 
 function MainPage(props, parentRef) {
   const classes = useStyles();
@@ -51,33 +43,25 @@ function MainPage(props, parentRef) {
   useImperativeHandle(parentRef, () => {
     // return返回的值就可以被父组件获取到
     return {
-      isAnswer, textvalue
+      isAnswer, textvalue, table_data
     }
   });
-
-  useEffect(() => {
-    window.alert = console.log;
-    // When the component is unmounted, we'll unregister the event listener.
-    return function () {
-      unityContext.removeAllEventListeners();
-      unityContext.quitUnityInstance();
-    };
-  }, [props.show]);
 
   useEffect(function () {
     let id = 0;
     let templist = [];
-    unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
+    props.unityContext.on("GameWrite", function (TempList) { // 监听GameOver事件
       let arr_list=TempList.split(',');
       id++;
       let temp_dict={"id":id,"value":arr_list};
+      console.log(util.timetoformat() + "表格记录数据 “" + arr_list + "”");
       templist.push(temp_dict);
       settabledata(table_data =>({
         ...table_data, 
         tabledata:templist
       }));
       });
-  }, []);
+  }, [props.unityContext]);
 
   return (
     <Grid container spacing={1}>
@@ -146,7 +130,7 @@ function MainPage(props, parentRef) {
           <div className={classes.paper}>
             <ThemeProvider theme={theme}>
             <Typography variant="h5">
-              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={unityContext} />
+              <Unity style={{'width': '100%', 'height': '100%'}} unityContext={props.unityContext} />
             </Typography>
             </ThemeProvider>
             <Table data = {table_data}/>
