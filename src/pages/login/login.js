@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import { Select, MenuItem } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
@@ -54,8 +57,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  Select_: {
+    marginTop: theme.spacing(1),
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  radio_: {
+    width: '260px',
   },
 }));
 
@@ -171,13 +180,13 @@ export default function Login() {
               required
               fullWidth
               id="snumber"
-              label="学号"
+              label="座号"
               name="snumber"
               autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
             />
-            <TextField
+            {/* <TextField
               variant="outlined"
               margin="normal"
               required
@@ -188,7 +197,29 @@ export default function Login() {
               autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
-            />
+            /> */}
+            <FormControl 
+              variant="outlined" 
+              fullWidth 
+              autoComplete="off"
+              required
+              autoFocus
+              className={classes.Select_}
+              >
+              <InputLabel id="grade-label">年级</InputLabel>
+              <Select
+                labelId="grade-label"
+                id="grade"
+                value={formValues.grade}
+                name="grade"
+                onChange={e => handleChange(e)}
+                label="年级"
+              >
+                <MenuItem value="6">6</MenuItem>
+                <MenuItem value="7">7</MenuItem>
+                <MenuItem value="8">8</MenuItem>
+              </Select>
+            </FormControl>
             <TextField
               variant="outlined"
               margin="normal"
@@ -201,7 +232,7 @@ export default function Login() {
               autoFocus
               onChange={e => handleChange(e)}
             />
-            <TextField
+            {/* <TextField
               variant="outlined"
               margin="normal"
               required
@@ -212,7 +243,35 @@ export default function Login() {
               autoComplete="off"
               autoFocus
               onChange={e => handleChange(e)}
-            />
+            /> */}
+            {/* <FormControl component="fieldset">
+              <RadioGroup row aria-label="gender" name="sex" value={formValues.sex} onChange={e => handleChange(e)} >
+                <FormControlLabel value="男" control={<Radio />} label="男" />
+                <div className={classes.radio_} />
+                <FormControlLabel value="女" control={<Radio />} label="女" />
+              </RadioGroup>
+            </FormControl> */}
+            <FormControl 
+              variant="outlined" 
+              fullWidth 
+              autoComplete="off"
+              required
+              autoFocus
+              className={classes.Select_}
+              >
+              <InputLabel id="sex-label">性别</InputLabel>
+              <Select
+                labelId="sex-label"
+                id="sex"
+                value={formValues.sex}
+                name="sex"
+                onChange={e => handleChange(e)}
+                label="性别"
+              >
+                <MenuItem value="男">男</MenuItem>
+                <MenuItem value="女">女</MenuItem>
+              </Select>
+            </FormControl>
             <TextField
               variant="outlined"
               margin="normal"

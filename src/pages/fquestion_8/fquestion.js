@@ -74,7 +74,7 @@ export default function Fquestion() {
       console.log(util.timetoformat() + "离开第（" + (data[0].allpage - 2) + "）小题的问题解决页面");
       console.log("结束记录",true,StorageHelper.get('web_user') + "," + StorageHelper.get('web_user_file') + "," + StorageHelper.get('web_user_id') + "," + data[0].title + "," + page, page, data[0].allpage);
       StorageHelper.clear('UseTime');
-      StorageHelper.clear('web_user_id');
+      // StorageHelper.clear('web_user_id');
       StorageHelper.clear('web_user');
       StorageHelper.clear('x-auth-token');
       //保存log文件

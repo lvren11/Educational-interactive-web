@@ -29,7 +29,7 @@ function MainPage(props,emuRef) {
   const data = props.data;
   const curpage = props.page;
   const [table_data,settabledata] = React.useState(tabledata[0]);
-  const [sfinal, setfinal] = React.useState(false);
+  const [sfinal, setfinal] = React.useState(true);
 
   useEffect(() => {
     window.alert = console.log;
