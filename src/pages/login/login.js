@@ -215,9 +215,9 @@ export default function Login() {
                 onChange={e => handleChange(e)}
                 label="年级"
               >
-                <MenuItem value="6">6</MenuItem>
                 <MenuItem value="7">7</MenuItem>
                 <MenuItem value="8">8</MenuItem>
+                <MenuItem value="9">9</MenuItem>
               </Select>
             </FormControl>
             <TextField
